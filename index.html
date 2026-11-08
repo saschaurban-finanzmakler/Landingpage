@@ -426,8 +426,8 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
           <form class="form" id="rr-form">
             <div><label for="rr-alter">Dein Alter</label><input id="rr-alter" type="number" inputmode="numeric" value="35" min="18" max="64"></div>
             <div><label for="rr-rentenalter">Rentenalter</label><input id="rr-rentenalter" type="number" inputmode="numeric" value="67" min="60" max="70"></div>
-            <div><label for="rr-gehalt">Brutto / Monat (€)</label><input id="rr-gehalt" type="number" inputmode="numeric" value="3000" step="100"></div>
-            <div><label for="rr-wunsch">Wunschrente heute (€)</label><input id="rr-wunsch" type="number" inputmode="numeric" value="2000" step="100"></div>
+            <div><label for="rr-gehalt">Netto heute (€)</label><input id="rr-gehalt" type="number" inputmode="numeric" value="2000" step="100"></div>
+            <div><label for="rr-wunsch">Wunschrente netto (€)</label><input id="rr-wunsch" type="number" inputmode="numeric" value="2000" step="100"></div>
             <div><label for="rr-infl">Inflation p.&nbsp;a. (%)</label><input id="rr-infl" type="number" inputmode="decimal" value="2" step="0.5" min="0" max="6"></div>
           </form>
           <figure class="berg" aria-label="Eisberg: sichtbare Rentenlücke und benötigter Kapitalberg">
@@ -457,7 +457,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
             <div class="fig gap"><div class="k">Deine Lücke</div><div class="v" id="rr-luecke">–</div><div class="s">pro Monat in heutigem Geld</div></div>
             <div class="fig save"><div class="k">Nötige Sparrate</div><div class="v" id="rr-sparbetrag">–</div><div class="s">pro Monat, bei 6 % p.&nbsp;a. bis Rentenbeginn</div></div>
           </div>
-          <p class="b-note">Vereinfachte Schätzung. Annahmen: Wunschrente in heutiger Kaufkraft, Lücke wächst mit der Inflation bis Rentenbeginn, 25 Jahre Rentenbezug mit jährlich steigender Auszahlung, 3 % Verzinsung in der Auszahlphase.</p>
+          <p class="b-note">Vereinfachte Schätzung. Annahmen: Netto und Wunschrente in heutiger Kaufkraft, Lücke wächst mit der Inflation bis Rentenbeginn, 25 Jahre Rentenbezug mit jährlich steigender Auszahlung, 3 % Verzinsung in der Auszahlphase.</p>
         </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DYuxgYsuEX9/?igsh=MXB5ZzB0dm9xbWo3aQ==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Rentenlücke <small>Instagram</small></a>
@@ -819,9 +819,9 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   // Rentenrechner
   function rente(){
     const alter=parseInt($('rr-alter').value)||35, ra=parseInt($('rr-rentenalter').value)||67;
-    const brutto=parseFloat($('rr-gehalt').value)||3000, wunsch=parseFloat($('rr-wunsch').value)||2000;
+    const netto=parseFloat($('rr-gehalt').value)||2000, wunsch=parseFloat($('rr-wunsch').value)||2000;
     let inf=parseFloat(String($('rr-infl').value).replace(',','.')); if(isNaN(inf)) inf=2; inf=Math.min(10,Math.max(0,inf))/100;
-    const ges=brutto*0.65*0.48, luecke=Math.max(0,wunsch-ges);
+    const ges=netto*0.48, luecke=Math.max(0,wunsch-ges);
     const jahre=Math.max(1,ra-alter), real=luecke*Math.pow(1+inf,jahre);
     let fak=0; for(let t=0;t<25;t++) fak+=Math.pow((1+inf)/1.03,t);
     const kap=real*12*fak, r=0.06/12, n=jahre*12;
