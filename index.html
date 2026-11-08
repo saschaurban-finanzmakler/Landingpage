@@ -172,7 +172,9 @@ dialog.sheet{border:1px solid var(--line-2);padding:0;margin:auto auto 0;width:m
 dialog.sheet::backdrop{background:rgba(3,10,18,.7);backdrop-filter:blur(6px)}
 dialog.sheet[open]{animation:up .4s cubic-bezier(.2,.8,.2,1)}
 @keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
-.sheet-in{display:flex;flex-direction:column;max-height:inherit}
+.sheet-in{display:flex;flex-direction:column;max-height:inherit;height:100%}
+.sheet-bar,.sheet-cta{flex-shrink:0}
+.sheet-body{flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch}
 .sheet-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
 .tabs{display:flex;gap:6px;overflow-x:auto;flex:1;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
@@ -204,6 +206,7 @@ details.sub>summary:hover{color:var(--teal-2)}
 details.sub p{padding:0 2px 14px;color:var(--ink-2);font-size:.92rem}
 .tool{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,22px)}
 .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-bottom:16px}
+.form>div{display:flex;flex-direction:column;justify-content:flex-end}
 .form label{display:block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
 .form input{width:100%;font:700 1.1rem var(--f-body);font-variant-numeric:tabular-nums;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--line-2);padding:6px 2px;outline:none;border-radius:0}
 .form input:focus{border-color:var(--teal)}
@@ -481,7 +484,6 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
             <div class="fig gap"><div class="k">Deine Lücke</div><div class="v" id="rr-luecke">–</div><div class="s">pro Monat in heutigem Geld</div></div>
           </div>
           <p class="b-note">Vereinfachte Schätzung, keine Garantie. Die Sparrate berücksichtigt die Inflation bis Rentenbeginn (<span id="rr-infl-out">2 %</span> p.&nbsp;a.), 25 Jahre Rentenbezug mit jährlich steigender Auszahlung und 3 % Verzinsung in der Auszahlphase. Renditen schwanken, die Werte sind Beispiele.</p>
-        </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DYuxgYsuEX9/?igsh=MXB5ZzB0dm9xbWo3aQ==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Rentenlücke <small>Instagram</small></a>
       </section>
