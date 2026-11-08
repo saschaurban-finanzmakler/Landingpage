@@ -223,6 +223,27 @@ details.sub p{padding:0 2px 14px;color:var(--ink-2);font-size:.92rem}
 .berg .b-s{font:600 10.5px var(--f-body);fill:#A9BCD0}
 .berg .b-big{font:800 28px var(--f-display);fill:#FFFFFF;paint-order:stroke;stroke:#0B3A57;stroke-width:4px}
 .berg .b-in{fill:#FFFFFF;paint-order:stroke;stroke:#0B3A57;stroke-width:3px}
+.bars{margin:0 0 16px;padding:16px 14px 14px;border-radius:14px;background:linear-gradient(180deg,#0B2238,#0A1C31)}
+.bars-row{display:flex;align-items:flex-end;justify-content:center;gap:12px}
+.bar-col{flex:1;max-width:150px;text-align:center}
+.bar{height:210px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:rgba(150,200,235,.06)}
+.seg{display:flex;align-items:center;justify-content:center;transition:flex-basis .6s cubic-bezier(.2,.8,.2,1);min-height:0;overflow:hidden}
+.seg span{display:flex;flex-direction:column;font:700 .7rem var(--f-body);letter-spacing:.04em;line-height:1.2}
+.seg b{font:800 1rem var(--f-display);letter-spacing:0;margin-top:2px}
+.seg.base{background:linear-gradient(180deg,var(--blue),#2a5f9c);color:#EAF4FF}
+.seg.gap{background:repeating-linear-gradient(-45deg,rgba(255,122,107,.45) 0 8px,rgba(255,122,107,.18) 8px 16px);color:#FFE3DF;border:2px dashed rgba(255,122,107,.8);border-bottom:0;border-radius:12px 12px 0 0}
+.seg.priv{background:linear-gradient(180deg,var(--teal-2),var(--teal));color:#04121E}
+.bar-cap{margin-top:8px;font-size:.74rem;font-weight:700;color:var(--ink-2)}
+.bar-arrow{align-self:center;font-size:1.4rem;color:var(--teal);padding-bottom:30px}
+.bar-goal{text-align:center;font-size:.76rem;color:var(--ink-3);margin-top:10px}
+.bar-goal b{color:var(--ink)}
+.spar-hero{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);text-align:center}
+.spar-hero .k{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.spar-hero .v{font:800 clamp(1.9rem,6vw,2.4rem) var(--f-display);color:var(--teal-2);line-height:1.2}
+.spar-hero .v small{font-size:.9rem;color:var(--ink-2);font-weight:700}
+.rate-pick{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px;font-size:.76rem;color:var(--ink-3)}
+.rate-pick button{font:700 .8rem var(--f-body);color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:5px 11px;cursor:pointer}
+.rate-pick button.on{background:var(--teal);border-color:var(--teal);color:#04121E}
 .b-note{font-size:.7rem;color:var(--ink-3);margin:12px 0 0;line-height:1.45}
 .fig .k{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .fig .v{font-family:var(--f-display);font-weight:800;font-size:clamp(1.4rem,3.4vw,1.9rem);font-variant-numeric:tabular-nums;line-height:1.15}
@@ -430,34 +451,36 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
             <div><label for="rr-wunsch">Wunschrente netto (€)</label><input id="rr-wunsch" type="number" inputmode="numeric" value="2000" step="100"></div>
             <div><label for="rr-infl">Inflation p.&nbsp;a. (%)</label><input id="rr-infl" type="number" inputmode="decimal" value="2" step="0.5" min="0" max="6"></div>
           </form>
-          <figure class="berg" aria-label="Eisberg: sichtbare Rentenlücke und benötigter Kapitalberg">
-            <svg viewBox="0 0 360 300" role="img">
-              <defs>
-                <linearGradient id="rr-wasser" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E3A5C"/><stop offset="1" stop-color="#061526"/></linearGradient>
-                <linearGradient id="rr-eis" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4FBFF"/><stop offset="1" stop-color="#9FD4E8"/></linearGradient>
-                <linearGradient id="rr-eis-u" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FB8D6" stop-opacity=".85"/><stop offset="1" stop-color="#1F6F95" stop-opacity=".55"/></linearGradient>
-              </defs>
-              <rect x="0" y="92" width="360" height="208" fill="url(#rr-wasser)" rx="0"/>
-              <g id="rr-berg" class="berg-u"><polygon points="214,92 252,124 278,172 266,226 222,262 164,270 112,244 92,194 104,142 148,92" fill="url(#rr-eis-u)"/></g>
-              <polygon points="148,92 162,58 176,40 189,49 203,70 214,92" fill="url(#rr-eis)"/>
-              <path d="M0 92 Q15 87 30 92 T60 92 T90 92 T120 92 T150 92 T180 92 T210 92 T240 92 T270 92 T300 92 T330 92 T360 92" fill="none" stroke="#7FD3E6" stroke-width="1.5" opacity=".8"/>
-              <text x="16" y="34" class="b-k">SICHTBAR</text>
-              <text x="16" y="58" class="b-v" id="rr-tip">–</text>
-              <text x="16" y="76" class="b-s">Lücke pro Monat, heute</text>
-              <text x="250" y="34" class="b-k" text-anchor="start">MIT INFLATION</text>
-              <text x="250" y="58" class="b-v b-bad" id="rr-real">–</text>
-              <text x="250" y="76" class="b-s" id="rr-real-s">pro Monat ab 67</text>
-              <text x="180" y="168" class="b-k b-in" text-anchor="middle">DEIN KAPITALBERG</text>
-              <text x="180" y="198" class="b-big" text-anchor="middle" id="rr-kap">–</text>
-              <text x="180" y="218" class="b-s b-in" text-anchor="middle">nötig zum Rentenbeginn</text>
-            </svg>
-          </figure>
+          <div class="bars" aria-live="polite">
+            <div class="bars-row">
+              <div class="bar-col">
+                <div class="bar"><div class="seg gap" id="rr-b1-gap"><span>Lücke<b id="rr-b1-gap-v">–</b></span></div><div class="seg base" id="rr-b1-base"><span>Gesetzlich<b id="rr-b1-base-v">–</b></span></div></div>
+                <div class="bar-cap">Heute ohne Vorsorge</div>
+              </div>
+              <div class="bar-arrow" aria-hidden="true">→</div>
+              <div class="bar-col">
+                <div class="bar"><div class="seg priv" id="rr-b2-gap"><span>Deine Vorsorge<b id="rr-b2-gap-v">–</b></span></div><div class="seg base" id="rr-b2-base"><span>Gesetzlich<b id="rr-b2-base-v">–</b></span></div></div>
+                <div class="bar-cap">Mit deiner Sparrate</div>
+              </div>
+            </div>
+            <div class="bar-goal">Ziel: <b id="rr-wunsch-out">–</b> netto im Monat</div>
+            <div class="spar-hero">
+              <div class="k">Diese Sparrate schließt deine Lücke</div>
+              <div class="v"><span id="rr-sparbetrag">–</span><small> / Monat</small></div>
+              <div class="rate-pick" role="radiogroup" aria-label="Angenommene Rendite">
+                <span>bei</span>
+                <button type="button" role="radio" data-rate="4">4 %</button>
+                <button type="button" role="radio" data-rate="6" aria-checked="true" class="on">6 %</button>
+                <button type="button" role="radio" data-rate="8">8 %</button>
+                <span>Rendite p.&nbsp;a.</span>
+              </div>
+            </div>
+          </div>
           <div class="figures">
             <div class="fig"><div class="k">Gesetzliche Rente</div><div class="v" id="rr-gesetzlich">–</div><div class="s">ca. 48 % deines Nettos, heute</div></div>
             <div class="fig gap"><div class="k">Deine Lücke</div><div class="v" id="rr-luecke">–</div><div class="s">pro Monat in heutigem Geld</div></div>
-            <div class="fig save"><div class="k">Nötige Sparrate</div><div class="v" id="rr-sparbetrag">–</div><div class="s">pro Monat, bei 6 % p.&nbsp;a. bis Rentenbeginn</div></div>
           </div>
-          <p class="b-note">Vereinfachte Schätzung. Annahmen: Netto und Wunschrente in heutiger Kaufkraft, Lücke wächst mit der Inflation bis Rentenbeginn, 25 Jahre Rentenbezug mit jährlich steigender Auszahlung, 3 % Verzinsung in der Auszahlphase.</p>
+          <p class="b-note">Vereinfachte Schätzung, keine Garantie. Die Sparrate berücksichtigt die Inflation bis Rentenbeginn (<span id="rr-infl-out">2 %</span> p.&nbsp;a.), 25 Jahre Rentenbezug mit jährlich steigender Auszahlung und 3 % Verzinsung in der Auszahlphase. Renditen schwanken, die Werte sind Beispiele.</p>
         </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DYuxgYsuEX9/?igsh=MXB5ZzB0dm9xbWo3aQ==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Rentenlücke <small>Instagram</small></a>
@@ -817,27 +840,32 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   const h=location.hash.slice(1).toLowerCase(); if(map[h]) show(map[h]);
 
   // Rentenrechner
+  var rrRate;
   function rente(){
     const alter=parseInt($('rr-alter').value)||35, ra=parseInt($('rr-rentenalter').value)||67;
     const netto=parseFloat($('rr-gehalt').value)||2000, wunsch=parseFloat($('rr-wunsch').value)||2000;
-    let inf=parseFloat(String($('rr-infl').value).replace(',','.')); if(isNaN(inf)) inf=2; inf=Math.min(10,Math.max(0,inf))/100;
-    const ges=netto*0.48, luecke=Math.max(0,wunsch-ges);
-    const jahre=Math.max(1,ra-alter), real=luecke*Math.pow(1+inf,jahre);
-    let fak=0; for(let t=0;t<25;t++) fak+=Math.pow((1+inf)/1.03,t);
-    const kap=real*12*fak, r=0.06/12, n=jahre*12;
-    const spar=kap*r/(Math.pow(1+r,n)-1);
+    let inf=parseFloat(String($('rr-infl').value).replace(',','.')); if(isNaN(inf)) inf=2; inf=Math.min(10,Math.max(0,inf));
+    const i=inf/100, ges=netto*0.48, luecke=Math.max(0,wunsch-ges);
+    const jahre=Math.max(1,ra-alter), real=luecke*Math.pow(1+i,jahre);
+    let fak=0; for(let t=0;t<25;t++) fak+=Math.pow((1+i)/1.03,t);
+    const rate=rrRate||6, kap=real*12*fak, r=rate/100/12, n=jahre*12;
+    const spar=r>0?kap*r/(Math.pow(1+r,n)-1):kap/n;
+    const gesAnteil=Math.max(0,Math.min(100,ges/Math.max(wunsch,1)*100)), gapAnteil=100-gesAnteil;
+    ['1','2'].forEach(k=>{$('rr-b'+k+'-base').style.flex='0 0 '+gesAnteil+'%';$('rr-b'+k+'-gap').style.flex='0 0 '+gapAnteil+'%';
+      $('rr-b'+k+'-base-v').textContent=fmt(Math.min(ges,wunsch));$('rr-b'+k+'-gap-v').textContent=fmt(luecke);});
     $('rr-gesetzlich').textContent=fmt(ges);
     $('rr-luecke').textContent=fmt(luecke);
-    $('rr-sparbetrag').textContent=fmt(spar);
-    $('rr-tip').textContent=fmt(luecke);
-    $('rr-real').textContent=fmt(real);
-    $('rr-real-s').textContent='pro Monat ab '+ra;
-    $('rr-kap').textContent=fmt(kap);
-    const sc=Math.max(.62,Math.min(1.12,.62+.5*Math.sqrt(Math.min(1,kap/900000))));
-    $('rr-berg').style.transform='scale('+sc.toFixed(3)+')';
-    waOverride='Hallo Sascha, laut deinem Rechner beträgt meine Rentenlücke heute '+fmt(luecke)+' im Monat, mit Inflation '+fmt(real)+' ab '+ra+'. Mein Kapitalberg: '+fmt(kap)+'. Ich würde das gerne besprechen!';
+    $('rr-wunsch-out').textContent=fmt(wunsch);
+    $('rr-sparbetrag').textContent=luecke>0?fmt(spar):'0 €';
+    $('rr-infl-out').textContent=String(inf).replace('.',',')+' %';
+    waOverride='Hallo Sascha, laut deinem Rechner beträgt meine Rentenlücke '+fmt(luecke)+' im Monat. Bei '+rrRate+' % Rendite wären das '+fmt(spar)+' Sparrate im Monat. Ich würde das gerne besprechen!';
     setCta(topics.find(x=>x.dataset.topic==='rente'));
   }
+  document.querySelectorAll('.rate-pick button').forEach(btn=>btn.addEventListener('click',()=>{
+    rrRate=parseFloat(btn.dataset.rate);
+    document.querySelectorAll('.rate-pick button').forEach(x=>{const on=x===btn;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false');});
+    rente();
+  }));
   ['rr-alter','rr-rentenalter','rr-gehalt','rr-wunsch','rr-infl'].forEach(id=>$(id).addEventListener('input',rente));
   $('rr-form').addEventListener('submit',e=>e.preventDefault());
 
