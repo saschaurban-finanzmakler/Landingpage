@@ -247,6 +247,15 @@ details.sub p{padding:0 2px 14px;color:var(--ink-2);font-size:.92rem}
 .rate-pick{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px;font-size:.76rem;color:var(--ink-3)}
 .rate-pick button{font:700 .8rem var(--f-body);color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:5px 11px;cursor:pointer}
 .rate-pick button.on{background:var(--teal);border-color:var(--teal);color:#04121E}
+.prio-lbl{margin:2px 0 10px}
+.prio-lbl span{font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink-3);margin-left:4px}
+.prio{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.prio button{font:700 .8rem var(--f-body);color:var(--ink-2);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:8px 13px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.prio button::before{content:"+ ";color:var(--teal)}
+.prio button[aria-pressed="true"]{background:rgba(53,175,203,.18);border-color:var(--teal);color:var(--ink)}
+.prio button[aria-pressed="true"]::before{content:"✓ "}
+.prio-out{font-size:.84rem;color:var(--ink-2);margin:12px 0 0}
+.prio-out b{color:var(--ink)}
 .b-note{font-size:.7rem;color:var(--ink-3);margin:12px 0 0;line-height:1.45}
 .fig .k{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .fig .v{font-family:var(--f-display);font-weight:800;font-size:clamp(1.4rem,3.4vw,1.9rem);font-variant-numeric:tabular-nums;line-height:1.15}
@@ -584,14 +593,27 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
             <div><label for="immo-gehalt">Netto / Monat (€)</label><input id="immo-gehalt" type="number" inputmode="numeric" placeholder="z. B. 2800" step="100"></div>
             <div><label for="immo-ek">Eigenkapital (€)</label><input id="immo-ek" type="number" inputmode="numeric" placeholder="z. B. 15000" step="500"></div>
           </form>
+          <div class="lbl-s prio-lbl">Was ist dir bei einer Immobilie besonders wichtig? <span>Mehrfachauswahl</span></div>
+          <div class="prio" id="immo-prio" role="group" aria-label="Was ist dir wichtig?">
+            <button type="button" aria-pressed="false">Mietausfallgarantie</button>
+            <button type="button" aria-pressed="false">Kein Aufwand mit Verwaltung</button>
+            <button type="button" aria-pressed="false">Neubau, wenig Instandhaltung</button>
+            <button type="button" aria-pressed="false">Steuervorteile nutzen</button>
+            <button type="button" aria-pressed="false">Wenig Eigenkapital einsetzen</button>
+            <button type="button" aria-pressed="false">Niedrige monatliche Zuzahlung</button>
+            <button type="button" aria-pressed="false">Gute Lage und Wertsteigerung</button>
+            <button type="button" aria-pressed="false">Objekt in meiner Region</button>
+          </div>
           <button class="btn" type="button" id="immo-btn">Jetzt checken</button>
           <p class="hint" id="immo-hint" hidden>Bitte beide Felder ausfüllen.</p>
           <div id="immo-ja" hidden>
             <div class="verdict ok"><div class="ico"><svg class="i"><use href="#i-check"/></svg></div><div><h3>Ja! Du bist gut aufgestellt.</h3><p>Die Grundvoraussetzungen sind erfüllt. Mieter und Staat zahlen einen Großteil, du baust Vermögen auf.</p></div></div>
+            <p class="prio-out" id="immo-prio-ja" hidden></p>
             <div class="trio"><div><strong>Betongold</strong>Sachwert, der langfristig steigt</div><div><strong>Steuervorteile</strong>Abschreibungen &amp; Zinsen absetzbar</div><div><strong>Passives Einkommen</strong>Der Mieter zahlt mit</div></div>
           </div>
           <div id="immo-nein" hidden>
             <div class="verdict no"><div class="ico"><svg class="i"><use href="#i-way"/></svg></div><div><h3>Noch nicht ganz. Aber das ändern wir.</h3><p>Im Gespräch entwickeln wir einen Plan, der dich Schritt für Schritt dorthin bringt.</p></div></div>
+            <p class="prio-out" id="immo-prio-nein" hidden></p>
           </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DY4EhogIAd0/?igsh=MWh2dmVpbXRiYzRuag==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Kapitalanlage-Immobilie <small>Instagram</small></a>
@@ -872,16 +894,23 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   $('rr-form').addEventListener('submit',e=>e.preventDefault());
 
   // Immobilien-Check
+  document.querySelectorAll('#immo-prio button').forEach(b=>b.addEventListener('click',()=>{
+    b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+    if(!$('immo-ja').hidden||!$('immo-nein').hidden) check();
+  }));
   function check(){
     const g=parseFloat($('immo-gehalt').value)||0, e=parseFloat($('immo-ek').value)||0;
+    const prio=[...document.querySelectorAll('#immo-prio button[aria-pressed="true"]')].map(b=>b.textContent.trim());
+    const prioTxt=prio.length?' Besonders wichtig ist mir: '+prio.join(', ')+'.':'';
     $('immo-ja').hidden=true;$('immo-nein').hidden=true;
     if(!g||!e){$('immo-hint').hidden=false;return}
     $('immo-hint').hidden=true;
     const ok=g>=3000&&e>=10000, t=topics.find(x=>x.dataset.topic==='immo');
     $(ok?'immo-ja':'immo-nein').hidden=false;
+    ['immo-prio-ja','immo-prio-nein'].forEach(id=>{const el=$(id);el.hidden=!prio.length;el.innerHTML=prio.length?'Das berücksichtigen wir bei der Auswahl: <b>'+prio.join(' · ')+'</b>':'';});
     waOverride=ok
-      ?'Hallo Sascha, ich habe den Immobilien-Check gemacht: Netto '+fmt(g)+'/Monat, Eigenkapital '+fmt(e)+'. Ich möchte mehr über passende Objekte erfahren!'
-      :'Hallo Sascha, ich habe den Immobilien-Check gemacht und möchte meine Situation besprechen.';
+      ?'Hallo Sascha, ich habe den Immobilien-Check gemacht: Netto '+fmt(g)+'/Monat, Eigenkapital '+fmt(e)+'.'+prioTxt+' Ich möchte mehr über passende Objekte erfahren!'
+      :'Hallo Sascha, ich habe den Immobilien-Check gemacht und möchte meine Situation besprechen.'+prioTxt;
     setCta(t);
     $('cta-text').textContent=ok?'Lass uns gemeinsam das passende Objekt finden.':'Wir schauen gemeinsam, welcher Weg heute der richtige ist.';
     $('cta-label').textContent=ok?'Objekt finden':'Situation besprechen';
