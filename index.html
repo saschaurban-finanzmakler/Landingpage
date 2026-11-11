@@ -455,6 +455,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
         <p class="t-intro">Trage hier deine Eckdaten für einen Check-up deiner BU ein:</p>
         <div class="tool">
           <form class="form" id="bu-form">
+            <div><label for="bu-geb">Geburtsdatum</label><input id="bu-geb" type="date" autocomplete="bday" min="1950-01-01" max="2010-12-31"></div>
             <div><label for="bu-beruf">Aktueller Beruf</label><input id="bu-beruf" type="text" placeholder="z.&nbsp;B. Erzieherin" autocomplete="organization-title"></div>
             <div><label for="bu-brutto">Brutto / Jahr (€)</label><input id="bu-brutto" type="number" inputmode="numeric" placeholder="45000" step="1000"></div>
             <div><label for="bu-ende">Vertrag läuft bis Alter</label><input id="bu-ende" type="number" inputmode="numeric" placeholder="67" min="40" max="70"></div>
@@ -911,6 +912,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   function buCheck(){
     const v=id=>String($(id).value||'').trim();
     const parts=[];
+    if(v('bu-geb')){const d=v('bu-geb').split('-');parts.push('Geburtsdatum: '+d[2]+'.'+d[1]+'.'+d[0]);}
     if(v('bu-beruf')) parts.push('Beruf: '+v('bu-beruf'));
     if(v('bu-brutto')) parts.push('Brutto/Jahr: '+fmt(parseFloat(v('bu-brutto'))));
     if(v('bu-ende')) parts.push('Vertrag läuft bis Alter '+v('bu-ende'));
@@ -919,7 +921,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
     waOverride=parts.length?'Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen. Meine Eckdaten: '+parts.join(', ')+'.':null;
     if(cur==='bu') setCta(topics.find(x=>x.dataset.topic==='bu'));
   }
-  ['bu-beruf','bu-brutto','bu-ende','bu-rente','bu-au'].forEach(id=>{$(id).addEventListener('input',buCheck);$(id).addEventListener('change',buCheck);});
+  ['bu-geb','bu-beruf','bu-brutto','bu-ende','bu-rente','bu-au'].forEach(id=>{$(id).addEventListener('input',buCheck);$(id).addEventListener('change',buCheck);});
   $('bu-form').addEventListener('submit',e=>e.preventDefault());
 
   // Immobilien-Check
