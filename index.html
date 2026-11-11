@@ -444,12 +444,24 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
         <a class="reel" href="https://www.instagram.com/reel/DUyYLBoiO7F/?igsh=cHRuZGRiYXliYndm" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur BU <small>Instagram</small></a>
         <div class="lbl-s">Die 6 Bausteine einer guten BU</div>
         <div class="subs">
-          <details class="sub"><summary>Dynamik<svg><use href="#i-chev"/></svg></summary><p>Deine BU-Rente sollte mit der Inflation mitwachsen. Sonst verliert sie Jahr für Jahr an Wert.</p></details>
-          <details class="sub"><summary>Keine abstrakte Verweisung<svg><use href="#i-chev"/></svg></summary><p>Gute Tarife verzichten darauf: Du bist in deinem zuletzt ausgeübten Beruf geschützt.</p></details>
-          <details class="sub"><summary>Nachversicherungsgarantie<svg><use href="#i-chev"/></svg></summary><p>Heirat, Kinder, Gehaltssprung: Schutz ohne erneute Gesundheitsprüfung anpassen.</p></details>
           <details class="sub"><summary>Endalter bis 67<svg><use href="#i-chev"/></svg></summary><p>Viele günstige Tarife enden mit 60 oder 63. Deine BU muss bis 67 laufen.</p></details>
           <details class="sub"><summary>Richtige Versicherungssumme<svg><use href="#i-chev"/></svg></summary><p>Mindestens 70–80 % deines Nettoeinkommens, orientiert an Beruf und Lebensstil.</p></details>
           <details class="sub"><summary>AU-Klausel<svg><use href="#i-chev"/></svg></summary><p>Leistung schon bei längerer Krankschreibung, ohne dass zuerst BU festgestellt werden muss.</p></details>
+          <details class="sub"><summary>Dynamik<svg><use href="#i-chev"/></svg></summary><p>Deine BU-Rente sollte mit der Inflation mitwachsen. Sonst verliert sie Jahr für Jahr an Wert.</p></details>
+          <details class="sub"><summary>Keine abstrakte Verweisung<svg><use href="#i-chev"/></svg></summary><p>Gute Tarife verzichten darauf: Du bist in deinem zuletzt ausgeübten Beruf geschützt.</p></details>
+          <details class="sub"><summary>Nachversicherungsgarantie<svg><use href="#i-chev"/></svg></summary><p>Heirat, Kinder, Gehaltssprung: Schutz ohne erneute Gesundheitsprüfung anpassen.</p></details>
+        </div>
+        <div class="lbl-s">Dein BU-Check-up</div>
+        <p class="t-intro">Trage hier deine Eckdaten für einen Check-up deiner BU ein:</p>
+        <div class="tool">
+          <form class="form" id="bu-form">
+            <div><label for="bu-beruf">Aktueller Beruf</label><input id="bu-beruf" type="text" placeholder="z.&nbsp;B. Erzieherin" autocomplete="organization-title"></div>
+            <div><label for="bu-brutto">Brutto / Jahr (€)</label><input id="bu-brutto" type="number" inputmode="numeric" placeholder="45000" step="1000"></div>
+            <div><label for="bu-ende">Vertrag läuft bis Alter</label><input id="bu-ende" type="number" inputmode="numeric" placeholder="67" min="40" max="70"></div>
+            <div><label for="bu-rente">BU-Rente / Monat (€)</label><input id="bu-rente" type="number" inputmode="numeric" placeholder="1500" step="50"></div>
+            <div><label for="bu-au">AU-Klausel?</label><select id="bu-au" class="av-sel"><option value="">bitte wählen</option><option>Ja</option><option>Nein</option><option>Weiß nicht</option></select></div>
+          </form>
+          <p class="b-note">Deine Angaben werden nicht gespeichert. Sie landen erst bei mir, wenn du unten auf „BU prüfen lassen“ tippst und die WhatsApp-Nachricht abschickst.</p>
         </div>
       </section>
 
@@ -680,7 +692,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
         <h3>3. Schriftarten</h3>
         <p>Die verwendeten Schriftarten sind lokal eingebunden. Es wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern aufgebaut.</p>
         <h3>4. Rechner und Checks</h3>
-        <p>Die Eingaben im Rentenrechner, im AVD-Rechner und im Immobilien-Check werden ausschließlich in deinem Browser berechnet. Sie werden nicht gespeichert und nicht an mich übertragen, solange du sie nicht selbst per WhatsApp an mich sendest.</p>
+        <p>Die Eingaben im BU-Check-up, im Rentenrechner, im AVD-Rechner und im Immobilien-Check werden ausschließlich in deinem Browser berechnet. Sie werden nicht gespeichert und nicht an mich übertragen, solange du sie nicht selbst per WhatsApp an mich sendest.</p>
         <h3>5. Kontakt per WhatsApp</h3>
         <p>Die Schaltflächen öffnen WhatsApp mit einem vorformulierten Text. Erst wenn du die Nachricht absendest, werden deine Nachricht, deine Telefonnummer und dein Profilname an mich übermittelt. WhatsApp wird betrieben von der WhatsApp Ireland Ltd., Merrion Road, Dublin 4, Irland; dabei können Daten in die USA übertragen werden. Ich verarbeite deine Anfrage zur Bearbeitung und zur Anbahnung einer Beratung (Art. 6 Abs. 1 lit. b DSGVO). Alternativ erreichst du mich per E-Mail oder Telefon.</p>
         <h3>6. Links zu Instagram und Google</h3>
@@ -716,7 +728,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
     waOverride=null; cur=id;
     topics.forEach(x=>x.hidden=x!==t);
     document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id));
-    if(id==='rente') rente(); else if(id==='avd') avd(); else setCta(t);
+    if(id==='rente') rente(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
     $('sheet-body').scrollTop=0;
     const tab=document.querySelector('#tabs button[data-go="'+id+'"]'); if(tab) tab.scrollIntoView({block:'nearest',inline:'center'});
     if(!sheet.open){ if(sheet.showModal) sheet.showModal(); else sheet.setAttribute('open',''); }
@@ -894,6 +906,21 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   }));
   ['rr-alter','rr-rentenalter','rr-gehalt','rr-wunsch','rr-infl'].forEach(id=>$(id).addEventListener('input',rente));
   $('rr-form').addEventListener('submit',e=>e.preventDefault());
+
+  // BU-Check-up
+  function buCheck(){
+    const v=id=>String($(id).value||'').trim();
+    const parts=[];
+    if(v('bu-beruf')) parts.push('Beruf: '+v('bu-beruf'));
+    if(v('bu-brutto')) parts.push('Brutto/Jahr: '+fmt(parseFloat(v('bu-brutto'))));
+    if(v('bu-ende')) parts.push('Vertrag läuft bis Alter '+v('bu-ende'));
+    if(v('bu-rente')) parts.push('BU-Rente: '+fmt(parseFloat(v('bu-rente')))+'/Monat');
+    if(v('bu-au')) parts.push('AU-Klausel: '+v('bu-au'));
+    waOverride=parts.length?'Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen. Meine Eckdaten: '+parts.join(', ')+'.':null;
+    if(cur==='bu') setCta(topics.find(x=>x.dataset.topic==='bu'));
+  }
+  ['bu-beruf','bu-brutto','bu-ende','bu-rente','bu-au'].forEach(id=>{$(id).addEventListener('input',buCheck);$(id).addEventListener('change',buCheck);});
+  $('bu-form').addEventListener('submit',e=>e.preventDefault());
 
   // Immobilien-Check
   document.querySelectorAll('#immo-prio button').forEach(b=>b.addEventListener('click',()=>{
