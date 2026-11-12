@@ -295,7 +295,12 @@ details.sub p{padding:0 2px 14px;color:var(--ink-2);font-size:.92rem}
 .sheet-cta{border-top:1px solid var(--line);padding:14px clamp(18px,4vw,34px) calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;background:var(--panel-2)}
 .sheet-cta p{font-size:.88rem;color:var(--ink-2);flex:1;min-width:180px}
 .sheet-cta .btn{flex-shrink:0}
-@media(max-width:520px){.sheet-cta .btn{width:100%}}
+.cta-row{display:flex;align-items:center;gap:10px 14px;flex:1;min-width:0}
+.cta-row p{min-width:0}
+.btn.cal{background:transparent;color:var(--teal);border:1.5px solid var(--teal);padding:8px 13px;font-size:.8rem;white-space:nowrap}
+.btn.cal:hover{background:rgba(53,175,203,.12);color:var(--teal-2)}
+.btn.cal[hidden]{display:none}
+@media(max-width:520px){.sheet-cta .btn.wa{width:100%}.cta-row{flex-basis:100%}}
 .topic p[style]{color:var(--ink-3)!important}
 .legal-link{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .legal-link:hover{color:var(--teal-2)}
@@ -736,7 +741,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
     </div>
 
     <div class="sheet-cta">
-      <p id="cta-text">Dein erstes Gespräch kostet nichts.</p>
+      <div class="cta-row"><p id="cta-text">Dein erstes Gespräch kostet nichts.</p><button type="button" class="btn cal" id="cta-cal"><svg class="i"><use href="#i-cal"/></svg>Termin buchen</button></div>
       <a class="btn wa" id="cta-btn" href="https://wa.me/491729913891" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-wa"/></svg><span id="cta-label">Per WhatsApp schreiben</span></a>
     </div>
   </div>
@@ -755,7 +760,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
   }
   function show(id){
     const t=topics.find(x=>x.dataset.topic===id); if(!t) return;
-    waOverride=null; cur=id;
+    waOverride=null; cur=id; $('cta-cal').hidden=(id==='termin');
     topics.forEach(x=>x.hidden=x!==t);
     document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id));
     if(id==='rente') rente(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
@@ -764,6 +769,7 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
     if(!sheet.open){ if(sheet.showModal) sheet.showModal(); else sheet.setAttribute('open',''); }
   }
   function close(){ if(sheet.close) sheet.close(); else sheet.removeAttribute('open'); }
+  $('cta-cal').addEventListener('click',()=>show('termin'));
   document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.open)));
   document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
   $('close').addEventListener('click',close);
