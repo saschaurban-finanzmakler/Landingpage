@@ -390,7 +390,8 @@ mark.ph{background:rgba(255,170,60,.18);color:#FFC37A;border-radius:4px;padding:
 .pack .tag{background:var(--teal);font-size:.55rem}
 .pack:hover,.pack:focus-visible{border-color:rgba(53,175,203,.7);box-shadow:0 0 0 1px rgba(53,175,203,.35),0 20px 40px -16px rgba(53,175,203,.45)}
 /* Einblenden */
-.orbit .node{animation-duration:.8s;animation-delay:calc(var(--i) * 70ms + .2s)}
+.orbit .node{animation:pop .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i) * 130ms + .35s)}
+@keyframes pop{from{opacity:0;scale:.7;filter:blur(6px)}to{opacity:1;scale:1;filter:blur(0)}}
 .stage img:not(.sym){animation:rise 1s cubic-bezier(.16,1,.3,1) both,fade .8s both}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
