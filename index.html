@@ -416,6 +416,28 @@ details.sub>summary{padding:15px 2px}
 details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .tabs button{transition:background .25s,color .25s,border-color .25s}
 .opt{transition:border-color .25s,transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+
+/* Bewertungen */
+.shop{grid-template-columns:minmax(0,1fr)}
+.reviews{min-width:0;max-width:100%;overflow:hidden;padding:clamp(18px,4vh,40px) 0 4px;text-align:center;animation:fadeUp .7s 1.3s cubic-bezier(.16,1,.3,1) both}
+.rv-score{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.86rem;color:var(--ink-2);margin-bottom:14px}
+.rv-score{flex-wrap:wrap;justify-content:center;row-gap:2px}
+.rv-score span:last-child{flex-basis:100%;font-size:.8rem}
+.rv-score b{font-family:var(--f-display);font-size:1.25rem;color:var(--ink)}
+.rv-s{color:#F5C451;letter-spacing:1px}
+.rv-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rv-track{display:flex;gap:14px;width:max-content;animation:marq 70s linear infinite}
+.rv-dup{display:contents}
+.reviews:hover .rv-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.rv{margin:0;width:300px;flex-shrink:0;text-align:left;background:rgba(14,36,64,.62);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.rv blockquote{margin:0;font-size:.86rem;line-height:1.5;color:var(--ink)}
+.rv figcaption{font-size:.72rem;color:var(--ink-3);font-weight:700}
+.rv-note{font-size:.64rem;color:var(--ink-3);margin-top:10px}
+.rv-note a{color:var(--teal-2)}
+.rv-grid{display:grid;gap:12px}
+.rv-grid .rv{width:auto}
+@media (prefers-reduced-motion:reduce){.rv-mask{overflow-x:auto}.rv-dup{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -469,6 +491,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     <div class="node" style="--a:-145deg;--i:4"><button class="pack c3" data-open="rente"><span class="ic"><svg><use href="#i-trend"/></svg></span><span class="w">Wie hoch ist meine Renten&shy;lücke?</span><span class="lbl">Jetzt berechnen</span></button></div>
     <div class="node" style="--a:-90deg;--i:5"><button class="pack c2" data-open="bu"><span class="ic"><svg><use href="#i-shield"/></svg></span><span class="w">BU</span><span class="lbl">Berufs&shy;unfähigkeit</span></button></div>
   </div>
+
+  <section class="reviews" aria-label="Kundenbewertungen">
+    <a class="rv-score" href="https://g.page/r/CeoNk5h9mBWgEBE" target="_blank" rel="noopener noreferrer"><b>5,0</b> <span class="rv-s">★★★★★</span> <span>111 Google-Bewertungen für Trinity Finanz</span></a>
+    <div class="rv-mask"><div class="rv-track"><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert … Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Es ist sehr angenehm, alle Versicherungen über einen Ansprechpartner laufen zu lassen. … schaut jedes Jahr, ob sich ein Wechsel zu einer anderen Versicherung lohnt.“</blockquote><figcaption>Vanessa R. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Das Vorgehen ist sehr transparent und alle Schritte sind erläutert worden. … Tolles Team was wir ausdrücklich empfehlen können.“</blockquote><figcaption>Felix K. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Gerade das Thema Versicherungen ist äußerst sensibel. Ich habe mich stets wohlgefühlt und ein sehr gutes Gefühl mit Trinity.“</blockquote><figcaption>Daniel D. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er ist stets und ständig erreichbar- sogar am Wochenende! … Ich werde mich definitiv weiterhin von ihm beraten lassen!“</blockquote><figcaption>Maurice B. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„So geht Kundenservice!!! … Immer erreichbar, schnelle, einfache, unkomplizierte Bearbeitung und 100% zuverlässige abwicklung.“</blockquote><figcaption>Sebastian D. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Dank Maik Walter und Sascha Urban konnte ich durch neue Versicherungen Geld sparen. Beide stehen mir jederzeit zu 100 % zur Seite – absolut empfehlenswert!“</blockquote><figcaption>Gigi · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Hier fühlt man sich gut aufgehoben! … Professionell und sehr kompetent.“</blockquote><figcaption>r. m. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Wir sind sehr zufrieden mit der ausführlichen Beratung, und froh immer Sascha Urban als Ansprechpartner zu haben.“</blockquote><figcaption>B. S. · Google-Bewertung</figcaption></figure><div class="rv-dup" aria-hidden="true"><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert … Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Es ist sehr angenehm, alle Versicherungen über einen Ansprechpartner laufen zu lassen. … schaut jedes Jahr, ob sich ein Wechsel zu einer anderen Versicherung lohnt.“</blockquote><figcaption>Vanessa R. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Das Vorgehen ist sehr transparent und alle Schritte sind erläutert worden. … Tolles Team was wir ausdrücklich empfehlen können.“</blockquote><figcaption>Felix K. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Gerade das Thema Versicherungen ist äußerst sensibel. Ich habe mich stets wohlgefühlt und ein sehr gutes Gefühl mit Trinity.“</blockquote><figcaption>Daniel D. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er ist stets und ständig erreichbar- sogar am Wochenende! … Ich werde mich definitiv weiterhin von ihm beraten lassen!“</blockquote><figcaption>Maurice B. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„So geht Kundenservice!!! … Immer erreichbar, schnelle, einfache, unkomplizierte Bearbeitung und 100% zuverlässige abwicklung.“</blockquote><figcaption>Sebastian D. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Dank Maik Walter und Sascha Urban konnte ich durch neue Versicherungen Geld sparen. Beide stehen mir jederzeit zu 100 % zur Seite – absolut empfehlenswert!“</blockquote><figcaption>Gigi · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Hier fühlt man sich gut aufgehoben! … Professionell und sehr kompetent.“</blockquote><figcaption>r. m. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Wir sind sehr zufrieden mit der ausführlichen Beratung, und froh immer Sascha Urban als Ansprechpartner zu haben.“</blockquote><figcaption>B. S. · Google-Bewertung</figcaption></figure></div></div></div>
+    <p class="rv-note">Auszug aus öffentlichen Google-Bewertungen der Trinity Finanz GmbH, Stand 11/2026. Die Echtheit wird von mir nicht gesondert geprüft.</p>
+  </section>
 
   <div class="promo">
     <button class="new-pill" data-open="plan"><b>Gratis</b>Zukunftsplan fürs Kind: 16 Seiten für deine Familie</button>
@@ -533,6 +561,9 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           <details class="sub"><summary>Ganzheitlich<svg><use href="#i-chev"/></svg></summary><p>Altersvorsorge, Absicherung, Investments und Immobilien: zusammen betrachtet, nicht isoliert.</p></details>
           <details class="sub"><summary>Meine Schwerpunkte<svg><use href="#i-chev"/></svg></summary><p>IHK Versicherungsvermittler · Öffentlicher Dienst · Kapitalanlageimmobilien · Familien</p></details>
         </div>
+        <div class="lbl-s">Das sagen Kunden</div>
+        <div class="rv-grid"><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert … Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Es ist sehr angenehm, alle Versicherungen über einen Ansprechpartner laufen zu lassen. … schaut jedes Jahr, ob sich ein Wechsel zu einer anderen Versicherung lohnt.“</blockquote><figcaption>Vanessa R. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Das Vorgehen ist sehr transparent und alle Schritte sind erläutert worden. … Tolles Team was wir ausdrücklich empfehlen können.“</blockquote><figcaption>Felix K. · Google-Bewertung</figcaption></figure></div>
+        <p class="rv-note" style="text-align:left;margin-top:-6px"><a href="https://g.page/r/CeoNk5h9mBWgEBE" target="_blank" rel="noopener noreferrer">5,0 ★ aus 111 Google-Bewertungen für Trinity Finanz</a> · Auszug, Echtheit nicht gesondert geprüft.</p>
         <p style="font-size:.72rem;color:var(--ink-2)">Trinity Finanz GmbH · Sascha Urban · Finanzmakler &amp; Teamleiter · WhatsApp 0172 991 3891. Alle Angaben ohne Gewähr. Keine Anlageberatung im Sinne des WpHG. Vermittlung gem. § 34d GewO.</p>
       </section>
 
