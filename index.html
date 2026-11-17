@@ -635,6 +635,34 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .bx-b[aria-pressed=true]{border-color:rgba(63,211,154,.5);background:linear-gradient(135deg,rgba(63,211,154,.08),var(--bg-2))}
 .bx-b[aria-pressed=true] .bx-tick{background:var(--good);border-color:var(--good);color:#04121E}
 @media (max-width:560px){.bx-bs{grid-template-columns:1fr}}
+/* ===== Zukunftsplan ===== */
+.zp{display:flex;flex-direction:column;gap:12px}
+.zp-view{position:relative}
+.zp-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:18px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,#14406A,#0A1C31)}
+.zp-track::-webkit-scrollbar{display:none}
+.zp-s{flex:0 0 100%;scroll-snap-align:center;margin:0;padding:22px 18px 14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.zp-s img{width:auto;max-width:100%;height:clamp(300px,56vh,460px);aspect-ratio:909/1287;object-fit:contain;border-radius:6px;box-shadow:0 18px 50px -12px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06);background:#fff}
+.zp-s figcaption{font-size:.72rem;font-weight:700;color:var(--ink-3)}
+.zp-more{justify-content:center;text-align:center}
+.zp-more>div{display:flex;flex-direction:column;align-items:center;gap:10px;height:clamp(300px,56vh,460px);justify-content:center;max-width:300px}
+.zp-more b{font-family:var(--f-display);font-size:1.4rem}
+.zp-more span{font-size:.85rem;color:var(--ink-2);line-height:1.5}
+.zp-nav{position:absolute;top:50%;width:40px;height:40px;margin-top:-30px;border-radius:50%;border:1px solid var(--line-2);background:rgba(10,28,49,.85);backdrop-filter:blur(6px);color:var(--ink);display:grid;place-items:center;cursor:pointer;z-index:2;transition:opacity .2s}
+.zp-nav svg{width:18px;height:18px}
+.zp-nav.prev{left:8px}.zp-nav.prev svg{transform:rotate(90deg)}
+.zp-nav.next{right:8px}.zp-nav.next svg{transform:rotate(-90deg)}
+.zp-nav:disabled{opacity:0;pointer-events:none}
+.zp-dots{display:flex;justify-content:center;gap:7px}
+.zp-dots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:var(--line-2);cursor:pointer;transition:.2s}
+.zp-dots button.on{width:22px;background:var(--teal)}
+.zp-info{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:16px;border-radius:18px;background:var(--bg-2);border:1px solid var(--line)}
+.zp-info ul{margin:8px 0 0;padding-left:18px;font-size:.85rem;color:var(--ink-2);line-height:1.6}
+.zp-dl small{font-weight:600;opacity:.6;margin-left:2px}
+.kv-plan{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px;border-radius:16px;border:1px solid rgba(108,142,240,.45);background:linear-gradient(135deg,rgba(108,142,240,.12),var(--bg-2));color:var(--ink);cursor:pointer;font:inherit}
+.kv-plan>svg:first-child{width:22px;height:22px;color:#A9C2FF;flex-shrink:0}
+.kv-plan span{flex:1}.kv-plan b{display:block;font-size:.9rem}.kv-plan small{font-size:.76rem;color:var(--ink-3)}
+.kv-plan .kv-ch{transform:rotate(-90deg)}
+@media (max-width:560px){.zp-dl{width:100%}}
 </style>
 </head>
 <body>
@@ -1117,6 +1145,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           <div class="kv-hint" style="margin-top:-4px">Einzahlung bis 18, danach bleibt das Geld angelegt.</div>
           <div class="kv-wait" id="kv-wait"></div>
           <p class="b-note">Beispielrechnung mit konstanter Rendite, monatlicher Einzahlung bis zum 18. Geburtstag, ohne Kosten und Steuern. Renditen schwanken, die Werte sind keine Garantie. Kindergeld 2026: 259 € pro Monat.</p>
+          <button type="button" class="kv-plan" data-open="plan"><svg><use href="#i-book"/></svg><span><b>Zukunftsplan fürs Kind</b><small>16 Seiten kostenlos als PDF</small></span><svg class="kv-ch"><use href="#i-chev"/></svg></button>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DT_A99HiBZ_/?igsh=emFqcDVveDd2bnFt" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Kindervorsorge <small>Instagram</small></a>
         <div class="lbl-s">So holen wir das Maximum heraus</div>
@@ -1128,12 +1157,21 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
         </div>
       </section>
 
-      <section class="topic" data-topic="plan" hidden data-wa="Hallo Sascha, bitte schick mir den Zukunftsplan fürs Kind." data-cta="Kostenlos und unverbindlich, direkt per WhatsApp." data-btn="Zukunftsplan anfordern">
+      <section class="topic" data-topic="plan" hidden data-wa="Hallo Sascha, ich habe mir den Zukunftsplan fürs Kind angeschaut und würde gerne mit dir darüber sprechen." data-cta="Lieber persönlich erklärt? Ich gehe den Plan gern mit dir durch." data-btn="Plan besprechen">
         <div class="t-head"><span class="chip" style="--c:#7FD3E6">Gratis</span><h2>Zukunftsplan fürs Kind</h2></div>
-        <div class="book">
-          <div class="cover">Zukunfts&shy;plan fürs Kind</div>
-          <div><strong>16 Seiten, klarer Plan statt teurer Irrtümer.</strong>
-            <ul><li>Vermögensaufbau fürs Kind</li><li>Absicherung</li><li>Staatliche Förderung</li><li>Die häufigsten Fehler von Eltern</li></ul>
+        <div class="zp">
+          <div class="zp-view">
+            <button type="button" class="zp-nav prev" id="zp-prev" aria-label="Vorherige Seite"><svg><use href="#i-chev"/></svg></button>
+            <div class="zp-track" id="zp-track"><figure class="zp-s"><img src="img/zp/seite-1.webp" alt="Zukunftsplan Seite 1: Titelseite" loading="lazy" width="909" height="1287"><figcaption>Seite 1 von 16</figcaption></figure><figure class="zp-s"><img src="img/zp/seite-2.webp" alt="Zukunftsplan Seite 2: Die teuersten Irrtümer beim Sparen fürs Kind" loading="lazy" width="909" height="1287"><figcaption>Seite 2 von 16</figcaption></figure><figure class="zp-s"><img src="img/zp/seite-4.webp" alt="Zukunftsplan Seite 4: Der Faktor Zeit" loading="lazy" width="909" height="1287"><figcaption>Seite 4 von 16</figcaption></figure><figure class="zp-s"><img src="img/zp/seite-13.webp" alt="Zukunftsplan Seite 13: Checkliste zur Umsetzung" loading="lazy" width="909" height="1287"><figcaption>Seite 13 von 16</figcaption></figure>
+              <div class="zp-s zp-more"><div><b>+ 12 weitere Seiten</b><span>Absicherung, staatliche Förderung, Kostenfallen, FAQ</span><a class="btn wa" href="zukunftsplan-fuers-kind.pdf" download="Zukunftsplan-fuers-Kind_Team-Urban.pdf"><svg class="i"><use href="#i-book"/></svg>Ganzen Plan laden</a></div></div>
+            </div>
+            <button type="button" class="zp-nav next" id="zp-next" aria-label="Nächste Seite"><svg><use href="#i-chev"/></svg></button>
+          </div>
+          <div class="zp-dots" id="zp-dots"></div>
+          <div class="zp-info">
+            <div><strong>16 Seiten, klarer Plan statt teurer Irrtümer.</strong>
+              <ul><li>Vermögensaufbau fürs Kind</li><li>Absicherung</li><li>Staatliche Förderung</li><li>Die häufigsten Fehler von Eltern</li></ul></div>
+            <a class="btn zp-dl" href="zukunftsplan-fuers-kind.pdf" download="Zukunftsplan-fuers-Kind_Team-Urban.pdf"><svg class="i"><use href="#i-book"/></svg>PDF herunterladen <small>0,5 MB</small></a>
           </div>
         </div>
       </section>
@@ -1583,6 +1621,18 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     document.querySelectorAll('#kv-rChips button').forEach(b=>b.addEventListener('click',()=>{st.r=+b.dataset.r;calc();}));
     return calc;
   }
+  // Zukunftsplan-Vorschau
+  (function(){
+    const tr=$('zp-track'); if(!tr) return; const sl=[...tr.children], dots=$('zp-dots');
+    dots.innerHTML=sl.map((_,i)=>'<button type="button" aria-label="Seite '+(i+1)+'"></button>').join('');
+    const db=[...dots.children]; const idx=()=>Math.round(tr.scrollLeft/tr.clientWidth);
+    const go=i=>tr.scrollTo({left:Math.max(0,Math.min(sl.length-1,i))*tr.clientWidth,behavior:'smooth'});
+    const upd=()=>{const i=idx();db.forEach((d,k)=>d.classList.toggle('on',k===i));$('zp-prev').disabled=i===0;$('zp-next').disabled=i===sl.length-1;};
+    tr.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});
+    db.forEach((d,k)=>d.addEventListener('click',()=>go(k)));
+    $('zp-prev').addEventListener('click',()=>go(idx()-1)); $('zp-next').addEventListener('click',()=>go(idx()+1));
+    upd();
+  })();
   // BU-Check-up
   function buCheck(){
     const v=id=>String($(id).value||'').trim();
