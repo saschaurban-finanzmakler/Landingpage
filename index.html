@@ -439,6 +439,89 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .rv-grid .rv{width:auto}
 @media (prefers-reduced-motion:reduce){.rv-mask{overflow-x:auto}.rv-dup{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* ===== Rentenlücken-Rechner ===== */
+.rl{display:flex;flex-direction:column;gap:14px}
+.rl h3{font-size:1rem}
+.rl-hero{position:relative;border-radius:20px;overflow:hidden;padding:18px 14px 0;background:radial-gradient(120% 90% at 50% 0%,#1A4A7A 0%,#0D2B4E 55%,#0A1C31 100%);border:1px solid var(--line)}
+.rl-cats{display:flex;justify-content:center;gap:clamp(6px,2.4vw,18px)}
+.rl-cat{display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:0;color:var(--ink);cursor:pointer;padding:0;min-width:0}
+.rl-ic{width:clamp(48px,11vw,64px);height:clamp(48px,11vw,64px);border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#163A63,#0E2440);border:1px solid var(--line-2);color:var(--teal-2);box-shadow:0 8px 20px -8px rgba(0,0,0,.6);transition:transform .2s,box-shadow .2s,border-color .2s}
+.rl-ic svg{width:46%;height:46%}
+.rl-cat:hover .rl-ic{transform:translateY(-2px);border-color:var(--teal)}
+.rl-cat.active .rl-ic{border-color:var(--teal);box-shadow:0 0 22px -6px var(--teal)}
+.rl-cn{font-size:.62rem;font-weight:800;letter-spacing:.04em;color:var(--ink-2);text-align:center;line-height:1.15}
+.rl-cat b{font-size:.7rem;font-weight:800;color:var(--teal-2);min-height:13px;font-variant-numeric:tabular-nums}
+.rl-stage{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:6px;margin-top:6px}
+.rl-stat{text-align:center;padding-bottom:56px;min-width:0}
+.rl-num{font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,5.6vw,2.5rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.rl-lbl{font-weight:800;font-size:.85rem;margin-top:6px}
+.rl-sub{font-size:.7rem;color:var(--ink-2);margin-top:3px}
+.rl-gap .rl-num{color:var(--bad)}
+.rl-pill{display:inline-block;margin-top:7px;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#04121E;background:var(--bad);border-radius:999px;padding:3px 9px}
+.rl-gap.ok .rl-num{color:var(--good)}.rl-gap.ok .rl-pill{background:var(--good)}
+.rl-beaker{width:clamp(200px,52vw,240px);display:block}
+.rl-banner{margin:12px -14px 0;padding:11px 12px;text-align:center;font-family:var(--f-display);font-weight:800;font-size:clamp(1rem,3.6vw,1.35rem);color:#04121E;background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+.rl-panel{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:14px}
+.rl-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:16px}
+.rl-tabs button{border:0;background:none;color:var(--ink-3);font-weight:800;font-size:.78rem;padding:9px 2px;border-radius:9px;cursor:pointer}
+.rl-tabs button.on{background:var(--panel-2);color:var(--ink)}
+.rl-pane{display:none}.rl-pane.on{display:block}
+.rl-field{margin-bottom:16px}
+.rl-field>label,.rl-frow label{display:block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.rl-frow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.rl-frow label{margin:0}
+.rl-frow output{font-weight:800;font-size:.9rem;color:var(--teal-2);background:rgba(53,175,203,.1);border:1px solid rgba(53,175,203,.25);padding:2px 9px;border-radius:8px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rl-hint{font-size:.72rem;color:var(--ink-3);margin-top:6px;line-height:1.45}
+.rl-hint b{color:var(--ink)}
+.rl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--teal) var(--p,50%),rgba(150,200,235,.18) var(--p,50%));outline:none;cursor:pointer;margin:8px 0 2px}
+.rl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ink);border:3px solid var(--teal);box-shadow:0 0 14px -2px var(--teal)}
+.rl input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--teal)}
+.rl-seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:16px}
+.rl-seg button{border:0;background:none;color:var(--ink-3);font-weight:800;font-size:.85rem;padding:9px;border-radius:9px;cursor:pointer}
+.rl-seg button.on{background:var(--teal);color:#04121E}
+.rl-sum{display:flex;justify-content:space-between;font-weight:800;font-size:.9rem;padding:10px 12px;border-radius:12px;background:rgba(53,175,203,.1);border:1px solid rgba(53,175,203,.25)}
+.rl-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rl-kpi{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.rl-kpi .k{font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.rl-kpi .v{font-family:var(--f-display);font-weight:800;font-size:clamp(1.2rem,4.4vw,1.6rem);margin-top:6px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rl-kpi .s{font-size:.7rem;color:var(--ink-3);margin-top:4px;line-height:1.35}
+.rl-kpi.hl{background:linear-gradient(135deg,var(--teal),#2A93B4);border-color:transparent;color:#04121E}
+.rl-kpi.hl .k,.rl-kpi.hl .s{color:rgba(4,18,30,.75)}
+.rl-kpi.bad .v{color:var(--bad)}
+.rl-card{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.rl-chead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.rl-legend{display:flex;gap:12px;font-size:.7rem;font-weight:700;color:var(--ink-3)}
+.rl-legend i,.rl-row i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:0}
+#rl-chart{width:100%;height:220px;display:block}
+.rl-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rl-bar{display:flex;height:12px;border-radius:99px;overflow:hidden;background:rgba(150,200,235,.12);margin:12px 0 8px}
+.rl-bar div{height:100%;transition:width .5s}
+.rl-row{display:flex;justify-content:space-between;font-size:.8rem;color:var(--ink-2);padding:4px 0}
+.rl-row b{color:var(--ink);font-variant-numeric:tabular-nums}
+.rl-wait{border-left:3px solid var(--bad)}
+.rl-big{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--bad);margin:6px 0 2px}
+.rl-infl{border:1.5px dashed rgba(255,122,107,.6);background:linear-gradient(135deg,rgba(255,122,107,.08),transparent)}
+.rl-infl.on{border:1.5px solid var(--bad)}
+.rl-itop{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.rl-infl p{font-size:.8rem;color:var(--ink-2);margin-top:4px;max-width:440px;line-height:1.45}
+.rl-ibtn{border:0;cursor:pointer;font-weight:800;font-size:.95rem;padding:13px 20px;border-radius:999px;color:#04121E;background:linear-gradient(90deg,#FF9A6B,var(--bad));box-shadow:0 0 26px -6px var(--bad);animation:rlPulse 2s infinite;white-space:nowrap}
+.rl-infl.on .rl-ibtn{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none;animation:none}
+@keyframes rlPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.rl-cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.rl-cmp>div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px}
+.rl-cmp span{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.rl-cmp div div{font-size:.78rem;color:var(--ink-3);margin-top:4px}
+.rl-cmp b{display:block;font-family:var(--f-display);font-size:1.15rem;color:var(--bad)}
+@media (max-width:560px){
+  .rl-stage{grid-template-columns:1fr 1fr}
+  .rl-center{grid-column:1/3;grid-row:1;display:flex;justify-content:center}
+  .rl-stat{padding-bottom:8px}
+  .rl-split{grid-template-columns:1fr}
+  .rl-cmp{grid-template-columns:1fr}
+  .rl-ibtn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.rl-ibtn{animation:none}}
+
 </style>
 </head>
 <body>
@@ -597,44 +680,123 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 
       <section class="topic" data-topic="rente" hidden data-wa="Hallo Sascha, ich würde gerne meine Rentenlücke besprechen." data-cta="Das klingt nach viel? Mit der richtigen Strategie ist es machbarer, als du denkst." data-btn="Ergebnis besprechen">
         <div class="t-head"><span class="chip" style="--c:#3A86D6">Rente</span><h2>Wie groß ist deine Rentenlücke?</h2></div>
-        <div class="tool" aria-live="polite">
-          <form class="form" id="rr-form">
-            <div><label for="rr-alter">Dein Alter</label><input id="rr-alter" type="number" inputmode="numeric" value="35" min="18" max="64"></div>
-            <div><label for="rr-rentenalter">Rentenalter</label><input id="rr-rentenalter" type="number" inputmode="numeric" value="67" min="60" max="70"></div>
-            <div><label for="rr-gehalt">Netto heute (€)</label><input id="rr-gehalt" type="number" inputmode="numeric" value="3000" step="100"></div>
-            <div><label for="rr-wunsch">Wunschrente netto (€)</label><input id="rr-wunsch" type="number" inputmode="numeric" value="3000" step="100"></div>
-            <div><label for="rr-infl">Inflation p.&nbsp;a. (%)</label><input id="rr-infl" type="number" inputmode="decimal" value="2" step="0.5" min="0" max="6"></div>
-          </form>
-          <div class="bars" aria-live="polite">
-            <div class="bars-row">
-              <div class="bar-col">
-                <div class="bar"><div class="seg gap" id="rr-b1-gap"><span>Lücke<b id="rr-b1-gap-v">–</b></span></div><div class="seg base" id="rr-b1-base"><span>Gesetzlich<b id="rr-b1-base-v">–</b></span></div></div>
-                <div class="bar-cap">Heute ohne Vorsorge</div>
+        <div class="rl" aria-live="polite">
+          <div class="rl-hero">
+            <div class="rl-cats"><button type="button" class="rl-cat" data-c="e_wohnen"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></span><span class="rl-cn">Wohnen</span><b id="rl-cv-e_wohnen"></b></button><button type="button" class="rl-cat" data-c="e_essen"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span><span class="rl-cn">Lebensmittel</span><b id="rl-cv-e_essen"></b></button><button type="button" class="rl-cat" data-c="e_frei"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></span><span class="rl-cn">Freizeit</span><b id="rl-cv-e_frei"></b></button><button type="button" class="rl-cat" data-c="e_ges"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span><span class="rl-cn">Gesundheit</span><b id="rl-cv-e_ges"></b></button><button type="button" class="rl-cat" data-c="e_mob"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span><span class="rl-cn">Mobilität</span><b id="rl-cv-e_mob"></b></button></div>
+            <div class="rl-stage">
+              <div class="rl-stat"><div class="rl-num" id="rl-hWish">–</div><div class="rl-lbl">Wunschrente</div><div class="rl-sub" id="rl-hWishSub"></div></div>
+              <div class="rl-center">
+                <svg class="rl-beaker" viewBox="0 0 220 250" aria-label="Rentenlücke als Messbecher">
+                  <defs>
+                    <clipPath id="rl-inside"><path d="M42 26 L42 214 Q42 234 62 234 L158 234 Q178 234 178 214 L178 26 Z"/></clipPath>
+                    <linearGradient id="rl-liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FD3E6"/><stop offset="1" stop-color="#2A93B4"/></linearGradient>
+                    <pattern id="rl-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#0A1C31" fill-opacity=".55"/><line x1="0" y1="0" x2="0" y2="10" stroke="#FF7A6B" stroke-opacity=".35" stroke-width="3"/></pattern>
+                  </defs>
+                  <g clip-path="url(#rl-inside)">
+                    <rect x="40" y="20" width="140" height="220" fill="url(#rl-hatch)"/>
+                    <rect id="rl-liquid" x="40" y="234" width="140" height="0" fill="url(#rl-liq)"/>
+                    <path id="rl-wave" d="" fill="#A8E6F2" opacity=".9"/>
+                  </g>
+                  <path d="M30 18 Q36 22 42 26 L42 214 Q42 234 62 234 L158 234 Q178 234 178 214 L178 26 Q184 22 190 18" fill="none" stroke="#EEF5FB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+                  <g stroke="#EEF5FB" stroke-width="2" opacity=".55"><line x1="164" y1="60" x2="176" y2="60"/><line x1="170" y1="95" x2="176" y2="95"/><line x1="164" y1="130" x2="176" y2="130"/><line x1="170" y1="165" x2="176" y2="165"/><line x1="164" y1="200" x2="176" y2="200"/></g>
+                  <text id="rl-gapTxt" x="110" y="80" text-anchor="middle" fill="#FF7A6B" font-size="12" font-weight="800" letter-spacing="2"></text>
+                  <text id="rl-bRate" x="110" y="0" text-anchor="middle" font-size="24" font-weight="800" font-family="Sora,sans-serif"></text>
+                  <text id="rl-bL1" x="110" y="0" text-anchor="middle" font-size="11" font-weight="700"></text>
+                  <text id="rl-bL2" x="110" y="0" text-anchor="middle" font-size="11" font-weight="700"></text>
+                  <text id="rl-bPct" x="110" y="0" text-anchor="middle" font-size="10" font-weight="800"></text>
+                </svg>
               </div>
-              <div class="bar-arrow" aria-hidden="true">→</div>
-              <div class="bar-col">
-                <div class="bar"><div class="seg priv" id="rr-b2-gap"><span>Deine Vorsorge<b id="rr-b2-gap-v">–</b></span></div><div class="seg base" id="rr-b2-base"><span>Gesetzlich<b id="rr-b2-base-v">–</b></span></div></div>
-                <div class="bar-cap">Mit deiner Sparrate</div>
-              </div>
+              <div class="rl-stat rl-gap" id="rl-gapBox"><div class="rl-num" id="rl-hGap">–</div><div class="rl-lbl">Rentenlücke</div><div class="rl-sub" id="rl-hGapSub"></div><div class="rl-pill" id="rl-hGapPill"></div></div>
             </div>
-            <div class="bar-goal">Ziel: <b id="rr-wunsch-out">–</b> netto im Monat</div>
-            <div class="spar-hero">
-              <div class="k">Diese Sparrate schließt deine Lücke</div>
-              <div class="v"><span id="rr-sparbetrag">–</span><small> / Monat</small></div>
-              <div class="rate-pick" role="radiogroup" aria-label="Angenommene Rendite">
-                <span>bei</span>
-                <button type="button" role="radio" data-rate="5" aria-checked="false">5 %</button>
-                <button type="button" role="radio" data-rate="6" aria-checked="true" class="on">6 %</button>
-                <button type="button" role="radio" data-rate="7" aria-checked="false">7 %</button>
-                <span>Rendite p.&nbsp;a.</span>
-              </div>
+            <div class="rl-banner" id="rl-banner"></div>
+          </div>
+
+          <div class="rl-panel">
+            <div class="rl-tabs" role="tablist">
+              <button type="button" class="on" data-t="rl-p1">Person</button>
+              <button type="button" data-t="rl-p2">Bedarf</button>
+              <button type="button" data-t="rl-p3">Rente</button>
+              <button type="button" data-t="rl-p4">Annahmen</button>
+            </div>
+            <div class="rl-pane on" id="rl-p1">
+              <div class="rl-field"><label for="rl-status">Berufliche Situation</label>
+                <select id="rl-status" class="av-sel">
+                  <option value="ang">Angestellt (gesetzlich versichert)</option>
+                  <option value="beamt">Beamtin / Beamter</option>
+                  <option value="selbst">Selbstständig (ohne Rentenversicherung)</option>
+                  <option value="selbstrv">Selbstständig (rentenversichert)</option>
+                </select><div class="rl-hint" id="rl-statusHint"></div></div>
+              <div id="rl-s-person"></div>
+            </div>
+            <div class="rl-pane" id="rl-p2">
+              <div class="rl-seg" id="rl-modeSeg"><button type="button" data-m="wish" class="on">Wunschrente</button><button type="button" data-m="exp">Ausgaben</button></div>
+              <div id="rl-wishBox"></div>
+              <div id="rl-expBox" hidden></div>
+              <div class="rl-sum" id="rl-expSum" hidden><span>Summe Ausgaben</span><span id="rl-expSumV"></span></div>
+              <div class="rl-hint">Beträge in heutiger Kaufkraft.</div>
+            </div>
+            <div class="rl-pane" id="rl-p3"><div id="rl-s-rente"></div></div>
+            <div class="rl-pane" id="rl-p4">
+              <div class="rl-field"><label for="rl-strat">Anlagestrategie</label>
+                <select id="rl-strat" class="av-sel">
+                  <option value="2">Sicherheitsorientiert · 2 %</option>
+                  <option value="4">Konservativ · 4 %</option>
+                  <option value="6" selected>Ausgewogen · 6 %</option>
+                  <option value="7.5">Chancenorientiert · 7,5 %</option>
+                  <option value="custom">Individuell</option>
+                </select><div class="rl-hint">Angenommene Rendite p.&nbsp;a. nach Kosten, keine Garantie.</div></div>
+              <div id="rl-s-ann"></div>
+              <div class="rl-field"><label for="rl-inflSel">Inflations-Szenario</label>
+                <select id="rl-inflSel" class="av-sel">
+                  <option value="2">2 % · EZB-Zielwert</option>
+                  <option value="3" selected>3 % · vorsichtig</option>
+                  <option value="4">4 % · pessimistisch</option>
+                  <option value="custom">Individuell</option>
+                </select></div>
+              <div id="rl-s-infl"></div>
+              <div class="rl-hint">Die Inflation schaltest du ganz unten über „Inflation einschalten“ zu.</div>
             </div>
           </div>
-          <div class="figures">
-            <div class="fig"><div class="k">Gesetzliche Rente</div><div class="v" id="rr-gesetzlich">–</div><div class="s">ca. 48 % deines Nettos, heute</div></div>
-            <div class="fig gap"><div class="k">Deine Lücke</div><div class="v" id="rr-luecke">–</div><div class="s">pro Monat in heutigem Geld</div></div>
+
+          <div class="rl-kpis">
+            <div class="rl-kpi hl"><div class="k">Monatliche Sparrate</div><div class="v" id="rl-kRate">–</div><div class="s" id="rl-kRateS"></div></div>
+            <div class="rl-kpi"><div class="k">Kapitalbedarf zum Rentenbeginn</div><div class="v" id="rl-kNeed">–</div><div class="s" id="rl-kNeedS"></div></div>
+            <div class="rl-kpi bad"><div class="k">Rentenlücke pro Monat</div><div class="v" id="rl-kGap">–</div><div class="s" id="rl-kGapS"></div></div>
+            <div class="rl-kpi"><div class="k">Erwartete Netto-Rente</div><div class="v" id="rl-kNet">–</div><div class="s" id="rl-kNetS"></div></div>
           </div>
-          <p class="b-note">Vereinfachte Schätzung, keine Garantie. Die Sparrate berücksichtigt die Inflation bis Rentenbeginn (<span id="rr-infl-out">2 %</span> p.&nbsp;a.), 25 Jahre Rentenbezug mit jährlich steigender Auszahlung und 3 % Verzinsung in der Auszahlphase. Renditen schwanken, die Werte sind Beispiele.</p>
+
+          <div class="rl-card">
+            <div class="rl-chead"><h3>Vermögensverlauf</h3><div class="rl-legend"><span><i style="background:#35AFCB"></i>Ansparen</span><span><i style="background:#6C8EF0"></i>Entnahme</span></div></div>
+            <canvas id="rl-chart"></canvas>
+          </div>
+
+          <div class="rl-split">
+            <div class="rl-card">
+              <h3>Woher kommt das Kapital?</h3>
+              <div class="rl-bar"><div id="rl-barIn" style="background:#3A86D6"></div><div id="rl-barInt" style="background:#35AFCB"></div><div id="rl-barCap" style="background:#3FD39A"></div></div>
+              <div class="rl-row"><span><i style="background:#3A86D6"></i>Eigene Einzahlungen</span><b id="rl-rIn">–</b></div>
+              <div class="rl-row"><span><i style="background:#35AFCB"></i>Zinsen &amp; Erträge</span><b id="rl-rInt">–</b></div>
+              <div class="rl-row"><span><i style="background:#3FD39A"></i>Vorhandenes Kapital</span><b id="rl-rCap">–</b></div>
+            </div>
+            <div class="rl-card rl-wait">
+              <h3>Was kostet Abwarten?</h3>
+              <div class="rl-hint">Wer erst in <b id="rl-wYrs">5</b> Jahren startet, braucht monatlich:</div>
+              <div class="rl-big" id="rl-wRate">–</div>
+              <div class="rl-hint" id="rl-wDiff"></div>
+              <input type="range" id="rl-waitY" min="1" max="15" step="1" value="5" aria-label="Jahre warten">
+            </div>
+          </div>
+
+          <div class="rl-card rl-infl" id="rl-inflCard">
+            <div class="rl-itop"><div><h3 id="rl-inflTitle"></h3><p id="rl-inflText"></p></div><button type="button" id="rl-inflBtn" class="rl-ibtn"></button></div>
+            <div class="rl-cmp" id="rl-cmp" hidden>
+              <div><span>Wunschrente</span><div id="rl-cWish"></div></div>
+              <div><span>Lücke mtl.</span><div id="rl-cGap"></div></div>
+              <div><span>Sparrate mtl.</span><div id="rl-cRate"></div></div>
+            </div>
+          </div>
+
+          <p class="b-note">Modellrechnung, keine Garantie und keine Anlageberatung. Standardmäßig nach heutiger Kaufkraft ohne Inflation und ohne Rentenanpassung gerechnet; per Button wird die Inflation zugeschaltet – dann steigen Wunschrente, Rente (mit der Rentenanpassung) und die Auszahlung im Alter jährlich mit. Konstante Rendite, Einzahlung monatlich, Sparrate steigt jährlich um die Dynamik, Kapital ist zum Ende der Lebenserwartung aufgebraucht. Abzüge für Steuer und Kranken-/Pflegeversicherung pauschal. Kosten und Steuern auf Erträge nicht separat berücksichtigt.</p>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DYuxgYsuEX9/?igsh=MXB5ZzB0dm9xbWo3aQ==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Rentenlücke <small>Instagram</small></a>
       </section>
@@ -1015,35 +1177,181 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   const map={termin:'termin',termine:'termin',buchen:'termin',avd:'avd',altersvorsorgedepot:'avd',ganzheitlich:'ganz',ganz:'ganz',bu:'bu',rente:'rente',immo:'immo',kinder:'kinder',plan:'plan',zukunftsplan:'plan',impressum:'impressum',datenschutz:'datenschutz'};
   const h=location.hash.slice(1).toLowerCase(); if(map[h]) show(map[h]);
 
-  // Rentenrechner
-  var rrRate;
-  function rente(){
-    const alter=parseInt($('rr-alter').value)||35, ra=parseInt($('rr-rentenalter').value)||67;
-    const netto=parseFloat($('rr-gehalt').value)||3000, wunsch=parseFloat($('rr-wunsch').value)||3000;
-    let inf=parseFloat(String($('rr-infl').value).replace(',','.')); if(isNaN(inf)) inf=2; inf=Math.min(10,Math.max(0,inf));
-    const i=inf/100, ges=netto*0.48, luecke=Math.max(0,wunsch-ges);
-    const jahre=Math.max(1,ra-alter), real=luecke*Math.pow(1+i,jahre);
-    let fak=0; for(let t=0;t<25;t++) fak+=Math.pow((1+i)/1.03,t);
-    const rate=rrRate||6, kap=real*12*fak, r=rate/100/12, n=jahre*12;
-    const spar=r>0?kap*r/(Math.pow(1+r,n)-1):kap/n;
-    const gesAnteil=Math.max(0,Math.min(100,ges/Math.max(wunsch,1)*100)), gapAnteil=100-gesAnteil;
-    ['1','2'].forEach(k=>{$('rr-b'+k+'-base').style.flex='0 0 '+gesAnteil+'%';$('rr-b'+k+'-gap').style.flex='0 0 '+gapAnteil+'%';
-      $('rr-b'+k+'-base-v').textContent=fmt(Math.min(ges,wunsch));$('rr-b'+k+'-gap-v').textContent=fmt(luecke);});
-    $('rr-gesetzlich').textContent=fmt(ges);
-    $('rr-luecke').textContent=fmt(luecke);
-    $('rr-wunsch-out').textContent=fmt(wunsch);
-    $('rr-sparbetrag').textContent=luecke>0?fmt(spar):'0 €';
-    $('rr-infl-out').textContent=String(inf).replace('.',',')+' %';
-    waOverride='Hallo Sascha, laut deinem Rechner beträgt meine Rentenlücke '+fmt(luecke)+' im Monat. Bei '+rate+' % Rendite wären das '+fmt(spar)+' Sparrate im Monat. Ich würde das gerne besprechen!';
-    setCta(topics.find(x=>x.dataset.topic==='rente'));
+  // Rentenlücken-Rechner
+  function makeRL(){
+    const fE=v=>Math.round(v).toLocaleString('de-DE')+' €';
+    const fK=v=>v>=1e6?(v/1e6).toLocaleString('de-DE',{maximumFractionDigits:2})+' Mio. €':fE(v);
+    const fP=v=>v.toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
+    const fY=v=>v+' J.';
+    const FM={eur:fE,pct:fP,yrs:fY,k:fK};
+    const D={age:35,rb:67,le:90,wish:3000,pension:1800,adj:2,ded:18,other:0,cap:0,zins:6,ent:2,dyn:1,infl:3,
+      e_wohnen:1000,e_essen:600,e_frei:600,e_ges:400,e_mob:400};
+    const CATS=[['e_wohnen','Wohnen'],['e_essen','Lebensmittel'],['e_frei','Freizeit & Reisen'],['e_ges','Gesundheit'],['e_mob','Mobilität']];
+    const SL={
+      'rl-s-person':[['age','Aktuelles Alter',18,66,1,'yrs'],['rb','Rentenbeginn',60,72,1,'yrs'],['le','Lebenserwartung',75,100,1,'yrs','Lieber großzügig planen – viele leben länger als gedacht.']],
+      'rl-wishBox':[['wish','Gewünschte Netto-Rente',500,10000,50,'eur','Faustregel: rund 80 % des heutigen Nettoeinkommens.']],
+      'rl-expBox':CATS.map(c=>[c[0],c[1],0,3000,25,'eur']),
+      'rl-s-rente':[
+        ['pension','Erwartete Rente brutto (heutiger Wert)',0,5000,25,'eur','Steht in deiner Renteninformation unter „Höhe Ihrer künftigen Regelaltersrente“.'],
+        ['adj','Rentenanpassung p.a.',0,4,0.1,'pct','Wirkt nur, wenn die Inflation eingeschaltet ist.'],
+        ['ded','Abzüge: Steuer + Kranken-/Pflegeversicherung',0,45,1,'pct','Brutto ist nicht netto – pauschal angesetzt.'],
+        ['other','Weitere Renten im Alter (netto)',0,4000,25,'eur','z. B. Betriebsrente, Riester, Mieteinnahmen.'],
+        ['cap','Bereits vorhandenes Vorsorgekapital',0,500000,1000,'k']],
+      'rl-s-ann':[['zins','Ansparzins p.a.',0,10,0.1,'pct'],['ent','Entnahmezins p.a.',0,6,0.1,'pct','Rendite in der Auszahlphase, meist vorsichtiger.'],['dyn','Dynamik der Sparrate p.a.',0,5,0.5,'pct','Jährliche Erhöhung, z. B. mit Gehaltssteigerungen.']],
+      'rl-s-infl':[['infl','Inflation p.a.',0,6,0.1,'pct']]
+    };
+    const STATUS={
+      ang:{ded:18,hint:'Abzüge pauschal ca. 18 % (Steuer + KV/PV als Rentner in der GKV).'},
+      beamt:{ded:28,hint:'Pension ist voll steuerpflichtig, dazu PKV-Beiträge – Abzüge deutlich höher.'},
+      selbst:{ded:20,pension:0,hint:'Ohne gesetzliche Rente: die komplette Versorgung muss privat aufgebaut werden.'},
+      selbstrv:{ded:20,hint:'Rente laut Renteninformation eintragen.'}
+    };
+    const st=Object.assign({mode:'wish',inflOn:false},D);
+    let built=false, covNow=0, covT=0, raf=0;
+
+    function build(){
+      for(const box in SL){
+        $(box).innerHTML=SL[box].map(([id,l,mn,mx,stp,f,h])=>'<div class="rl-field"><div class="rl-frow"><label for="rl-'+id+'">'+l+'</label><output id="rl-o-'+id+'"></output></div><input type="range" class="rl-range" id="rl-'+id+'" data-k="'+id+'" min="'+mn+'" max="'+mx+'" step="'+stp+'" value="'+st[id]+'" data-f="'+f+'">'+(h?'<div class="rl-hint">'+h+'</div>':'')+'</div>').join('');
+      }
+      document.querySelectorAll('.rl-range').forEach(inp=>inp.addEventListener('input',()=>{
+        const k=inp.dataset.k; st[k]=parseFloat(inp.value);
+        if(k==='zins') $('rl-strat').value=opt('rl-strat',st.zins);
+        if(k==='infl') $('rl-inflSel').value=opt('rl-inflSel',st.infl);
+        if(k==='age'&&st.rb<=st.age) st.rb=st.age+1;
+        if(k==='rb'&&st.rb<=st.age) st.age=st.rb-1;
+        if(st.le<=st.rb+1){ if(k==='le') st.rb=st.le-2; else st.le=Math.min(100,st.rb+2); }
+        sync(); calc();
+      }));
+      document.querySelectorAll('.rl-tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t)));
+      document.querySelectorAll('#rl-modeSeg button').forEach(b=>b.addEventListener('click',()=>{st.mode=b.dataset.m;sync();calc();}));
+      document.querySelectorAll('.rl-cat').forEach(b=>b.addEventListener('click',()=>{st.mode='exp';tab('rl-p2');sync();calc();const f=$('rl-'+b.dataset.c);f.focus({preventScroll:true});f.closest('.rl-field').scrollIntoView({behavior:'smooth',block:'center'});}));
+      $('rl-strat').addEventListener('change',e=>{if(e.target.value!=='custom'){st.zins=parseFloat(e.target.value);sync();calc();}});
+      $('rl-inflSel').addEventListener('change',e=>{if(e.target.value!=='custom'){st.infl=parseFloat(e.target.value);sync();calc();}});
+      $('rl-status').addEventListener('change',e=>{const x=STATUS[e.target.value];st.ded=x.ded;if('pension' in x) st.pension=x.pension; else if(st.pension===0) st.pension=D.pension;$('rl-statusHint').textContent=x.hint;sync();calc();});
+      $('rl-statusHint').textContent=STATUS.ang.hint;
+      $('rl-waitY').addEventListener('input',()=>{paint($('rl-waitY'));calc();});
+      $('rl-inflBtn').addEventListener('click',()=>{st.inflOn=!st.inflOn;sync();calc(true);document.querySelector('.rl-hero').scrollIntoView({behavior:'smooth',block:'start'});});
+      window.addEventListener('resize',()=>{if(cur==='rente') calc();});
+      built=true;
+    }
+    function opt(sel,v){const o=[...$(sel).options].find(o=>parseFloat(o.value)===v);return o?o.value:'custom';}
+    function tab(t){document.querySelectorAll('.rl-tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t===t));document.querySelectorAll('.rl-pane').forEach(x=>x.classList.toggle('on',x.id===t));}
+    function paint(inp){inp.style.setProperty('--p',((inp.value-inp.min)/(inp.max-inp.min)*100)+'%');}
+    function sync(){
+      document.querySelectorAll('.rl-range').forEach(inp=>{inp.value=st[inp.dataset.k];paint(inp);const o=$('rl-o-'+inp.dataset.k);if(o) o.textContent=FM[inp.dataset.f](parseFloat(inp.value));});
+      paint($('rl-waitY'));
+      $('rl-wishBox').hidden=st.mode!=='wish'; $('rl-expBox').hidden=st.mode!=='exp'; $('rl-expSum').hidden=st.mode!=='exp';
+      document.querySelectorAll('#rl-modeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.m===st.mode));
+    }
+    function fvF(n,ri,d){let x=0;for(let y=0;y<n;y++)for(let k=0;k<12;k++)x+=Math.pow(1+d,y)*Math.pow(1+ri,n*12-(y*12+k));return x;}
+    function comp(o){
+      const yrs=Math.max(1,o.rb-o.age), pay=Math.max(1,o.le-o.rb), inf=o.inflOn?o.infl/100:0;
+      const expSum=CATS.reduce((a,c)=>a+o[c[0]],0), wishToday=o.mode==='wish'?o.wish:expSum;
+      const wishF=wishToday*Math.pow(1+inf,yrs), grossF=o.pension*Math.pow(1+(o.inflOn?o.adj/100:0),yrs);
+      const netF=grossF*(1-o.ded/100), income=netF+o.other, gap=Math.max(0,wishF-income);
+      const rw=Math.pow(1+o.ent/100,1/12)-1; let need=0;
+      for(let m=0;m<pay*12;m++) need+=gap*Math.pow(1+inf,Math.floor(m/12))/Math.pow(1+rw,m);
+      const zi=o.zins/100, ri=Math.pow(1+zi,1/12)-1, d=o.dyn/100, fv0=o.cap*Math.pow(1+zi,yrs);
+      const rest=Math.max(0,need-fv0), rate=rest/fvF(yrs,ri,d);
+      let paidIn=0; for(let y=0;y<yrs;y++) paidIn+=rate*12*Math.pow(1+d,y);
+      return {yrs,pay,inf,expSum,wishToday,wishF,grossF,netF,income,gap,need,fv0,rest,rate,paidIn,ri,rw,d};
+    }
+    function tween(id,to,pre){
+      const e=$(id), from=parseFloat(e.dataset.v||to); e.dataset.v=to;
+      if(Math.abs(from-to)<1){e.textContent=pre+fE(to);return;}
+      const t0=performance.now();
+      (function step(t){const k=Math.min(1,(t-t0)/1200),ea=1-Math.pow(1-k,3);e.textContent=pre+fE(from+(to-from)*ea);if(k<1)requestAnimationFrame(step);})(t0);
+    }
+    function setNum(id,v,pre,anim){ if(anim) tween(id,v,pre); else {$(id).textContent=pre+fE(v);$(id).dataset.v=v;} }
+    function beakerTxt(r,cov){
+      const top=34,bot=234,ly=bot-(bot-top)*cov,set=(id,t,y,fill)=>{const e=$(id);e.textContent=t;e.setAttribute('y',y);if(fill)e.setAttribute('fill',fill);};
+      if(r.gap>0.5){
+        const inL=(bot-ly)>78, cy=inL?ly+(bot-ly)/2-14:Math.max(top+30,top+(ly-top)/2-10), tc=inL?'#04121E':'#EEF5FB';
+        set('rl-bRate',fE(r.rate),cy,inL?'#04121E':'#7FD3E6');
+        set('rl-bL1','pro Monat sparen –',cy+17,tc);
+        set('rl-bL2','und die Lücke ist zu',cy+30,tc);
+        set('rl-bPct',Math.round(cov*100)+' % durch Rente gedeckt',inL?bot-10:Math.min(bot-8,ly+16),(bot-ly)>24?'#04121E':'#EEF5FB');
+        set('rl-gapTxt',inL&&(ly-top)>34?'LÜCKE':'',top+(ly-top)/2+4);
+      } else {
+        set('rl-bRate','Keine Lücke',122,'#04121E'); set('rl-bL1','Deine Rente deckt',142,'#04121E'); set('rl-bL2','den gewünschten Bedarf',156,'#04121E');
+        set('rl-bPct','',0); set('rl-gapTxt','',0);
+      }
+    }
+    function tick(ts){
+      covNow+=(covT-covNow)*0.12;
+      const top=34,bot=234,h=(bot-top)*covNow,y=bot-h,ph=(ts/600)%(Math.PI*2);
+      $('rl-liquid').setAttribute('y',y); $('rl-liquid').setAttribute('height',h+2);
+      let p='M40 '+y; for(let x=40;x<=180;x+=5) p+=' L'+x+' '+(y+Math.sin(x/14+ph)*2.2); p+=' L180 '+(y+6)+' L40 '+(y+6)+' Z';
+      $('rl-wave').setAttribute('d',covNow>0.01?p:'');
+      raf=(cur==='rente'&&$('sheet').open)?requestAnimationFrame(tick):0;
+    }
+    function calc(anim){
+      const r=comp(st);
+      CATS.forEach(c=>$('rl-cv-'+c[0]).textContent=st.mode==='exp'?fE(st[c[0]]):'');
+      document.querySelectorAll('.rl-cat').forEach(b=>b.classList.toggle('active',st.mode==='exp'));
+      $('rl-expSumV').textContent=fE(r.expSum);
+      setNum('rl-hWish',r.wishF,'',anim);
+      $('rl-hWishSub').textContent=st.inflOn?'heute '+fE(r.wishToday)+' · inkl. '+fP(st.infl)+' Inflation':'nach heutiger Kaufkraft';
+      if(r.gap>0.5) setNum('rl-hGap',r.gap,'−',anim); else {$('rl-hGap').textContent='0 €';$('rl-hGap').dataset.v=0;}
+      $('rl-hGapSub').textContent=r.gap<=0.5?'':st.inflOn?'entspricht heute '+fE(r.gap/Math.pow(1+r.inf,r.yrs)):'nach heutiger Kaufkraft';
+      $('rl-hGapPill').textContent=r.gap>0.5?'pro Monat fehlen':'gedeckt';
+      $('rl-gapBox').classList.toggle('ok',r.gap<=0.5);
+      $('rl-banner').textContent=r.gap>0.5?'Mit '+fE(r.rate)+' im Monat ist die Lücke zu!':'Top – deine Rente deckt deinen Bedarf!';
+      const cov=r.wishF>0?Math.min(1,r.income/r.wishF):1; covT=r.gap>0.5?cov:1; beakerTxt(r,covT);
+      $('rl-kRate').textContent=fE(r.rate);
+      $('rl-kRateS').textContent=r.d>0?'steigt jährlich um '+fP(st.dyn)+' · zuletzt '+fE(r.rate*Math.pow(1+r.d,r.yrs-1)):'konstant bis Rentenbeginn';
+      $('rl-kNeed').textContent=fK(r.need); $('rl-kNeedS').textContent='für '+r.pay+' Jahre Auszahlung ab '+st.rb;
+      $('rl-kGap').textContent=fE(r.gap); $('rl-kGapS').textContent='Wunsch '+fE(r.wishF)+' − Renten '+fE(r.income);
+      $('rl-kNet').textContent=fE(r.netF); $('rl-kNetS').textContent='brutto '+fE(r.grossF)+' − '+st.ded+' % Abzüge';
+      const sav=r.rate*fvF(r.yrs,r.ri,r.d), intr=Math.max(0,sav-r.paidIn), capP=Math.min(r.fv0,r.need), tot=Math.max(1,r.paidIn+intr+capP);
+      $('rl-barIn').style.width=(r.paidIn/tot*100)+'%'; $('rl-barInt').style.width=(intr/tot*100)+'%'; $('rl-barCap').style.width=(capP/tot*100)+'%';
+      $('rl-rIn').textContent=fK(r.paidIn); $('rl-rInt').textContent=fK(intr); $('rl-rCap').textContent=fK(capP);
+      const wy=parseInt($('rl-waitY').value,10), ny=r.yrs-wy; $('rl-wYrs').textContent=wy;
+      if(r.gap<=0.5||r.rest<=0){$('rl-wRate').textContent='–';$('rl-wDiff').textContent='Aktuell keine Sparrate nötig.';}
+      else if(ny<1){$('rl-wRate').textContent='Zu spät';$('rl-wDiff').textContent='Bis zur Rente bliebe keine Ansparzeit.';}
+      else{const r2=r.rest/fvF(ny,r.ri,r.d);$('rl-wRate').textContent=fE(r2);$('rl-wDiff').innerHTML='<b>+'+fE(r2-r.rate)+'</b> pro Monat (+'+Math.round((r2/r.rate-1)*100)+' %) gegenüber einem Start heute.';}
+      const off=comp(Object.assign({},st,{inflOn:false})), on=comp(Object.assign({},st,{inflOn:true}));
+      $('rl-inflCard').classList.toggle('on',st.inflOn);
+      $('rl-inflBtn').textContent=st.inflOn?'↩ Inflation ausschalten':'Inflation einschalten';
+      $('rl-inflTitle').textContent=st.inflOn?'So sieht es mit '+fP(st.infl)+' Inflation aus':'Bisher alles nach heutiger Kaufkraft';
+      $('rl-inflText').textContent=st.inflOn?'In '+r.yrs+' Jahren kostet dein heutiger Lebensstandard deutlich mehr – das ist die ehrliche Rechnung.':'Aber was sind '+fE(off.wishToday)+' in '+off.yrs+' Jahren noch wert? Schalte die Inflation ein und sieh, was sie mit deiner Lücke macht.';
+      $('rl-cmp').hidden=!st.inflOn;
+      $('rl-cWish').innerHTML=fE(off.wishF)+' →<b>'+fE(on.wishF)+'</b>'; $('rl-cGap').innerHTML=fE(off.gap)+' →<b>'+fE(on.gap)+'</b>'; $('rl-cRate').innerHTML=fE(off.rate)+' →<b>'+fE(on.rate)+'</b>';
+      chart(r);
+      waOverride=r.gap>0.5
+        ?'Hallo Sascha, laut deinem Rentenlücken-Rechner fehlen mir '+fE(r.gap)+' im Monat ('+(st.inflOn?'inkl. '+fP(st.infl)+' Inflation':'nach heutiger Kaufkraft')+'). Bei '+fP(st.zins)+' Rendite wären das '+fE(r.rate)+' Sparrate im Monat. Ich würde das gerne besprechen!'
+        :'Hallo Sascha, ich habe deinen Rentenlücken-Rechner genutzt und möchte mein Ergebnis besprechen.';
+      if(cur==='rente') setCta(topics.find(x=>x.dataset.topic==='rente'));
+      if(!raf&&cur==='rente') raf=requestAnimationFrame(tick);
+    }
+    function chart(r){
+      const cv=$('rl-chart'), W=cv.clientWidth, H=cv.clientHeight; if(!W) return;
+      const dpr=window.devicePixelRatio||1; cv.width=W*dpr; cv.height=H*dpr; const c=cv.getContext('2d'); c.scale(dpr,dpr);
+      const pts=[]; let b=st.cap; pts.push([st.age,b]);
+      for(let y=0;y<r.yrs;y++){for(let k=0;k<12;k++) b=(b+r.rate*Math.pow(1+r.d,y))*(1+r.ri); pts.push([st.age+y+1,b]);}
+      const start=b;
+      for(let y=0;y<r.pay;y++){for(let k=0;k<12;k++) b=(b-r.gap*Math.pow(1+r.inf,y))*(1+r.rw); pts.push([st.rb+y+1,Math.max(0,b)]);}
+      const mx=Math.max(...pts.map(p=>p[1]),1)*1.15, L=50,R=10,T=14,B=26, x0=st.age, x1=st.le;
+      const X=a=>L+(a-x0)/(x1-x0)*(W-L-R), Y=v=>T+(1-v/mx)*(H-T-B);
+      c.font='700 10.5px Manrope,sans-serif'; c.fillStyle='#7189A3'; c.strokeStyle='rgba(150,200,235,.12)';
+      for(let i=0;i<=4;i++){const v=mx/4*i,yy=Y(v);c.beginPath();c.moveTo(L,yy);c.lineTo(W-R,yy);c.stroke();c.textAlign='right';c.fillText(v>=1e6?(v/1e6).toLocaleString('de-DE',{maximumFractionDigits:1})+' Mio':Math.round(v/1000)+' T',L-7,yy+4);}
+      c.textAlign='center'; const sx=(x1-x0)>40?10:5; for(let a=Math.ceil(x0/sx)*sx;a<=x1;a+=sx) c.fillText(a,X(a),H-7);
+      const area=(arr,c1,c2,ln)=>{const g=c.createLinearGradient(0,T,0,H-B);g.addColorStop(0,c1);g.addColorStop(1,c2);
+        c.beginPath();c.moveTo(X(arr[0][0]),Y(0));arr.forEach(p=>c.lineTo(X(p[0]),Y(p[1])));c.lineTo(X(arr[arr.length-1][0]),Y(0));c.closePath();c.fillStyle=g;c.fill();
+        c.beginPath();arr.forEach((p,i)=>i?c.lineTo(X(p[0]),Y(p[1])):c.moveTo(X(p[0]),Y(p[1])));c.strokeStyle=ln;c.lineWidth=2.5;c.stroke();};
+      area(pts.filter(p=>p[0]<=st.rb),'rgba(53,175,203,.38)','rgba(53,175,203,.02)','#35AFCB');
+      area(pts.filter(p=>p[0]>=st.rb),'rgba(108,142,240,.32)','rgba(108,142,240,.02)','#6C8EF0');
+      const px=X(st.rb), py=Y(start);
+      c.setLineDash([4,4]);c.strokeStyle='rgba(150,200,235,.35)';c.lineWidth=1;c.beginPath();c.moveTo(px,T);c.lineTo(px,H-B);c.stroke();c.setLineDash([]);
+      c.beginPath();c.arc(px,py,5,0,Math.PI*2);c.fillStyle='#06121F';c.fill();c.lineWidth=3;c.strokeStyle='#7FD3E6';c.stroke();
+      const lb='Rentenbeginn: '+fK(start); c.font='800 11.5px Manrope,sans-serif'; const tw=c.measureText(lb).width+16;
+      const lx=Math.min(Math.max(px-tw/2,L),W-R-tw), ly=Math.max(T,py-32);
+      c.fillStyle='#EEF5FB'; c.beginPath(); c.roundRect?c.roundRect(lx,ly,tw,21,7):c.rect(lx,ly,tw,21); c.fill(); c.fillStyle='#04121E'; c.textAlign='left'; c.fillText(lb,lx+8,ly+14.5);
+    }
+    return function(){ if(!built){build();sync();} calc(); requestAnimationFrame(()=>calc()); };
   }
-  document.querySelectorAll('.rate-pick button').forEach(btn=>btn.addEventListener('click',()=>{
-    rrRate=parseFloat(btn.dataset.rate);
-    document.querySelectorAll('.rate-pick button').forEach(x=>{const on=x===btn;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false');});
-    rente();
-  }));
-  ['rr-alter','rr-rentenalter','rr-gehalt','rr-wunsch','rr-infl'].forEach(id=>$(id).addEventListener('input',rente));
-  $('rr-form').addEventListener('submit',e=>e.preventDefault());
+  var RLrun=null;
+  function rente(){ if(!RLrun) RLrun=makeRL(); RLrun(); }
 
   // BU-Check-up
   function buCheck(){
