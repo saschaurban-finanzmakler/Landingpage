@@ -574,6 +574,54 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .kv-perk[open] .kv-ch{transform:rotate(180deg)}
 .kv-perk p{padding:0 14px 14px 64px;font-size:.82rem;color:var(--ink-2);line-height:1.5}
 @media (max-width:560px){.kv-miles{grid-template-columns:1fr}.kv-m{flex-direction:row;align-items:center}.kv-perks{grid-template-columns:1fr}}
+/* ===== BU ===== */
+.bx{display:flex;flex-direction:column;gap:14px}
+.bx-hero{position:relative;overflow:hidden;text-align:center;padding:24px 18px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,#145A72 0%,#0D2B4E 55%,#0A1C31 100%)}
+.bx-hero:before{content:"";position:absolute;inset:auto -20% -60% -20%;height:120%;background:radial-gradient(closest-side,rgba(53,175,203,.35),transparent);pointer-events:none}
+.bx-k{position:relative;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.bx-v{position:relative;font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:-.03em;line-height:1.05;margin-top:6px;background:linear-gradient(90deg,#EEF5FB,#7FD3E6);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.bx-s{position:relative;font-size:.8rem;color:var(--ink-2);margin-top:8px}
+.bx-ctrl{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:16px}
+.bx-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.bx-row label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.bx-row output{font-weight:800;font-size:.9rem;color:var(--teal-2);background:rgba(53,175,203,.1);border:1px solid rgba(53,175,203,.25);padding:2px 9px;border-radius:8px;white-space:nowrap}
+.bx input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--teal) var(--p,50%),rgba(150,200,235,.18) var(--p,50%));outline:none;cursor:pointer;margin:4px 0 2px}
+.bx input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ink);border:3px solid var(--teal);box-shadow:0 0 14px -2px var(--teal)}
+.bx input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--teal)}
+.bx-card{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:16px}
+.bx-card h3{font-size:1rem;margin-bottom:12px}
+.bx-bars{display:flex;flex-direction:column;gap:12px}
+.bx-l{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:baseline}
+.bx-l span{font-size:.8rem;color:var(--ink-2)}
+.bx-l b{font-family:var(--f-display);font-size:1rem;font-variant-numeric:tabular-nums}
+.bx-l i{grid-column:1/3;display:block;height:10px;border-radius:99px;background:rgba(150,200,235,.1);overflow:hidden}
+.bx-l em{display:block;height:100%;border-radius:99px;transition:width .5s}
+.c-net{background:linear-gradient(90deg,#3A86D6,#5E9FE6)} .c-bu{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+.c-em{background:linear-gradient(90deg,#E8594A,var(--bad))} .c-em2{background:linear-gradient(90deg,#B8473C,#E8594A)}
+.bx-gap{margin-top:14px;font-size:.85rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;border-left:3px solid var(--bad);background:rgba(255,122,107,.07)}
+.bx-gap b,.bx-hint b{color:var(--ink)}
+.bx-hint{font-size:.72rem;color:var(--ink-3);line-height:1.45;margin-top:10px}
+.bx-score{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:var(--bg-2);border:1px solid var(--line)}
+.bx-ring{width:52px;height:52px;flex-shrink:0;transform:rotate(-90deg)}
+.bx-ring circle{fill:none;stroke-width:5}
+.bx-ring .bg{stroke:rgba(150,200,235,.14)}
+.bx-ring .fg{stroke:var(--bad);stroke-linecap:round;transition:stroke-dashoffset .5s,stroke .3s}
+.bx-score[data-lvl=mid] .fg{stroke:#FFB547} .bx-score[data-lvl=good] .fg{stroke:var(--good)}
+.bx-score b{display:block;font-family:var(--f-display);font-size:1.15rem}
+.bx-score span{font-size:.8rem;color:var(--ink-2)}
+.bx-bs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bx-b{display:flex;align-items:flex-start;gap:12px;text-align:left;padding:14px;border-radius:16px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s;font:inherit}
+.bx-b:hover{border-color:var(--line-2)}
+.bx-bi{width:38px;height:38px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:rgba(53,175,203,.12);color:var(--teal-2)}
+.bx-bi svg{width:19px;height:19px}
+.bx-bt{flex:1;min-width:0}
+.bx-bt b{display:block;font-size:.86rem;line-height:1.3}
+.bx-bt small{display:block;font-size:.76rem;color:var(--ink-3);line-height:1.45;margin-top:4px}
+.bx-tick{width:26px;height:26px;flex-shrink:0;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;color:transparent;transition:.2s}
+.bx-tick svg{width:14px;height:14px}
+.bx-b[aria-pressed=true]{border-color:rgba(63,211,154,.5);background:linear-gradient(135deg,rgba(63,211,154,.08),var(--bg-2))}
+.bx-b[aria-pressed=true] .bx-tick{background:var(--good);border-color:var(--good);color:#04121E}
+@media (max-width:560px){.bx-bs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -704,19 +752,39 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 
       <section class="topic" data-topic="bu" hidden data-wa="Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen." data-cta="Stimmt bei dir alles? Wir prüfen jeden Baustein." data-btn="BU prüfen lassen">
         <div class="t-head"><span class="chip" style="--c:#35AFCB">Absichern</span><h2>Bist du richtig abgesichert?</h2></div>
-        <p class="t-intro">Eine gute BU ist wie viele Zahnräder, die ineinandergreifen. Fehlt eines, stimmt das ganze System nicht.</p>
+        <p class="t-intro">Deine Arbeitskraft ist dein größtes Vermögen. Rechne aus, was auf dem Spiel steht und was der Staat wirklich zahlt.</p>
+        <div class="bx" aria-live="polite">
+          <div class="bx-hero">
+            <div class="bx-k">Deine Arbeitskraft bis 67</div>
+            <div class="bx-v" id="bx-life">–</div>
+            <div class="bx-s">So viel Netto-Einkommen steht auf dem Spiel, ohne Gehaltserhöhungen.</div>
+          </div>
+          <div class="bx-ctrl">
+            <div class="bx-f"><div class="bx-row"><label for="bx-age">Dein Alter</label><output id="bx-ageO"></output></div><input type="range" id="bx-age" min="18" max="60" step="1" value="30"></div>
+            <div class="bx-f"><div class="bx-row"><label for="bx-net">Netto pro Monat</label><output id="bx-netO"></output></div><input type="range" id="bx-net" min="1000" max="6000" step="50" value="2500"></div>
+            <div class="bx-f"><div class="bx-row"><label for="bx-gross">Brutto pro Monat</label><output id="bx-grossO"></output></div><input type="range" id="bx-gross" min="1500" max="10000" step="100" value="3800"></div>
+          </div>
+          <div class="bx-card">
+            <h3>Wenn du nicht mehr arbeiten kannst</h3>
+            <div class="bx-bars">
+              <div class="bx-l"><span>Dein Netto heute</span><b id="bx-vNet">–</b><i><em id="bx-bNet" class="c-net"></em></i></div>
+              <div class="bx-l"><span>Empfohlene BU-Rente (80 %)</span><b id="bx-vBu">–</b><i><em id="bx-bBu" class="c-bu"></em></i></div>
+              <div class="bx-l"><span>Staat: volle Erwerbsminderungsrente</span><b id="bx-vEm">–</b><i><em id="bx-bEm" class="c-em"></em></i></div>
+              <div class="bx-l"><span>Staat: teilweise Erwerbsminderungsrente</span><b id="bx-vEm2">–</b><i><em id="bx-bEm2" class="c-em2"></em></i></div>
+            </div>
+            <div class="bx-gap" id="bx-gap"></div>
+            <div class="bx-hint">Volle Erwerbsminderungsrente gibt es nur, wenn du <b>weniger als 3 Stunden täglich irgendeinen Job</b> machen kannst – egal welchen. Dein Beruf zählt dabei nicht.</div>
+          </div>
+        </div>
         <a class="reel" href="https://www.instagram.com/reel/DUyYLBoiO7F/?igsh=cHRuZGRiYXliYndm" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur BU <small>Instagram</small></a>
         <div class="lbl-s">Die 6 Bausteine einer guten BU</div>
-        <div class="subs">
-          <details class="sub"><summary>Endalter bis 67<svg><use href="#i-chev"/></svg></summary><p>Viele günstige Tarife enden mit 60 oder 63. Deine BU muss bis 67 laufen.</p></details>
-          <details class="sub"><summary>Richtige Versicherungssumme<svg><use href="#i-chev"/></svg></summary><p>Mindestens 70–80 % deines Nettoeinkommens, orientiert an Beruf und Lebensstil.</p></details>
-          <details class="sub"><summary>AU-Klausel<svg><use href="#i-chev"/></svg></summary><p>Leistung schon bei längerer Krankschreibung, ohne dass zuerst BU festgestellt werden muss.</p></details>
-          <details class="sub"><summary>Dynamik<svg><use href="#i-chev"/></svg></summary><p>Deine BU-Rente sollte mit der Inflation mitwachsen. Sonst verliert sie Jahr für Jahr an Wert.</p></details>
-          <details class="sub"><summary>Keine abstrakte Verweisung<svg><use href="#i-chev"/></svg></summary><p>Gute Tarife verzichten darauf: Du bist in deinem zuletzt ausgeübten Beruf geschützt.</p></details>
-          <details class="sub"><summary>Nachversicherungsgarantie<svg><use href="#i-chev"/></svg></summary><p>Heirat, Kinder, Gehaltssprung: Schutz ohne erneute Gesundheitsprüfung anpassen.</p></details>
+        <div class="bx-score">
+          <svg viewBox="0 0 44 44" class="bx-ring"><circle cx="22" cy="22" r="18" class="bg"/><circle cx="22" cy="22" r="18" class="fg" id="bx-ring"/></svg>
+          <div><b id="bx-scoreT">0 von 6</b><span id="bx-scoreS">Tippe an, was dein Vertrag schon hat.</span></div>
         </div>
+        <div class="bx-bs" id="bx-bs"><button type="button" class="bx-b" data-b="end" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-cal"/></svg></span><span class="bx-bt"><b>Endalter bis 67</b><small>Viele günstige Tarife enden mit 60 oder 63. Deine BU muss bis 67 laufen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="sum" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-grid"/></svg></span><span class="bx-bt"><b>Richtige Versicherungssumme</b><small>Mindestens 70–80 % deines Nettoeinkommens, orientiert an Beruf und Lebensstil.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="au" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-heart"/></svg></span><span class="bx-bt"><b>AU-Klausel</b><small>Leistung schon bei längerer Krankschreibung, ohne dass zuerst BU festgestellt werden muss.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="dyn" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-trend"/></svg></span><span class="bx-bt"><b>Dynamik</b><small>Deine BU-Rente wächst mit der Inflation mit, statt Jahr für Jahr an Wert zu verlieren.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="verw" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-shield"/></svg></span><span class="bx-bt"><b>Keine abstrakte Verweisung</b><small>Du bist in deinem zuletzt ausgeübten Beruf geschützt und wirst nicht auf andere Jobs verwiesen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="nach" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-way"/></svg></span><span class="bx-bt"><b>Nachversicherungsgarantie</b><small>Heirat, Kinder, Gehaltssprung: Schutz ohne erneute Gesundheitsprüfung anpassen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button></div>
         <div class="lbl-s">Dein BU-Check-up</div>
-        <p class="t-intro">Trage hier deine Eckdaten für einen Check-up deiner BU ein:</p>
+        <p class="t-intro">Trag deine Eckdaten ein. Ich prüfe deinen Vertrag Baustein für Baustein und melde mich persönlich.</p>
         <div class="tool">
           <form class="form" id="bu-form">
             <div><label for="bu-geb">Geburtsdatum</label><input id="bu-geb" type="date" autocomplete="bday" min="1950-01-01" max="2010-12-31"></div>
@@ -726,7 +794,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
             <div><label for="bu-rente">BU-Rente / Monat (€)</label><input id="bu-rente" type="number" inputmode="numeric" placeholder="1500" step="50"></div>
             <div><label for="bu-au">AU-Klausel?</label><select id="bu-au" class="av-sel"><option value="">bitte wählen</option><option>Ja</option><option>Nein</option><option>Weiß nicht</option></select></div>
           </form>
-          <p class="b-note">Deine Angaben werden nicht gespeichert. Sie landen erst bei mir, wenn du unten auf „BU prüfen lassen“ tippst und die WhatsApp-Nachricht abschickst.</p>
+          <p class="b-note">Erwerbsminderungsrente grob geschätzt (Entgeltpunkte bis 67 ab Berufsstart mit 20, 10,8 % Abschlag, Abzug Kranken-/Pflegeversicherung), keine Steuern berücksichtigt – deine Renteninformation ist genauer. Deine Angaben werden nicht gespeichert. Sie landen erst bei mir, wenn du unten auf „BU prüfen lassen“ tippst und die WhatsApp-Nachricht abschickst.</p>
         </div>
       </section>
 
@@ -1493,9 +1561,41 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     if(v('bu-ende')) parts.push('Vertrag läuft bis Alter '+v('bu-ende'));
     if(v('bu-rente')) parts.push('BU-Rente: '+fmt(parseFloat(v('bu-rente')))+'/Monat');
     if(v('bu-au')) parts.push('AU-Klausel: '+v('bu-au'));
-    waOverride=parts.length?'Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen. Meine Eckdaten: '+parts.join(', ')+'.':null;
+    const on=[...document.querySelectorAll('.bx-b[aria-pressed="true"] b')].map(x=>x.textContent), off=[...document.querySelectorAll('.bx-b[aria-pressed="false"] b')].map(x=>x.textContent);
+    let extra=''; if(on.length) extra=' Mein Vertrag hat laut mir: '+on.join(', ')+'. Fehlt oder unklar: '+(off.length?off.join(', '):'nichts')+'.';
+    waOverride=(parts.length||on.length)?'Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen.'+(parts.length?' Meine Eckdaten: '+parts.join(', ')+'.':'')+extra:null;
     if(cur==='bu') setCta(topics.find(x=>x.dataset.topic==='bu'));
   }
+  (function(){
+    const fE=v=>Math.round(v).toLocaleString('de-DE')+' €';
+    const paint=i=>i.style.setProperty('--p',((i.value-i.min)/(i.max-i.min)*100)+'%');
+    const RW=42.52, DE=51944, BBG=101400;
+    function tw(el,to){const from=parseFloat(el.dataset.v||0);el.dataset.v=to;if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(to-from)<1){el.textContent=fE(to);return;}
+      const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/700),e=1-Math.pow(1-k,3);el.textContent=fE(from+(to-from)*e);if(k<1)requestAnimationFrame(f);})(t0);}
+    function calc(){
+      const age=+$('bx-age').value, net=+$('bx-net').value, gross=+$('bx-gross').value;
+      ['bx-age','bx-net','bx-gross'].forEach(id=>paint($(id)));
+      $('bx-ageO').textContent=age+' J.'; $('bx-netO').textContent=fE(net); $('bx-grossO').textContent=fE(gross);
+      tw($('bx-life'),net*12*Math.max(0,67-age));
+      // EM-Rente grob: Entgeltpunkte inkl. Zurechnungszeit bis 67 ab Berufsstart 20, 10,8 % Abschlag, ca. 11,5 % KV/PV
+      const em=Math.min(gross*12,BBG)/DE*47*RW*(1-0.108)*(1-0.115), em2=em/2, bu=net*0.8, mx=Math.max(net,1);
+      const set=(k,v)=>{$('bx-v'+k).textContent=fE(v);$('bx-b'+k).style.width=Math.min(100,v/mx*100)+'%';};
+      set('Net',net); set('Bu',bu); set('Em',em); set('Em2',em2);
+      const gap=Math.max(0,net-em);
+      $('bx-gap').innerHTML=gap>0?'Selbst im besten Fall fehlen dir ohne BU <b>'+fE(gap)+'</b> im Monat – bei teilweiser Erwerbsminderung sogar <b>'+fE(net-em2)+'</b>.':'Die Erwerbsminderungsrente würde dein Netto decken – das ist sehr selten.';
+    }
+    ['bx-age','bx-net','bx-gross'].forEach(id=>$(id).addEventListener('input',calc));
+    function score(){
+      const n=document.querySelectorAll('.bx-b[aria-pressed="true"]').length, c=2*Math.PI*18;
+      $('bx-ring').style.strokeDasharray=c; $('bx-ring').style.strokeDashoffset=c*(1-n/6);
+      $('bx-scoreT').textContent=n+' von 6';
+      $('bx-scoreS').textContent=n===0?'Tippe an, was dein Vertrag schon hat.':n===6?'Stark! Lass uns trotzdem prüfen, ob die Details passen.':n>=4?'Gute Basis – '+(6-n)+' Baustein'+(6-n>1?'e fehlen':' fehlt')+' noch.':'Hier lohnt sich ein Check: '+(6-n)+' Bausteine fehlen oder sind unklar.';
+      $('bx-scoreT').parentElement.parentElement.dataset.lvl=n>=5?'good':n>=3?'mid':'low';
+      buCheck();
+    }
+    document.querySelectorAll('.bx-b').forEach(b=>b.addEventListener('click',()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');score();}));
+    calc(); score();
+  })();
   ['bu-geb','bu-beruf','bu-brutto','bu-ende','bu-rente','bu-au'].forEach(id=>{$(id).addEventListener('input',buCheck);$(id).addEventListener('change',buCheck);});
   $('bu-form').addEventListener('submit',e=>e.preventDefault());
 
