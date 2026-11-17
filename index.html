@@ -185,7 +185,9 @@ dialog.sheet{border:1px solid var(--line-2);padding:0;margin:auto auto 0;width:m
 dialog.sheet::backdrop{background:rgba(3,10,18,.7);backdrop-filter:blur(6px)}
 dialog.sheet[open]{animation:up .4s cubic-bezier(.2,.8,.2,1)}
 @keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
-.sheet-in{display:flex;flex-direction:column;max-height:inherit;height:100%}
+.sheet-in{display:flex;flex-direction:column;max-height:92svh;max-height:92vh;max-height:92svh}
+@media(min-width:760px){.sheet-in{max-height:88vh;max-height:88svh}}
+dialog.sheet{height:auto}
 .sheet-bar,.sheet-cta{flex-shrink:0}
 .sheet-body{flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch}
 .sheet-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
