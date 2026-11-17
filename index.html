@@ -482,6 +482,9 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .rl-seg button{border:0;background:none;color:var(--ink-3);font-weight:800;font-size:.85rem;padding:9px;border-radius:9px;cursor:pointer}
 .rl-seg button.on{background:var(--teal);color:#04121E}
 .rl-sum{display:flex;justify-content:space-between;font-weight:800;font-size:.9rem;padding:10px 12px;border-radius:12px;background:rgba(53,175,203,.1);border:1px solid rgba(53,175,203,.25)}
+.rl-estbox{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:-4px 0 16px;padding:10px 12px;border-radius:12px;background:rgba(53,175,203,.1);border:1px solid rgba(53,175,203,.25);font-size:.8rem;color:var(--ink-2)}
+.rl-estbox b{font-family:var(--f-display);font-size:1.05rem;color:var(--teal-2)}
+#rl-pSeg button{font-size:.78rem}
 .rl-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .rl-kpi{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:14px}
 .rl-kpi .k{font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
@@ -524,6 +527,53 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 }
 @media (prefers-reduced-motion:reduce){.rl-ibtn{animation:none}}
 
+/* ===== Kinder-Rechner ===== */
+.kv{display:flex;flex-direction:column;gap:14px}
+.kv-hero{position:relative;overflow:hidden;text-align:center;padding:24px 18px 20px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,#24407E 0%,#13284F 55%,#0A1C31 100%)}
+.kv-hero:before{content:"";position:absolute;inset:auto -20% -60% -20%;height:120%;background:radial-gradient(closest-side,rgba(108,142,240,.35),transparent);pointer-events:none}
+.kv-k{position:relative;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.kv-v{position:relative;font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:-.03em;line-height:1.05;margin-top:6px;background:linear-gradient(90deg,#EEF5FB,#A9C2FF);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.kv-s{position:relative;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:.8rem;color:var(--ink-2)}
+.kv-s b{color:var(--ink)} .kv-s i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+.kv-s .d1,.kv-bar #kv-bPaid{background:#3A86D6} .kv-s .d2,.kv-bar #kv-bGain{background:#6C8EF0}
+.kv-s .d2{background:linear-gradient(90deg,#6C8EF0,#A9C2FF)}
+.kv-bar{position:relative;display:flex;height:10px;border-radius:99px;overflow:hidden;background:rgba(150,200,235,.12);margin:14px auto 0;max-width:420px}
+.kv-bar div{height:100%;transition:width .5s}
+.kv-bar #kv-bGain{background:linear-gradient(90deg,#6C8EF0,#A9C2FF)}
+.kv-ctrl{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:16px}
+.kv-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.kv-row label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.kv-row output{font-weight:800;font-size:.9rem;color:#A9C2FF;background:rgba(108,142,240,.12);border:1px solid rgba(108,142,240,.3);padding:2px 9px;border-radius:8px;white-space:nowrap}
+.kv-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.kv-chips button{border:1px solid var(--line-2);background:transparent;color:var(--ink-2);font-weight:800;font-size:.8rem;padding:7px 12px;border-radius:999px;cursor:pointer;transition:.15s}
+.kv-chips button:hover{border-color:#6C8EF0;color:var(--ink)}
+.kv-chips button.on{background:#6C8EF0;border-color:#6C8EF0;color:#04121E}
+.kv input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#6C8EF0 var(--p,50%),rgba(150,200,235,.18) var(--p,50%));outline:none;cursor:pointer;margin:6px 0 2px}
+.kv input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ink);border:3px solid #6C8EF0;box-shadow:0 0 14px -2px #6C8EF0}
+.kv input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid #6C8EF0}
+.kv-hint{font-size:.72rem;color:var(--ink-3);line-height:1.45}
+.kv-miles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative}
+.kv-m{display:flex;flex-direction:column;gap:10px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.kv-age{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;color:#04121E;background:linear-gradient(135deg,#6C8EF0,#A9C2FF);box-shadow:0 0 20px -6px #6C8EF0}
+.kv-m b{display:block;font-size:.8rem;color:var(--ink-2);line-height:1.3}
+.kv-m em{display:block;font-style:normal;font-family:var(--f-display);font-weight:800;font-size:1.25rem;margin-top:4px;font-variant-numeric:tabular-nums}
+.kv-m.gold{border-color:rgba(255,200,107,.45);background:linear-gradient(180deg,rgba(255,200,107,.08),var(--bg-2))}
+.kv-m.gold .kv-age{background:linear-gradient(135deg,#FFB547,#FFE0A3);box-shadow:0 0 20px -6px #FFB547}
+.kv-m.gold em{color:#FFD58A}
+.kv-wait{font-size:.85rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;border-left:3px solid var(--bad);background:rgba(255,122,107,.07)}
+.kv-wait b{color:var(--ink)}
+.kv-perks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kv-perk{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:0;transition:border-color .2s}
+.kv-perk[open]{border-color:rgba(108,142,240,.5)}
+.kv-perk summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}
+.kv-perk summary::-webkit-details-marker{display:none}
+.kv-pi{width:38px;height:38px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:rgba(108,142,240,.14);color:#A9C2FF}
+.kv-pi svg{width:19px;height:19px}
+.kv-perk b{flex:1;font-size:.86rem;line-height:1.3}
+.kv-ch{width:16px;height:16px;flex-shrink:0;color:var(--ink-3);transition:transform .2s}
+.kv-perk[open] .kv-ch{transform:rotate(180deg)}
+.kv-perk p{padding:0 14px 14px 64px;font-size:.82rem;color:var(--ink-2);line-height:1.5}
+@media (max-width:560px){.kv-miles{grid-template-columns:1fr}.kv-m{flex-direction:row;align-items:center}.kv-perks{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -737,7 +787,13 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
               <div class="rl-sum" id="rl-expSum" hidden><span>Summe Ausgaben</span><span id="rl-expSumV"></span></div>
               <div class="rl-hint">Beträge in heutiger Kaufkraft.</div>
             </div>
-            <div class="rl-pane" id="rl-p3"><div id="rl-s-rente"></div></div>
+            <div class="rl-pane" id="rl-p3">
+              <div class="rl-field"><label>Gesetzliche Rente</label>
+                <div class="rl-seg" id="rl-pSeg" style="margin:0"><button type="button" data-p="info" class="on">Laut Renteninformation</button><button type="button" data-p="est">Weiß ich nicht</button></div></div>
+              <div id="rl-s-est" hidden></div>
+              <div class="rl-estbox" id="rl-estBox" hidden><span>Geschätzte Rente brutto (heute)</span><b id="rl-estV">–</b></div>
+              <div id="rl-s-rente"></div>
+            </div>
             <div class="rl-pane" id="rl-p4">
               <div class="rl-field"><label for="rl-strat">Anlagestrategie</label>
                 <select id="rl-strat" class="av-sel">
@@ -798,7 +854,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
             </div>
           </div>
 
-          <p class="b-note">Modellrechnung, keine Garantie und keine Anlageberatung. Standardmäßig nach heutiger Kaufkraft ohne Inflation und ohne Rentenanpassung gerechnet; per Button wird die Inflation zugeschaltet – dann steigen Wunschrente, Rente (mit der Rentenanpassung) und die Auszahlung im Alter jährlich mit. Konstante Rendite, Einzahlung monatlich, Sparrate steigt jährlich um die Dynamik, Kapital ist zum Ende der Lebenserwartung aufgebraucht. Abzüge für Steuer und Kranken-/Pflegeversicherung pauschal. Kosten und Steuern auf Erträge nicht separat berücksichtigt.</p>
+          <p class="b-note">Modellrechnung, keine Garantie und keine Anlageberatung. Standardmäßig nach heutiger Kaufkraft ohne Inflation und ohne Rentenanpassung gerechnet; per Button wird die Inflation zugeschaltet – dann steigen Wunschrente, Rente (mit der Rentenanpassung) und die Auszahlung im Alter jährlich mit. Konstante Rendite, Einzahlung monatlich, Sparrate steigt jährlich um die Dynamik, Kapital ist zum Ende der Lebenserwartung aufgebraucht. Abzüge für Steuer und Kranken-/Pflegeversicherung pauschal. Bei „Weiß ich nicht“ wird die Rente grob über Entgeltpunkte geschätzt (Durchschnittsentgelt 2026 vorläufig 51.944 €, Rentenwert 42,52 €, durchgehende Beschäftigung ab Berufsstart) – die Renteninformation ist genauer. Kosten und Steuern auf Erträge nicht separat berücksichtigt.</p>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DYuxgYsuEX9/?igsh=MXB5ZzB0dm9xbWo3aQ==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Rentenlücke <small>Instagram</small></a>
       </section>
@@ -929,15 +985,46 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 
       <section class="topic" data-topic="kinder" hidden data-wa="Hallo Sascha, ich möchte das Thema Kindervorsorge besprechen." data-cta="Je früher du anfängst, desto mehr arbeitet der Zinseszins für dein Kind." data-btn="Kindervorsorge besprechen">
         <div class="t-head"><span class="chip" style="--c:#6C8EF0">Kinder</span><h2>Der beste Start ins Leben. Schon heute.</h2></div>
-        <div class="miles"><div>Führerschein</div><div>Studium</div><div>Erste Wohnung</div></div>
-        <p class="t-intro">Diese Meilensteine kosten Geld. Wir legen heute den Grundstein, damit dein Kind morgen frei starten kann.</p>
+        <p class="t-intro">Führerschein, Ausbildung, erste Wohnung: Mit einem kleinen Betrag ab heute legst du den Grundstein, damit dein Kind später frei starten kann.</p>
+        <div class="kv" aria-live="polite">
+          <div class="kv-hero">
+            <div class="kv-k">Mit 18 hat dein Kind</div>
+            <div class="kv-v" id="kv-v18">–</div>
+            <div class="kv-s"><span><i class="d1"></i>eingezahlt <b id="kv-paid">–</b></span><span><i class="d2"></i>Erträge <b id="kv-gain">–</b></span></div>
+            <div class="kv-bar"><div id="kv-bPaid"></div><div id="kv-bGain"></div></div>
+          </div>
+          <div class="kv-ctrl">
+            <div class="kv-f">
+              <div class="kv-row"><label for="kv-amt">Sparbetrag pro Monat</label><output id="kv-amtO"></output></div>
+              <div class="kv-chips" id="kv-amtChips"><button type="button" data-a="25">25 €</button><button type="button" data-a="50">50 €</button><button type="button" data-a="100">100 €</button><button type="button" data-a="259">Kindergeld · 259 €</button></div>
+              <input type="range" id="kv-amt" min="10" max="300" step="5" value="50">
+              <div class="kv-hint" id="kv-kg"></div>
+            </div>
+            <div class="kv-f">
+              <div class="kv-row"><label for="kv-age">Alter deines Kindes</label><output id="kv-ageO"></output></div>
+              <input type="range" id="kv-age" min="0" max="17" step="1" value="0">
+            </div>
+            <div class="kv-f">
+              <div class="kv-row"><label>Angenommene Rendite p.&nbsp;a.</label></div>
+              <div class="kv-chips" id="kv-rChips"><button type="button" data-r="5">5 %</button><button type="button" data-r="6" class="on">6 %</button><button type="button" data-r="7">7 %</button></div>
+            </div>
+          </div>
+          <div class="kv-miles">
+            <div class="kv-m"><span class="kv-age">18</span><div><b>Führerschein &amp; erstes Auto</b><em id="kv-m18">–</em></div></div>
+            <div class="kv-m"><span class="kv-age">25</span><div><b>Studium &amp; erste Wohnung</b><em id="kv-m25">–</em></div></div>
+            <div class="kv-m gold"><span class="kv-age">67</span><div><b>Rente fürs Kind</b><em id="kv-m67">–</em></div></div>
+          </div>
+          <div class="kv-hint" style="margin-top:-4px">Einzahlung bis 18, danach bleibt das Geld angelegt.</div>
+          <div class="kv-wait" id="kv-wait"></div>
+          <p class="b-note">Beispielrechnung mit konstanter Rendite, monatlicher Einzahlung bis zum 18. Geburtstag, ohne Kosten und Steuern. Renditen schwanken, die Werte sind keine Garantie. Kindergeld 2026: 259 € pro Monat.</p>
+        </div>
         <a class="reel" href="https://www.instagram.com/reel/DT_A99HiBZ_/?igsh=emFqcDVveDd2bnFt" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Kindervorsorge <small>Instagram</small></a>
         <div class="lbl-s">So holen wir das Maximum heraus</div>
-        <div class="subs">
-          <details class="sub"><summary>Eigene Börsenabteilung<svg><use href="#i-chev"/></svg></summary><p>Wir verwalten das Vermögen deines Kindes proaktiv über eine eigene Börsenabteilung, mit aktiver Betreuung.</p></details>
-          <details class="sub"><summary>BU-Option: Gesundheit einfrieren<svg><use href="#i-chev"/></svg></summary><p>Wir frieren den Gesundheitszustand deines Kindes heute ein. Später kann es eine BU ohne erneute Gesundheitsfragen abschließen.</p></details>
-          <details class="sub"><summary>ETF-Police<svg><use href="#i-chev"/></svg></summary><p>Kostenoptimiert, transparent und mit den Renditechancen des Kapitalmarkts. Keine teuren Bankprodukte.</p></details>
-          <details class="sub"><summary>Steuerliche Hebel<svg><use href="#i-chev"/></svg></summary><p>Wir holen das Maximum für dein Kind heraus: legal, clever und langfristig gedacht.</p></details>
+        <div class="kv-perks">
+          <details class="kv-perk"><summary><span class="kv-pi"><svg><use href="#i-trend"/></svg></span><b>Eigene Börsenabteilung</b><svg class="kv-ch"><use href="#i-chev"/></svg></summary><p>Wir verwalten das Vermögen deines Kindes proaktiv über eine eigene Börsenabteilung, mit aktiver Betreuung.</p></details>
+          <details class="kv-perk"><summary><span class="kv-pi"><svg><use href="#i-shield"/></svg></span><b>BU-Option: Gesundheit einfrieren</b><svg class="kv-ch"><use href="#i-chev"/></svg></summary><p>Wir frieren den Gesundheitszustand deines Kindes heute ein. Später kann es eine BU ohne erneute Gesundheitsfragen abschließen.</p></details>
+          <details class="kv-perk"><summary><span class="kv-pi"><svg><use href="#i-grid"/></svg></span><b>ETF-Police</b><svg class="kv-ch"><use href="#i-chev"/></svg></summary><p>Kostenoptimiert, transparent und mit den Renditechancen des Kapitalmarkts. Keine teuren Bankprodukte.</p></details>
+          <details class="kv-perk"><summary><span class="kv-pi"><svg><use href="#i-award"/></svg></span><b>Steuerliche Hebel</b><svg class="kv-ch"><use href="#i-chev"/></svg></summary><p>Wir holen das Maximum für dein Kind heraus: legal, clever und langfristig gedacht.</p></details>
         </div>
       </section>
 
@@ -1029,7 +1116,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     waOverride=null; cur=id; $('cta-cal').hidden=(id==='termin');
     topics.forEach(x=>x.hidden=x!==t);
     document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id));
-    if(id==='rente') rente(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
+    if(id==='rente') rente(); else if(id==='kinder') kinder(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
     $('sheet-body').scrollTop=0;
     const tab=document.querySelector('#tabs button[data-go="'+id+'"]'); if(tab) tab.scrollIntoView({block:'nearest',inline:'center'});
     if(!sheet.open){ if(sheet.showModal) sheet.showModal(); else sheet.setAttribute('open',''); }
@@ -1186,7 +1273,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     const fP=v=>v.toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+' %';
     const fY=v=>v+' J.';
     const FM={eur:fE,pct:fP,yrs:fY,k:fK};
-    const D={age:35,rb:67,le:90,wish:3000,pension:1800,adj:2,ded:18,other:0,cap:0,zins:6,ent:2,dyn:1,infl:3,
+    const D={brutto:3500,start:20,age:35,rb:67,le:90,wish:3000,pension:1800,adj:2,ded:18,other:0,cap:0,zins:6,ent:2,dyn:1,infl:3,
       e_wohnen:1000,e_essen:600,e_frei:600,e_ges:400,e_mob:400};
     const CATS=[['e_wohnen','Wohnen'],['e_essen','Lebensmittel'],['e_frei','Freizeit & Reisen'],['e_ges','Gesundheit'],['e_mob','Mobilität']];
     const SL={
@@ -1199,6 +1286,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
         ['ded','Abzüge: Steuer + Kranken-/Pflegeversicherung',0,45,1,'pct','Brutto ist nicht netto – pauschal angesetzt.'],
         ['other','Weitere Renten im Alter (netto)',0,4000,25,'eur','z. B. Betriebsrente, Riester, Mieteinnahmen.'],
         ['cap','Bereits vorhandenes Vorsorgekapital',0,500000,1000,'k']],
+      'rl-s-est':[['brutto','Bruttogehalt pro Monat',1000,9000,100,'eur','Aktuelles Bruttogehalt, bis zum Rentenbeginn gleichbleibend angenommen (in heutigem Geld).'],['start','Berufsstart mit',16,35,1,'yrs','Ab dann zahlst du in die Rentenversicherung ein.']],
       'rl-s-ann':[['zins','Ansparzins p.a.',0,10,0.1,'pct'],['ent','Entnahmezins p.a.',0,6,0.1,'pct','Rendite in der Auszahlphase, meist vorsichtiger.'],['dyn','Dynamik der Sparrate p.a.',0,5,0.5,'pct','Jährliche Erhöhung, z. B. mit Gehaltssteigerungen.']],
       'rl-s-infl':[['infl','Inflation p.a.',0,6,0.1,'pct']]
     };
@@ -1208,7 +1296,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       selbst:{ded:20,pension:0,hint:'Ohne gesetzliche Rente: die komplette Versorgung muss privat aufgebaut werden.'},
       selbstrv:{ded:20,hint:'Rente laut Renteninformation eintragen.'}
     };
-    const st=Object.assign({mode:'wish',inflOn:false},D);
+    const st=Object.assign({mode:'wish',pmode:'info',inflOn:false},D);
     let built=false, covNow=0, covT=0, raf=0;
 
     function build(){
@@ -1225,11 +1313,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
         sync(); calc();
       }));
       document.querySelectorAll('.rl-tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t)));
+      document.querySelectorAll('#rl-pSeg button').forEach(b=>b.addEventListener('click',()=>{st.pmode=b.dataset.p;sync();calc();}));
       document.querySelectorAll('#rl-modeSeg button').forEach(b=>b.addEventListener('click',()=>{st.mode=b.dataset.m;sync();calc();}));
       document.querySelectorAll('.rl-cat').forEach(b=>b.addEventListener('click',()=>{st.mode='exp';tab('rl-p2');sync();calc();const f=$('rl-'+b.dataset.c);f.focus({preventScroll:true});f.closest('.rl-field').scrollIntoView({behavior:'smooth',block:'center'});}));
       $('rl-strat').addEventListener('change',e=>{if(e.target.value!=='custom'){st.zins=parseFloat(e.target.value);sync();calc();}});
       $('rl-inflSel').addEventListener('change',e=>{if(e.target.value!=='custom'){st.infl=parseFloat(e.target.value);sync();calc();}});
-      $('rl-status').addEventListener('change',e=>{const x=STATUS[e.target.value];st.ded=x.ded;if('pension' in x) st.pension=x.pension; else if(st.pension===0) st.pension=D.pension;$('rl-statusHint').textContent=x.hint;sync();calc();});
+      $('rl-status').addEventListener('change',e=>{const x=STATUS[e.target.value];st.ded=x.ded;if('pension' in x){st.pension=x.pension;st.pmode='info';} else if(st.pension===0) st.pension=D.pension;$('rl-statusHint').textContent=x.hint;sync();calc();});
       $('rl-statusHint').textContent=STATUS.ang.hint;
       $('rl-waitY').addEventListener('input',()=>{paint($('rl-waitY'));calc();});
       $('rl-inflBtn').addEventListener('click',()=>{st.inflOn=!st.inflOn;sync();calc(true);document.querySelector('.rl-hero').scrollIntoView({behavior:'smooth',block:'start'});});
@@ -1244,12 +1333,18 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       paint($('rl-waitY'));
       $('rl-wishBox').hidden=st.mode!=='wish'; $('rl-expBox').hidden=st.mode!=='exp'; $('rl-expSum').hidden=st.mode!=='exp';
       document.querySelectorAll('#rl-modeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.m===st.mode));
+      const est=st.pmode==='est'; $('rl-s-est').hidden=!est; $('rl-estBox').hidden=!est;
+      document.querySelectorAll('#rl-pSeg button').forEach(b=>b.classList.toggle('on',b.dataset.p===st.pmode));
+      $('rl-pension').closest('.rl-field').hidden=est;
+      $('rl-estV').textContent=fE(estP(st));
     }
+    const RW=42.52, DE=51944, BBG=101400;
+    function estP(o){return Math.min(o.brutto*12,BBG)/DE*Math.max(0,o.rb-o.start)*RW;}
     function fvF(n,ri,d){let x=0;for(let y=0;y<n;y++)for(let k=0;k<12;k++)x+=Math.pow(1+d,y)*Math.pow(1+ri,n*12-(y*12+k));return x;}
     function comp(o){
       const yrs=Math.max(1,o.rb-o.age), pay=Math.max(1,o.le-o.rb), inf=o.inflOn?o.infl/100:0;
       const expSum=CATS.reduce((a,c)=>a+o[c[0]],0), wishToday=o.mode==='wish'?o.wish:expSum;
-      const wishF=wishToday*Math.pow(1+inf,yrs), grossF=o.pension*Math.pow(1+(o.inflOn?o.adj/100:0),yrs);
+      const wishF=wishToday*Math.pow(1+inf,yrs), grossF=(o.pmode==='est'?estP(o):o.pension)*Math.pow(1+(o.inflOn?o.adj/100:0),yrs);
       const netF=grossF*(1-o.ded/100), income=netF+o.other, gap=Math.max(0,wishF-income);
       const rw=Math.pow(1+o.ent/100,1/12)-1; let need=0;
       for(let m=0;m<pay*12;m++) need+=gap*Math.pow(1+inf,Math.floor(m/12))/Math.pow(1+rw,m);
@@ -1304,7 +1399,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       $('rl-kRateS').textContent=r.d>0?'steigt jährlich um '+fP(st.dyn)+' · zuletzt '+fE(r.rate*Math.pow(1+r.d,r.yrs-1)):'konstant bis Rentenbeginn';
       $('rl-kNeed').textContent=fK(r.need); $('rl-kNeedS').textContent='für '+r.pay+' Jahre Auszahlung ab '+st.rb;
       $('rl-kGap').textContent=fE(r.gap); $('rl-kGapS').textContent='Wunsch '+fE(r.wishF)+' − Renten '+fE(r.income);
-      $('rl-kNet').textContent=fE(r.netF); $('rl-kNetS').textContent='brutto '+fE(r.grossF)+' − '+st.ded+' % Abzüge';
+      $('rl-kNet').textContent=fE(r.netF); $('rl-kNetS').textContent=(st.pmode==='est'?'geschätzt · ':'')+'brutto '+fE(r.grossF)+' − '+st.ded+' % Abzüge';
       const sav=r.rate*fvF(r.yrs,r.ri,r.d), intr=Math.max(0,sav-r.paidIn), capP=Math.min(r.fv0,r.need), tot=Math.max(1,r.paidIn+intr+capP);
       $('rl-barIn').style.width=(r.paidIn/tot*100)+'%'; $('rl-barInt').style.width=(intr/tot*100)+'%'; $('rl-barCap').style.width=(capP/tot*100)+'%';
       $('rl-rIn').textContent=fK(r.paidIn); $('rl-rInt').textContent=fK(intr); $('rl-rCap').textContent=fK(capP);
@@ -1355,6 +1450,39 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   var RLrun=null;
   function rente(){ if(!RLrun) RLrun=makeRL(); RLrun(); }
 
+  // Kinder-Rechner
+  var KVrun=null;
+  function kinder(){ if(!KVrun) KVrun=makeKV(); KVrun(); }
+  function makeKV(){
+    const fE=v=>Math.round(v).toLocaleString('de-DE')+' €';
+    const st={amt:50,age:0,r:6}; const KG=259;
+    const paint=i=>i.style.setProperty('--p',((i.value-i.min)/(i.max-i.min)*100)+'%');
+    function fv(p,age,r){const n=Math.max(0,18-age)*12, m=Math.pow(1+r/100,1/12)-1; let x=0; for(let k=0;k<n;k++) x+=p*Math.pow(1+m,n-k); return {v:x,paid:p*n};}
+    function tw(el,to){const from=parseFloat(el.dataset.v||0);el.dataset.v=to;if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(to-from)<1){el.textContent=fE(to);return;}
+      const t0=performance.now();(function st_(t){const k=Math.min(1,(t-t0)/700),e=1-Math.pow(1-k,3);el.textContent=fE(from+(to-from)*e);if(k<1)requestAnimationFrame(st_);})(t0);}
+    function calc(){
+      $('kv-amt').value=st.amt; $('kv-age').value=st.age; paint($('kv-amt')); paint($('kv-age'));
+      $('kv-amtO').textContent=fE(st.amt); $('kv-ageO').textContent=st.age===0?'Neugeboren':st.age+(st.age===1?' Jahr':' Jahre');
+      document.querySelectorAll('#kv-amtChips button').forEach(b=>b.classList.toggle('on',+b.dataset.a===st.amt));
+      document.querySelectorAll('#kv-rChips button').forEach(b=>b.classList.toggle('on',+b.dataset.r===st.r));
+      const a=fv(st.amt,st.age,st.r), g=Math.max(0,a.v-a.paid), q=1+st.r/100;
+      tw($('kv-v18'),a.v); $('kv-paid').textContent=fE(a.paid); $('kv-gain').textContent=fE(g);
+      $('kv-bPaid').style.width=(a.v?a.paid/a.v*100:100)+'%'; $('kv-bGain').style.width=(a.v?g/a.v*100:0)+'%';
+      tw($('kv-m18'),a.v); tw($('kv-m25'),a.v*Math.pow(q,7)); tw($('kv-m67'),a.v*Math.pow(q,49));
+      $('kv-kg').textContent=st.amt>=KG?'Das gesamte Kindergeld arbeitet für dein Kind.':'Das sind '+Math.round(st.amt/KG*100)+' % des Kindergelds.';
+      let w;
+      if(st.age>0){const b=fv(st.amt,0,st.r); w='Ab Geburt gestartet wären es mit 18 <b>'+fE(b.v)+'</b>, also <b>'+fE(b.v-a.v)+'</b> mehr. Der beste Zeitpunkt ist heute.';}
+      else{const b=fv(st.amt,3,st.r); w='Wer erst mit 3 Jahren startet, hat mit 18 nur <b>'+fE(b.v)+'</b>. Drei Jahre Warten kosten <b>'+fE(a.v-b.v)+'</b>.';}
+      $('kv-wait').innerHTML=w;
+      waOverride='Hallo Sascha, ich habe den Kinder-Rechner genutzt: '+fE(st.amt)+' im Monat für mein Kind ('+(st.age===0?'neugeboren':st.age+' Jahre')+'), mit 18 wären das ca. '+fE(a.v)+'. Ich möchte die Kindervorsorge besprechen.';
+      if(cur==='kinder') setCta(topics.find(x=>x.dataset.topic==='kinder'));
+    }
+    $('kv-amt').addEventListener('input',e=>{st.amt=+e.target.value;calc();});
+    $('kv-age').addEventListener('input',e=>{st.age=+e.target.value;calc();});
+    document.querySelectorAll('#kv-amtChips button').forEach(b=>b.addEventListener('click',()=>{st.amt=+b.dataset.a;calc();}));
+    document.querySelectorAll('#kv-rChips button').forEach(b=>b.addEventListener('click',()=>{st.r=+b.dataset.r;calc();}));
+    return calc;
+  }
   // BU-Check-up
   function buCheck(){
     const v=id=>String($(id).value||'').trim();
