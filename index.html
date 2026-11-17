@@ -701,6 +701,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .ix-age{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;color:#04121E;background:linear-gradient(135deg,#4FC3DC,#9BE3F1);box-shadow:0 0 20px -6px #4FC3DC}
 .ix-m small{font-size:.7rem;color:var(--ink-3);font-weight:700}
 .ix-m b{display:block;font-family:var(--f-display);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.ix-wr{display:block;font-size:.74rem;color:var(--ink-2);line-height:1.45;margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}.ix-m .ix-wr b{display:inline;font-family:inherit;font-size:inherit;color:var(--ink)!important;font-weight:700}
 .ix-m em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-3);margin-top:2px}
 .ix-m.gold{border-color:rgba(255,200,107,.45);background:linear-gradient(180deg,rgba(255,200,107,.08),var(--bg-2))}
 .ix-m.gold .ix-age{background:linear-gradient(135deg,#FFB547,#FFE0A3);box-shadow:0 0 20px -6px #FFB547}
@@ -1218,12 +1219,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
             </details>
           </div>
           <div class="ix-miles">
-            <div class="ix-m"><span class="ix-age">10</span><div><small>Jahre</small><b id="ix-m10">–</b><em id="ix-m10s"></em></div></div>
-            <div class="ix-m"><span class="ix-age">20</span><div><small>Jahre</small><b id="ix-m20">–</b><em id="ix-m20s"></em></div></div>
-            <div class="ix-m gold"><span class="ix-age">30</span><div><small>Jahre</small><b id="ix-m30">–</b><em id="ix-m30s"></em></div></div>
+            <div class="ix-m"><span class="ix-age">10</span><div><small>Nach 10 Jahren · dein Vermögen</small><b id="ix-m10">–</b><span class="ix-wr" id="ix-m10w"></span><em id="ix-m10s"></em></div></div>
+            <div class="ix-m"><span class="ix-age">20</span><div><small>Nach 20 Jahren · dein Vermögen</small><b id="ix-m20">–</b><span class="ix-wr" id="ix-m20w"></span><em id="ix-m20s"></em></div></div>
+            <div class="ix-m gold"><span class="ix-age">30</span><div><small>Nach 30 Jahren · dein Vermögen</small><b id="ix-m30">–</b><span class="ix-wr" id="ix-m30w"></span><em id="ix-m30s"></em></div></div>
           </div>
           <div class="ix-roi" id="ix-roi"></div>
-          <p class="b-note">Beispielrechnung, keine Finanzierungs-, Steuer- oder Anlageberatung. Annuitätendarlehen über Kaufpreis plus Nebenkosten abzüglich Eigenkapital, Zins nach der Zinsbindung unverändert angenommen. Gebäudeanteil 80 % für die AfA, Steuereffekt mit deinem Grenzsteuersatz, Kosten steigen mit der Miete. Mietausfall, Instandhaltungsrücklagen-Sprünge und Verkaufskosten nicht berücksichtigt. Steuerfreiheit nach 10 Jahren gilt für private Veräußerungsgeschäfte (§ 23 EStG) bei vermieteten Immobilien im Privatvermögen. Bauzinsen lagen Anfang November 2026 bei rund 4,2 % für 10 Jahre Zinsbindung.</p>
+          <p class="b-note">Beispielrechnung, keine Finanzierungs-, Steuer- oder Anlageberatung. Annuitätendarlehen über Kaufpreis plus Nebenkosten abzüglich Eigenkapital, Zins nach der Zinsbindung unverändert angenommen. Gebäudeanteil 80 % für die AfA, Steuereffekt mit deinem Grenzsteuersatz, Kosten steigen mit der Miete. „Eigener Aufwand“ ist die Summe deiner Zuzahlungen abzüglich späterer Mietüberschüsse – er kann daher mit der Zeit wieder sinken. Mietausfall, Instandhaltungsrücklagen-Sprünge und Verkaufskosten nicht berücksichtigt. Steuerfreiheit nach 10 Jahren gilt für private Veräußerungsgeschäfte (§ 23 EStG) bei vermieteten Immobilien im Privatvermögen. Bauzinsen lagen Anfang November 2026 bei rund 4,2 % für 10 Jahre Zinsbindung.</p>
         </div>
         <div class="lbl-s">Dein Kurz-Check</div>
         <div class="tool">
@@ -1811,11 +1812,11 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       $('ix-rateS').innerHTML='Im ersten Jahr: Kreditrate <b>'+fE(m(y1.pay))+'</b> + Kosten <b>'+fE(m(y1.cost))+'</b> im Monat. Darlehen: '+fE(loan)+'.';
       tw($('ix-eq30'),out[30].eq);
       $('ix-eq30S').textContent='Immobilienwert '+fE(out[30].val)+' − Restschuld '+fE(out[30].rest);
-      [10,20,30].forEach(y=>{tw($('ix-m'+y),out[y].eq); $('ix-m'+y+'s').textContent='selbst eingezahlt: '+fE(Math.max(0,out[y].own));});
+      [10,20,30].forEach(y=>{tw($('ix-m'+y),out[y].eq); $('ix-m'+y+'w').innerHTML='Wert <b>'+fE(out[y].val)+'</b><br>− Restschuld <b>'+fE(out[y].rest)+'</b>'; $('ix-m'+y+'s').textContent='Eigener Aufwand bisher: '+fE(Math.max(0,out[y].own));});
       const mx=x=>x.toLocaleString('de-DE',{maximumFractionDigits:1});
       const o10=Math.max(0,out[10].own)+v.ek, o30=Math.max(0,out[30].own)+v.ek, m10=o10>0?out[10].eq/o10:0, m30=o30>0?out[30].eq/o30:0;
       $('ix-roi').innerHTML='<b class="ix-rt">Fazit nach 10 Jahren</b>'+
-        (o10>0?'Aus <b>'+fE(o10)+'</b> eigenem Geld (inkl. Eigenkapital) sind <b>'+fE(out[10].eq)+'</b> Vermögen geworden'+(m10>=1?' – rund <b>'+mx(m10)+'-mal</b> so viel.':'.'):'Die Immobilie hat sich in den ersten 10 Jahren selbst getragen und <b>'+fE(out[10].eq)+'</b> Vermögen aufgebaut.')+
+        (o10>0?'Die Wohnung ist rund <b>'+fE(out[10].val)+'</b> wert, offen sind noch <b>'+fE(out[10].rest)+'</b> Kredit. Aus <b>'+fE(o10)+'</b> eigenem Geld (inkl. Eigenkapital) sind so <b>'+fE(out[10].eq)+'</b> Vermögen geworden'+(m10>=1?' – rund <b>'+mx(m10)+'-mal</b> so viel.':'.'):'Die Immobilie hat sich in den ersten 10 Jahren selbst getragen und <b>'+fE(out[10].eq)+'</b> Vermögen aufgebaut.')+
         ' Nach 10 Jahren Haltedauer wäre ein Verkauf zudem <b>steuerfrei</b> – die Spekulationsfrist ist vorbei.'+
         '<span class="ix-r30">Wer weiter hält: nach 30 Jahren <b>'+fE(out[30].eq)+'</b>'+(o30>0&&m30>=1?' aus '+fE(o30)+' eigenem Geld (rund '+mx(m30)+'-mal so viel).':'.')+'</span>';
       waOverride='Hallo Sascha, ich habe den Immobilien-Rechner genutzt: Kaufpreis '+fE(v.kp)+', Miete '+fE(v.miete)+', Eigenkapital '+fE(v.ek)+' – Eigenanteil ca. '+fE(m(y1.cf))+' im Monat. Ich möchte mehr über Kapitalanlage-Immobilien erfahren.';
