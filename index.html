@@ -425,10 +425,10 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .rv-score span:last-child{flex-basis:100%;font-size:.8rem}
 .rv-score b{font-family:var(--f-display);font-size:1.25rem;color:var(--ink)}
 .rv-s{color:#F5C451;letter-spacing:1px}
-.rv-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.rv-track{display:flex;gap:14px;width:max-content;animation:marq 70s linear infinite}
+.rv-mask{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rv-mask::-webkit-scrollbar{display:none}
+.rv-track{display:flex;gap:14px;width:max-content}
 .rv-dup{display:contents}
-.reviews:hover .rv-track{animation-play-state:paused}
 @keyframes marq{to{transform:translateX(-50%)}}
 .rv{margin:0;width:300px;flex-shrink:0;text-align:left;background:rgba(14,36,64,.62);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .rv blockquote{margin:0;font-size:.86rem;line-height:1.5;color:var(--ink)}
@@ -1108,6 +1108,42 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     };
     new MutationObserver(go).observe(el,{childList:true,characterData:true,subtree:true});
   });
+})();
+</script>
+<script>
+/* Bewertungs-Laufband: läuft automatisch, stoppt bei Berührung/Maus, per Wischen frei scrollbar, läuft nach kurzer Pause weiter */
+(function(){
+  const el=document.querySelector('.reviews .rv-mask');if(!el)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const track=el.querySelector('.rv-track'),dup=el.querySelector('.rv-dup figure');if(!track||!dup)return;
+  let loopW=0,pos=0,paused=false,touching=false,timer=null,last=0;
+  const measure=()=>{loopW=dup.getBoundingClientRect().left-track.firstElementChild.getBoundingClientRect().left;};
+  const resumeLater=(ms)=>{clearTimeout(timer);timer=setTimeout(()=>{paused=false;pos=el.scrollLeft;},ms);};
+  const hold=()=>{paused=true;clearTimeout(timer);};
+  el.addEventListener('touchstart',()=>{touching=true;hold();},{passive:true});
+  el.addEventListener('touchend',()=>{touching=false;resumeLater(5000);},{passive:true});
+  el.addEventListener('touchcancel',()=>{touching=false;resumeLater(5000);},{passive:true});
+  el.addEventListener('mouseenter',hold);
+  el.addEventListener('mouseleave',()=>resumeLater(800));
+  el.addEventListener('wheel',()=>{hold();resumeLater(4000);},{passive:true});
+  el.addEventListener('scroll',()=>{
+    if(!loopW||touching)return;
+    if(el.scrollLeft>=loopW){el.scrollLeft-=loopW;pos=el.scrollLeft;}
+    else if(el.scrollLeft<=0){el.scrollLeft+=loopW;pos=el.scrollLeft;}
+  },{passive:true});
+  addEventListener('resize',measure);
+  const tick=(t)=>{
+    const dt=last?Math.min((t-last)/1000,.1):0;last=t;
+    if(!loopW)measure();
+    if(!paused&&loopW){
+      if(Math.abs(el.scrollLeft-pos)>2)pos=el.scrollLeft;
+      pos+=loopW/70*dt;
+      if(pos>=loopW)pos-=loopW;
+      el.scrollLeft=pos;
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
