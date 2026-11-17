@@ -663,6 +663,51 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .kv-plan span{flex:1}.kv-plan b{display:block;font-size:.9rem}.kv-plan small{font-size:.76rem;color:var(--ink-3)}
 .kv-plan .kv-ch{transform:rotate(-90deg)}
 @media (max-width:560px){.zp-dl{width:100%}}
+/* ===== Immobilie ===== */
+.ix{display:flex;flex-direction:column;gap:14px}
+.ix-hero{position:relative;overflow:hidden;text-align:center;padding:24px 18px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,#1B5873 0%,#0D2B4E 55%,#0A1C31 100%)}
+.ix-hero:before{content:"";position:absolute;inset:auto -20% -60% -20%;height:120%;background:radial-gradient(closest-side,rgba(79,195,220,.35),transparent);pointer-events:none}
+.ix-k{position:relative;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.ix-v{position:relative;font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:-.03em;line-height:1.05;margin-top:6px;background:linear-gradient(90deg,#EEF5FB,#4FC3DC);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.ix-s{position:relative;font-size:.8rem;color:var(--ink-2);margin-top:8px}
+.ix-card,.ix-ctrl{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:16px}
+.ix-card h3{font-size:1rem;margin-bottom:12px}
+.ix-stack{display:flex;height:22px;border-radius:99px;overflow:hidden;background:rgba(150,200,235,.1)}
+.ix-stack div{height:100%;transition:width .5s}
+.c-m{background:linear-gradient(90deg,#3A86D6,#5E9FE6)} .c-s{background:linear-gradient(90deg,#3FD39A,#7BE8BD)} .c-d{background:linear-gradient(90deg,#FFB547,#FFD58A)}
+.ix-leg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.ix-leg div{display:flex;flex-direction:column;gap:2px}
+.ix-leg i{width:10px;height:10px;border-radius:3px}
+.ix-leg span{font-size:.72rem;color:var(--ink-3);font-weight:700}
+.ix-leg b{font-family:var(--f-display);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.ix-leg div:last-child b{color:#FFD58A}
+.ix-hint{font-size:.74rem;color:var(--ink-3);margin-top:10px;line-height:1.45}.ix-hint b{color:var(--ink-2)}
+.ix-ctrl{display:flex;flex-direction:column;gap:16px}
+.ix-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.ix-row label,.ix-lab{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.ix-lab{display:block;margin-bottom:4px}
+.ix-row output{font-weight:800;font-size:.9rem;color:#4FC3DC;background:rgba(79,195,220,.1);border:1px solid rgba(79,195,220,.28);padding:2px 9px;border-radius:8px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ix input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#4FC3DC var(--p,50%),rgba(150,200,235,.18) var(--p,50%));outline:none;cursor:pointer;margin:4px 0 2px}
+.ix input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ink);border:3px solid #4FC3DC;box-shadow:0 0 14px -2px #4FC3DC}
+.ix input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid #4FC3DC}
+.ix-more{border-top:1px solid var(--line);padding-top:12px}
+.ix-more summary{list-style:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:800;font-size:.85rem;color:var(--ink-2)}
+.ix-more summary::-webkit-details-marker{display:none}
+.ix-more summary svg{width:16px;height:16px;transition:transform .2s}
+.ix-more[open] summary svg{transform:rotate(180deg)}
+.ix-more[open]>.ix-f{margin-top:16px}
+.ix-miles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ix-m{display:flex;flex-direction:column;gap:10px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.ix-age{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;color:#04121E;background:linear-gradient(135deg,#4FC3DC,#9BE3F1);box-shadow:0 0 20px -6px #4FC3DC}
+.ix-m small{font-size:.7rem;color:var(--ink-3);font-weight:700}
+.ix-m b{display:block;font-family:var(--f-display);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.ix-m em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-3);margin-top:2px}
+.ix-m.gold{border-color:rgba(255,200,107,.45);background:linear-gradient(180deg,rgba(255,200,107,.08),var(--bg-2))}
+.ix-m.gold .ix-age{background:linear-gradient(135deg,#FFB547,#FFE0A3);box-shadow:0 0 20px -6px #FFB547}
+.ix-m.gold b{color:#FFD58A}
+.ix-roi{font-size:.85rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;border-left:3px solid var(--good);background:rgba(63,211,154,.07)}
+.ix-roi b{color:var(--ink)}
+@media (max-width:560px){.ix-miles{grid-template-columns:1fr}.ix-m{flex-direction:row;align-items:center}}
 </style>
 </head>
 <body>
@@ -1078,6 +1123,49 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 
       <section class="topic" data-topic="immo" hidden data-wa="Hallo Sascha, ich interessiere mich für eine Kapitalanlage-Immobilie." data-cta="Lass uns gemeinsam das passende Objekt finden: konkret, transparent und ohne Druck." data-btn="Objekt finden">
         <div class="t-head"><span class="chip" style="--c:#4FC3DC">Immobilie</span><h2>Passt eine Kapitalanlage-Immobilie zu dir?</h2></div>
+        <p class="t-intro">Mieter und Staat zahlen mit, du baust Vermögen auf. Rechne aus, wie viel du selbst beisteuerst und was dir am Ende gehört.</p>
+        <div class="ix" aria-live="polite">
+          <div class="ix-hero">
+            <div class="ix-k">Nach 30 Jahren gehört dir</div>
+            <div class="ix-v" id="ix-eq30">–</div>
+            <div class="ix-s" id="ix-eq30S"></div>
+          </div>
+          <div class="ix-card">
+            <h3>Wer zahlt deine Wohnung?</h3>
+            <div class="ix-stack"><div id="ix-sMiete" class="c-m"></div><div id="ix-sStaat" class="c-s"></div><div id="ix-sDu" class="c-d"></div></div>
+            <div class="ix-leg">
+              <div><i class="c-m"></i><span>Mieter</span><b id="ix-vMiete">–</b></div>
+              <div><i class="c-s"></i><span>Staat (Steuer)</span><b id="ix-vStaat">–</b></div>
+              <div><i class="c-d"></i><span>Du</span><b id="ix-vDu">–</b></div>
+            </div>
+            <div class="ix-hint" id="ix-rateS"></div>
+          </div>
+          <div class="ix-ctrl">
+            <div class="ix-f"><div class="ix-row"><label for="ix-kp">Kaufpreis</label><output id="ix-kpO"></output></div><input type="range" id="ix-kp" min="100000" max="600000" step="5000" value="250000"></div>
+            <div class="ix-f"><div class="ix-row"><label for="ix-miete">Kaltmiete pro Monat</label><output id="ix-mieteO"></output></div><input type="range" id="ix-miete" min="300" max="2500" step="10" value="850"></div>
+            <div class="ix-f"><div class="ix-row"><label for="ix-ek">Eigenkapital</label><output id="ix-ekO"></output></div><input type="range" id="ix-ek" min="0" max="150000" step="1000" value="15000"></div>
+            <div class="ix-f"><label class="ix-lab" for="ix-st">Dein Steuersatz (Grenzsteuersatz)</label>
+              <select id="ix-st" class="av-sel"><option value="0.3">ca. 30 %</option><option value="0.35" selected>ca. 35 %</option><option value="0.42">42 %</option><option value="0.45">45 %</option></select></div>
+            <details class="ix-more"><summary>Weitere Annahmen<svg><use href="#i-chev"/></svg></summary>
+              <div class="ix-f"><div class="ix-row"><label for="ix-zins">Sollzins p. a.</label><output id="ix-zinsO"></output></div><input type="range" id="ix-zins" min="2" max="7" step="0.05" value="4.2"></div>
+              <div class="ix-f"><div class="ix-row"><label for="ix-tilg">Anfängliche Tilgung</label><output id="ix-tilgO"></output></div><input type="range" id="ix-tilg" min="1" max="4" step="0.25" value="1.5"></div>
+              <div class="ix-f"><div class="ix-row"><label for="ix-nk">Kaufnebenkosten</label><output id="ix-nkO"></output></div><input type="range" id="ix-nk" min="5" max="15" step="0.5" value="8"></div>
+              <div class="ix-f"><div class="ix-row"><label for="ix-kost">Nicht umlagefähige Kosten / Monat</label><output id="ix-kostO"></output></div><input type="range" id="ix-kost" min="0" max="300" step="5" value="60"></div>
+              <div class="ix-f"><label class="ix-lab" for="ix-afa">Abschreibung (AfA)</label>
+                <select id="ix-afa" class="av-sel"><option value="0.02">Bestand · 2 % linear</option><option value="0.03" selected>Neubau · 3 % linear</option><option value="d5">Neubau · 5 % degressiv</option></select></div>
+              <div class="ix-f"><div class="ix-row"><label for="ix-wert">Wertsteigerung p. a.</label><output id="ix-wertO"></output></div><input type="range" id="ix-wert" min="0" max="4" step="0.1" value="1.5"></div>
+              <div class="ix-f"><div class="ix-row"><label for="ix-mg">Mietsteigerung p. a.</label><output id="ix-mgO"></output></div><input type="range" id="ix-mg" min="0" max="4" step="0.1" value="1.5"></div>
+            </details>
+          </div>
+          <div class="ix-miles">
+            <div class="ix-m"><span class="ix-age">10</span><div><small>Jahre</small><b id="ix-m10">–</b><em id="ix-m10s"></em></div></div>
+            <div class="ix-m"><span class="ix-age">20</span><div><small>Jahre</small><b id="ix-m20">–</b><em id="ix-m20s"></em></div></div>
+            <div class="ix-m gold"><span class="ix-age">30</span><div><small>Jahre</small><b id="ix-m30">–</b><em id="ix-m30s"></em></div></div>
+          </div>
+          <div class="ix-roi" id="ix-roi"></div>
+          <p class="b-note">Beispielrechnung, keine Finanzierungs-, Steuer- oder Anlageberatung. Annuitätendarlehen über Kaufpreis plus Nebenkosten abzüglich Eigenkapital, Zins nach der Zinsbindung unverändert angenommen. Gebäudeanteil 80 % für die AfA, Steuereffekt mit deinem Grenzsteuersatz, Kosten steigen mit der Miete. Mietausfall, Instandhaltungsrücklagen-Sprünge, Verkaufskosten und Steuern beim Verkauf nicht berücksichtigt. Bauzinsen lagen Anfang November 2026 bei rund 4,2 % für 10 Jahre Zinsbindung.</p>
+        </div>
+        <div class="lbl-s">Dein Kurz-Check</div>
         <div class="tool">
           <form class="form" id="immo-form">
             <div><label for="immo-gehalt">Netto / Monat (€)</label><input id="immo-gehalt" type="number" inputmode="numeric" placeholder="z. B. 2800" step="100"></div>
@@ -1254,7 +1342,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     waOverride=null; cur=id; $('cta-cal').hidden=(id==='termin');
     topics.forEach(x=>x.hidden=x!==t);
     document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id));
-    if(id==='rente') rente(); else if(id==='kinder') kinder(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
+    if(id==='rente') rente(); else if(id==='kinder') kinder(); else if(id==='immo') immoCalc(); else if(id==='avd') avd(); else if(id==='bu') buCheck(); else setCta(t);
     $('sheet-body').scrollTop=0;
     const tab=document.querySelector('#tabs button[data-go="'+id+'"]'); if(tab) tab.scrollIntoView({block:'nearest',inline:'center'});
     if(!sheet.open){ if(sheet.showModal) sheet.showModal(); else sheet.setAttribute('open',''); }
@@ -1633,6 +1721,45 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     $('zp-prev').addEventListener('click',()=>go(idx()-1)); $('zp-next').addEventListener('click',()=>go(idx()+1));
     upd();
   })();
+  // Immobilien-Rechner
+  var IXrun=null;
+  function immoCalc(){ if(!IXrun) IXrun=makeIX(); IXrun(); }
+  function makeIX(){
+    const fE=v=>Math.round(v).toLocaleString('de-DE')+' €', fP=v=>v.toLocaleString('de-DE',{maximumFractionDigits:2})+' %';
+    const paint=i=>i.style.setProperty('--p',((i.value-i.min)/(i.max-i.min)*100)+'%');
+    const ids=['kp','miete','ek','zins','tilg','nk','kost','wert','mg'];
+    const fm={kp:fE,miete:fE,ek:fE,zins:fP,tilg:fP,nk:fP,kost:fE,wert:fP,mg:fP};
+    function tw(el,to){const from=parseFloat(el.dataset.v||0);el.dataset.v=to;if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(to-from)<1){el.textContent=fE(to);return;}
+      const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/700),e=1-Math.pow(1-k,3);el.textContent=fE(from+(to-from)*e);if(k<1)requestAnimationFrame(f);})(t0);}
+    function calc(){
+      const v={}; ids.forEach(k=>{const el=$('ix-'+k); v[k]=+el.value; paint(el); $('ix-'+k+'O').textContent=fm[k](v[k]);});
+      const st=+$('ix-st').value, afaS=$('ix-afa').value, z=v.zins/100, t=v.tilg/100, w=v.wert/100, mg=v.mg/100;
+      const loan=Math.max(0,v.kp*(1+v.nk/100)-v.ek), ann=loan*(z+t), bau=v.kp*0.8;
+      let rest=loan, rw=bau, own=0, out={}, y1=null;
+      for(let y=1;y<=30;y++){
+        const rent=v.miete*12*Math.pow(1+mg,y-1), cost=v.kost*12*Math.pow(1+mg,y-1);
+        const zi=rest*z, pay=rest>0?Math.min(ann,rest+zi):0, tl=Math.max(0,pay-zi); rest=Math.max(0,rest-tl);
+        let afa; if(afaS==='d5'){afa=rw*0.05; rw-=afa;} else afa=bau*(+afaS);
+        const res=rent-zi-afa-cost, tax=-res*st; // positiv = Erstattung
+        const cf=pay+cost-rent-tax; own+=cf;
+        if(y===1) y1={pay,cost,rent,tax,cf};
+        if(y===10||y===20||y===30) out[y]={eq:v.kp*Math.pow(1+w,y)-rest,val:v.kp*Math.pow(1+w,y),rest,own};
+      }
+      const m=x=>x/12, total=m(y1.pay+y1.cost), miete=Math.min(m(y1.rent),total), staat=Math.max(0,Math.min(m(y1.tax),total-miete)), du=Math.max(0,total-miete-staat);
+      $('ix-sMiete').style.width=(miete/total*100)+'%'; $('ix-sStaat').style.width=(staat/total*100)+'%'; $('ix-sDu').style.width=(du/total*100)+'%';
+      $('ix-vMiete').textContent=fE(miete); $('ix-vStaat').textContent=fE(staat); tw($('ix-vDu'),m(y1.cf));
+      $('ix-rateS').innerHTML='Im ersten Jahr: Kreditrate <b>'+fE(m(y1.pay))+'</b> + Kosten <b>'+fE(m(y1.cost))+'</b> im Monat. Darlehen: '+fE(loan)+'.';
+      tw($('ix-eq30'),out[30].eq);
+      $('ix-eq30S').textContent='Immobilienwert '+fE(out[30].val)+' − Restschuld '+fE(out[30].rest);
+      [10,20,30].forEach(y=>{tw($('ix-m'+y),out[y].eq); $('ix-m'+y+'s').textContent='selbst eingezahlt: '+fE(Math.max(0,out[y].own));});
+      const o=out[30].own+v.ek, mult=o>0?out[30].eq/o:0;
+      $('ix-roi').innerHTML=o>0?'Aus <b>'+fE(o)+'</b> eigenem Geld (inkl. Eigenkapital) werden in 30 Jahren <b>'+fE(out[30].eq)+'</b> Vermögen – rund <b>'+mult.toLocaleString('de-DE',{maximumFractionDigits:1})+'-mal</b> so viel.':'In diesem Beispiel trägt sich die Immobilie komplett selbst.';
+      waOverride='Hallo Sascha, ich habe den Immobilien-Rechner genutzt: Kaufpreis '+fE(v.kp)+', Miete '+fE(v.miete)+', Eigenkapital '+fE(v.ek)+' – Eigenanteil ca. '+fE(m(y1.cf))+' im Monat. Ich möchte mehr über Kapitalanlage-Immobilien erfahren.';
+      if(cur==='immo') setCta(topics.find(x=>x.dataset.topic==='immo'));
+    }
+    ids.forEach(k=>$('ix-'+k).addEventListener('input',calc)); ['ix-st','ix-afa'].forEach(k=>$(k).addEventListener('change',calc));
+    return calc;
+  }
   // BU-Check-up
   function buCheck(){
     const v=id=>String($(id).value||'').trim();
