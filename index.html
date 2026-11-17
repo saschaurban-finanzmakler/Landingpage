@@ -574,6 +574,18 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .kv-perk[open] .kv-ch{transform:rotate(180deg)}
 .kv-perk p{padding:0 14px 14px 64px;font-size:.82rem;color:var(--ink-2);line-height:1.5}
 @media (max-width:560px){.kv-miles{grid-template-columns:1fr}.kv-m{flex-direction:row;align-items:center}.kv-perks{grid-template-columns:1fr}}
+.bx-seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:14px}
+.bx-seg button{border:0;background:none;color:var(--ink-3);font-weight:800;font-size:.78rem;padding:9px 4px;border-radius:9px;cursor:pointer}
+.bx-seg button.on{background:var(--teal);color:#04121E}
+.bx-conv{font-size:.76rem;color:var(--ink-3);margin-top:8px}.bx-conv b{color:var(--ink)}
+.bx-why{display:flex;gap:14px;padding:18px;border-radius:18px;border:1px solid rgba(53,175,203,.4);background:linear-gradient(135deg,rgba(53,175,203,.12),var(--bg-2) 60%)}
+.bx-wi{width:44px;height:44px;flex-shrink:0;border-radius:14px;display:grid;place-items:center;background:var(--teal);color:#04121E;box-shadow:0 0 22px -6px var(--teal)}
+.bx-wi svg{width:21px;height:21px}
+.bx-why h3{font-size:1.02rem;line-height:1.25}
+.bx-why p{font-size:.84rem;color:var(--ink-2);line-height:1.55;margin-top:6px}
+.bx-tiers{display:flex;align-items:flex-end;gap:6px;height:46px;margin-top:12px;flex-wrap:wrap;position:relative}
+.bx-tiers span{width:22px;height:var(--h);border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--teal-2),rgba(53,175,203,.25))}
+.bx-tiers em{font-style:normal;font-size:.7rem;color:var(--ink-3);margin-left:8px;align-self:center}
 /* ===== BU ===== */
 .bx{display:flex;flex-direction:column;gap:14px}
 .bx-hero{position:relative;overflow:hidden;text-align:center;padding:24px 18px 22px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,#145A72 0%,#0D2B4E 55%,#0A1C31 100%)}
@@ -761,8 +773,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           </div>
           <div class="bx-ctrl">
             <div class="bx-f"><div class="bx-row"><label for="bx-age">Dein Alter</label><output id="bx-ageO"></output></div><input type="range" id="bx-age" min="18" max="60" step="1" value="30"></div>
-            <div class="bx-f"><div class="bx-row"><label for="bx-net">Netto pro Monat</label><output id="bx-netO"></output></div><input type="range" id="bx-net" min="1000" max="6000" step="50" value="2500"></div>
-            <div class="bx-f"><div class="bx-row"><label for="bx-gross">Brutto pro Monat</label><output id="bx-grossO"></output></div><input type="range" id="bx-gross" min="1500" max="10000" step="100" value="3800"></div>
+            <div class="bx-f">
+              <div class="bx-seg" id="bx-mode"><button type="button" data-m="net" class="on">Ich kenne mein Netto</button><button type="button" data-m="gross">Ich kenne mein Brutto</button></div>
+              <div class="bx-row"><label for="bx-inc" id="bx-incL">Netto pro Monat</label><output id="bx-incO"></output></div>
+              <input type="range" id="bx-inc" min="1000" max="6000" step="50" value="2500">
+              <div class="bx-conv" id="bx-conv"></div>
+            </div>
           </div>
           <div class="bx-card">
             <h3>Wenn du nicht mehr arbeiten kannst</h3>
@@ -777,6 +793,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DUyYLBoiO7F/?igsh=cHRuZGRiYXliYndm" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur BU <small>Instagram</small></a>
+        <div class="bx-why">
+          <div class="bx-wi"><svg><use href="#i-grid"/></svg></div>
+          <div><h3>Jeder Versicherer stuft deinen Beruf anders ein</h3>
+          <p>Derselbe Beruf kann beim einen Anbieter als geringes Risiko gelten und beim nächsten deutlich teurer sein. Deshalb ist ein unabhängiger Vergleich zwingend notwendig, um die beste Lösung für dich zu finden. Als Makler bin ich an keinen Versicherer gebunden und vergleiche für dich den Markt.</p>
+          <div class="bx-tiers" aria-hidden="true"><span style="--h:30%"></span><span style="--h:55%"></span><span style="--h:80%"></span><span style="--h:42%"></span><span style="--h:68%"></span><em>Gleicher Beruf, unterschiedliche Einstufung</em></div></div>
+        </div>
         <div class="lbl-s">Die 6 Bausteine einer guten BU</div>
         <div class="bx-score">
           <svg viewBox="0 0 44 44" class="bx-ring"><circle cx="22" cy="22" r="18" class="bg"/><circle cx="22" cy="22" r="18" class="fg" id="bx-ring"/></svg>
@@ -1572,19 +1594,39 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     const RW=42.52, DE=51944, BBG=101400;
     function tw(el,to){const from=parseFloat(el.dataset.v||0);el.dataset.v=to;if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(to-from)<1){el.textContent=fE(to);return;}
       const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/700),e=1-Math.pow(1-k,3);el.textContent=fE(from+(to-from)*e);if(k<1)requestAnimationFrame(f);})(t0);}
+    // Brutto <-> Netto grob: Steuerklasse I, keine Kirchensteuer, kinderlos, Tarif 2026
+    function est(zve){zve=Math.floor(zve); if(zve<=12348) return 0;
+      if(zve<=17799){const y=(zve-12348)/1e4;return (914.51*y+1400)*y;}
+      if(zve<=69878){const z=(zve-17799)/1e4;return (173.10*z+2397)*z+1034.87;}
+      if(zve<=277825) return 0.42*zve-11135.63; return 0.45*zve-19470.38;}
+    function g2n(g){const y=g*12, sv=Math.min(y,101400)*0.093+Math.min(y,101400)*0.013+Math.min(y,69750)*(0.073+0.0145+0.024);
+      const tax=est(y-sv-1230-36), soli=tax>20350?Math.min(tax*0.055,(tax-20350)*0.119):0; return Math.max(0,(y-sv-tax-soli)/12);}
+    function n2g(n){let lo=n,hi=n*3; for(let i=0;i<40;i++){const m=(lo+hi)/2; if(g2n(m)<n) lo=m; else hi=m;} return (lo+hi)/2;}
+    let mode='net'; const val={net:2500,gross:3800};
+    function setMode(m){
+      const inc=$('bx-inc');
+      if(m==='gross'){val.gross=Math.round(n2g(val.net)/100)*100; inc.min=1500; inc.max=10000; inc.step=100; inc.value=val.gross; $('bx-incL').textContent='Brutto pro Monat';}
+      else{val.net=Math.round(g2n(val.gross)/50)*50; inc.min=1000; inc.max=6000; inc.step=50; inc.value=val.net; $('bx-incL').textContent='Netto pro Monat';}
+      mode=m; document.querySelectorAll('#bx-mode button').forEach(b=>b.classList.toggle('on',b.dataset.m===m)); calc();
+    }
+    document.querySelectorAll('#bx-mode button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.m!==mode) setMode(b.dataset.m);}));
+    $('bx-inc').addEventListener('input',()=>{val[mode]=+$('bx-inc').value; calc();});
     function calc(){
-      const age=+$('bx-age').value, net=+$('bx-net').value, gross=+$('bx-gross').value;
-      ['bx-age','bx-net','bx-gross'].forEach(id=>paint($(id)));
-      $('bx-ageO').textContent=age+' J.'; $('bx-netO').textContent=fE(net); $('bx-grossO').textContent=fE(gross);
+      const age=+$('bx-age').value;
+      let net, gross;
+      if(mode==='net'){net=val.net; gross=n2g(net);} else {gross=val.gross; net=g2n(gross);}
+      ['bx-age','bx-inc'].forEach(id=>paint($(id)));
+      $('bx-ageO').textContent=age+' J.'; $('bx-incO').textContent=fE(mode==='net'?net:gross);
+      $('bx-conv').innerHTML='≈ <b>'+fE(mode==='net'?gross:net)+'</b> '+(mode==='net'?'brutto':'netto')+' im Monat · geschätzt, Steuerklasse I';
       tw($('bx-life'),net*12*Math.max(0,67-age));
-      // EM-Rente grob: Entgeltpunkte inkl. Zurechnungszeit bis 67 ab Berufsstart 20, 10,8 % Abschlag, ca. 11,5 % KV/PV
       const em=Math.min(gross*12,BBG)/DE*47*RW*(1-0.108)*(1-0.115), em2=em/2, bu=net*0.8, mx=Math.max(net,1);
       const set=(k,v)=>{$('bx-v'+k).textContent=fE(v);$('bx-b'+k).style.width=Math.min(100,v/mx*100)+'%';};
       set('Net',net); set('Bu',bu); set('Em',em); set('Em2',em2);
       const gap=Math.max(0,net-em);
       $('bx-gap').innerHTML=gap>0?'Selbst im besten Fall fehlen dir ohne BU <b>'+fE(gap)+'</b> im Monat – bei teilweiser Erwerbsminderung sogar <b>'+fE(net-em2)+'</b>.':'Die Erwerbsminderungsrente würde dein Netto decken – das ist sehr selten.';
     }
-    ['bx-age','bx-net','bx-gross'].forEach(id=>$(id).addEventListener('input',calc));
+    $('bx-age').addEventListener('input',calc);
+
     function score(){
       const n=document.querySelectorAll('.bx-b[aria-pressed="true"]').length, c=2*Math.PI*18;
       $('bx-ring').style.strokeDasharray=c; $('bx-ring').style.strokeDashoffset=c*(1-n/6);
