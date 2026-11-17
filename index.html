@@ -708,6 +708,55 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .ix-roi{font-size:.85rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;border-left:3px solid var(--good);background:rgba(63,211,154,.07)}
 .ix-roi b{color:var(--ink)}
 @media (max-width:560px){.ix-miles{grid-template-columns:1fr}.ix-m{flex-direction:row;align-items:center}}
+/* ===== Ganzheitlich ===== */
+.gz-hub{border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 30%,#163F6E 0%,#0D2B4E 50%,#0A1C31 100%);padding:18px 14px 14px;overflow:hidden}
+.gz-hk{text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.gz-orbit{position:relative;width:min(100%,420px);aspect-ratio:1;margin:6px auto 0}
+.gz-orbit:before,.gz-orbit:after{content:"";position:absolute;pointer-events:none;inset:14%;border-radius:50%;border:1px dashed rgba(127,211,230,.25)}
+.gz-orbit:after{inset:30%;border-style:solid;border-color:rgba(127,211,230,.12)}
+.gz-core{position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 30%,#1E5A8A,#0E2440);border:2px solid var(--teal);box-shadow:0 0 40px -6px var(--teal);display:flex;align-items:flex-end;justify-content:center}
+.gz-core img{width:100%;height:auto;margin-bottom:-18%}
+.gz-core span{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);font-size:.55rem;font-weight:800;white-space:nowrap;background:rgba(10,28,49,.85);padding:2px 7px;border-radius:99px;color:var(--ink-2)}
+.gz-a{--ang:calc(var(--i)*60deg - 90deg);position:absolute;z-index:2;left:calc(50% + 40% * cos(var(--ang)));top:calc(50% + 40% * sin(var(--ang)));width:25%;transform:translate(-50%,-38%);display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:0;color:var(--ink);cursor:pointer;padding:0;font:inherit}
+.gz-ai{width:clamp(44px,12vw,56px);height:clamp(44px,12vw,56px);border-radius:16px;display:grid;place-items:center;background:linear-gradient(180deg,#163A63,#0E2440);border:1px solid var(--line-2);color:var(--teal-2);box-shadow:0 8px 20px -8px rgba(0,0,0,.6);transition:.2s}
+.gz-ai svg{width:44%;height:44%}
+.gz-a b{font-size:clamp(.58rem,1.8vw,.72rem);line-height:1.15;text-align:center;font-weight:800;color:var(--ink-2)}
+.gz-a:hover .gz-ai{border-color:var(--teal)}
+.gz-a.on .gz-ai{background:var(--teal);color:#04121E;border-color:var(--teal);box-shadow:0 0 24px -4px var(--teal)}
+.gz-a.on b{color:var(--ink)}
+.gz-det{margin-top:6px;min-height:76px;padding:12px 14px;border-radius:14px;background:rgba(6,18,31,.55);border:1px solid var(--line)}
+.gz-d0{font-size:.8rem;color:var(--ink-2);line-height:1.5}
+.gz-d b{font-family:var(--f-display);font-size:.95rem}
+.gz-d p{font-size:.82rem;color:var(--ink-2);line-height:1.5;margin-top:4px}
+.gz-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;position:relative}
+.gz-st{position:relative;padding-left:0}
+.gz-st:not(:last-child):before{content:"";position:absolute;left:19px;top:40px;bottom:-4px;width:2px;background:linear-gradient(var(--teal),rgba(53,175,203,.15))}
+.gz-st button{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;color:var(--ink);cursor:pointer;padding:6px 0;text-align:left;font:inherit}
+.gz-n{width:40px;height:40px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;background:var(--bg-2);border:2px solid var(--line-2);color:var(--ink-2);transition:.2s;position:relative;z-index:1}
+.gz-st b{font-size:.95rem}
+.gz-st p{display:none;margin:2px 0 10px 54px;font-size:.84rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;background:var(--bg-2);border:1px solid var(--line)}
+.gz-st.on .gz-n{background:var(--teal);border-color:var(--teal);color:#04121E;box-shadow:0 0 20px -4px var(--teal)}
+.gz-st.on p{display:block;animation:fadeUp .3s both}
+.gz-vals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gz-v{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:16px;background:var(--bg-2);border:1px solid var(--line)}
+.gz-vi{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(53,175,203,.12);color:var(--teal-2)}
+.gz-vi svg{width:18px;height:18px}
+.gz-v b{font-size:.9rem}.gz-v small{font-size:.76rem;color:var(--ink-3);line-height:1.4}
+.gz-fam{display:flex;gap:14px;padding:16px;border-radius:18px;border:1px solid rgba(255,200,107,.4);background:linear-gradient(135deg,rgba(255,200,107,.1),var(--bg-2) 60%)}
+.gz-fi{width:44px;height:44px;flex-shrink:0;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#FFB547,#FFE0A3);color:#04121E}
+.gz-fi svg{width:21px;height:21px}
+.gz-fam h3{font-size:1rem}.gz-fam p{font-size:.84rem;color:var(--ink-2);line-height:1.5;margin-top:4px}
+.gz-docs{background:var(--bg-2);border:1px solid var(--line);border-radius:16px}
+.gz-docs summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}
+.gz-docs summary::-webkit-details-marker{display:none}
+.gz-pi{width:38px;height:38px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:rgba(53,175,203,.12);color:var(--teal-2)}
+.gz-pi svg{width:19px;height:19px}
+.gz-docs summary b{flex:1;font-size:.88rem}
+.gz-docs[open] .kv-ch{transform:rotate(180deg)}
+.gz-docs ul{list-style:none;margin:0;padding:0 14px;display:flex;flex-direction:column;gap:8px}
+.gz-docs li{font-size:.82rem;color:var(--ink-2);padding:10px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.gz-docs li b{display:block;color:var(--ink);font-size:.84rem}
+.gz-docs p{font-size:.78rem;color:var(--ink-3);padding:10px 14px 14px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -814,22 +863,31 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       <section class="topic" data-topic="ganz" hidden data-wa="Hallo Sascha, ich möchte ein kostenloses Erstgespräch vereinbaren." data-cta="Dein erstes Gespräch kostet nichts. Warten kostet alles." data-btn="Erstgespräch anfragen">
         <div class="t-head"><span class="chip" style="--c:#5E9FE6">Trinity</span><h2 id="sheet-title">Das Trinity-System: ganzheitlich, persönlich, für dich.</h2></div>
         <p class="t-intro">Ich bin selbst Papa von zwei Jungs (3 und 7). Darum ist meine Beratung auf junge Familien ausgerichtet: zeitsparend, flexibel und ohne Stress. Wir verkaufen kein Produkt, sondern verstehen eure gesamte Situation.</p>
-        <a class="reel" href="https://www.instagram.com/reel/DTx0MOFjMMr/?igsh=cml0NWVoZTdlZnMz" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video ansehen <small>Instagram</small></a>
-        <div class="lbl-s">So arbeiten wir</div>
-        <ol class="steps">
-          <li><strong>Erstgespräch</strong>Kostenlos und unverbindlich.</li>
-          <li><strong>Analyse</strong>Ehrlich und vollständig.</li>
-          <li><strong>Strategie</strong>Dein Plan, klar erklärt.</li>
-          <li><strong>Umsetzung</strong>Und dauerhafte Betreuung.</li>
-        </ol>
-        <div class="lbl-s">Wofür wir stehen</div>
-        <div class="subs">
-          <details class="sub"><summary>Persönlich<svg><use href="#i-chev"/></svg></summary><p>Wir nehmen uns Zeit und entwickeln ein maßgeschneidertes Finanzkonzept, das zu deinem Leben passt.</p></details>
-          <details class="sub"><summary>Transparent<svg><use href="#i-chev"/></svg></summary><p>Du weißt immer, was du hast, was es kostet und warum. Keine versteckten Provisionen.</p></details>
-          <details class="sub"><summary>Verständlich<svg><use href="#i-chev"/></svg></summary><p>Komplexe Themen einfach erklärt. Finanzen ohne Fachchinesisch.</p></details>
-          <details class="sub"><summary>Ganzheitlich<svg><use href="#i-chev"/></svg></summary><p>Altersvorsorge, Absicherung, Investments und Immobilien: zusammen betrachtet, nicht isoliert.</p></details>
-          <details class="sub"><summary>Meine Schwerpunkte<svg><use href="#i-chev"/></svg></summary><p>IHK Versicherungsvermittler · Öffentlicher Dienst · Kapitalanlageimmobilien · Familien</p></details>
+        <div class="gz-hub">
+          <div class="gz-hk">Ein Ansprechpartner für alles</div>
+          <div class="gz-orbit">
+            <div class="gz-core"><img src="img/sascha-stehend.png?v=2" alt="" width="685" height="1000"><span>Sascha</span></div>
+            <button type="button" class="gz-a" data-a="vers" style="--i:0"><span class="gz-ai"><svg><use href="#i-shield"/></svg></span><b>Versicherungen</b></button><button type="button" class="gz-a" data-a="vors" style="--i:1"><span class="gz-ai"><svg><use href="#i-trend"/></svg></span><b>Vorsorge</b></button><button type="button" class="gz-a" data-a="abs" style="--i:2"><span class="gz-ai"><svg><use href="#i-heart"/></svg></span><b>Absicherung</b></button><button type="button" class="gz-a" data-a="anl" style="--i:3"><span class="gz-ai"><svg><use href="#i-grid"/></svg></span><b>Geldanlage</b></button><button type="button" class="gz-a" data-a="fin" style="--i:4"><span class="gz-ai"><svg><use href="#i-home"/></svg></span><b>Finanzierung & Immobilien</b></button><button type="button" class="gz-a" data-a="ene" style="--i:5"><span class="gz-ai"><svg><use href="#i-way"/></svg></span><b>Strom & Gas</b></button>
+          </div>
+          <div class="gz-det" id="gz-det"><div class="gz-d0">Tippe auf einen Bereich – im Team haben wir für alles Experten, du hast trotzdem nur einen Ansprechpartner: mich.</div><div class="gz-d" data-a="vers" hidden><b>Versicherungen</b><p>Von Haftpflicht bis Wohngebäude: Ich vergleiche den Markt und halte deine Verträge aktuell. Für Gewerbe gibt es Spezialisten im Team.</p></div><div class="gz-d" data-a="vors" hidden><b>Vorsorge</b><p>Rente, Kindervorsorge und neue Förderung wie das Altersvorsorgedepot – passend zu eurer Familienplanung.</p></div><div class="gz-d" data-a="abs" hidden><b>Absicherung</b><p>BU, Unfall, Hinterbliebene: damit ein Schicksalsschlag nicht zur finanziellen Krise für die ganze Familie wird.</p></div><div class="gz-d" data-a="anl" hidden><b>Geldanlage</b><p>Unsere eigene Abteilung für Anlage, geführt von einem Fondsmanager, kümmert sich um dein Investment.</p></div><div class="gz-d" data-a="fin" hidden><b>Finanzierung & Immobilien</b><p>Finanzierungen jeder Art und Kapitalanlage-Immobilien über unsere Finanzierungsabteilung und Partner.</p></div><div class="gz-d" data-a="ene" hidden><b>Strom & Gas</b><p>Auch deine Energieverträge schauen wir uns an – ein Ansprechpartner statt von A nach B nach C.</p></div></div>
         </div>
+        <a class="reel" href="https://www.instagram.com/reel/DTx0MOFjMMr/?igsh=cml0NWVoZTdlZnMz" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video ansehen <small>Instagram</small></a>
+        <div class="lbl-s">So arbeiten wir – in 5 Schritten</div>
+        <ol class="gz-steps" id="gz-steps"><li class="gz-st on" data-s="0"><button type="button"><span class="gz-n">1</span><b>Orientierungsgespräch</b></button><p>Kostenlos und unverbindlich. Wir klären deine offenen Fragen und schauen gemeinsam, in welche Richtung es gehen soll.</p></li><li class="gz-st" data-s="1"><button type="button"><span class="gz-n">2</span><b>Konzeptgespräch</b></button><p>Jetzt geht es in die Tiefe: Schritt für Schritt entwickeln wir die Lösungen, die zu deinem Leben passen – klar erklärt.</p></li><li class="gz-st" data-s="2"><button type="button"><span class="gz-n">3</span><b>Umsetzung</b></button><p>Mit null Aufwand für dich: Kündigungen, Wechsel und die Kommunikation mit Versicherern übernehmen wir.</p></li><li class="gz-st" data-s="3"><button type="button"><span class="gz-n">4</span><b>Aktive Betreuung</b></button><p>Ich bleibe dein Ansprechpartner – auch und gerade im Schadensfall.</p></li><li class="gz-st" data-s="4"><button type="button"><span class="gz-n">5</span><b>Jährlicher Check-up</b></button><p>Einmal im Jahr prüfen wir alles: Passt der Schutz noch? Gibt es bessere Tarife? Dank Jahresverträgen bleibst du flexibel.</p></li></ol>
+        <div class="lbl-s">Wofür wir stehen</div>
+        <div class="gz-vals"><div class="gz-v"><span class="gz-vi"><svg><use href="#i-check"/></svg></span><b>Persönlich</b><small>Maßgeschneidert statt Produkt von der Stange.</small></div><div class="gz-v"><span class="gz-vi"><svg><use href="#i-chat"/></svg></span><b>Transparent</b><small>Du weißt immer, was du hast, was es kostet und warum.</small></div><div class="gz-v"><span class="gz-vi"><svg><use href="#i-book"/></svg></span><b>Verständlich</b><small>Finanzen ohne Fachchinesisch.</small></div><div class="gz-v"><span class="gz-vi"><svg><use href="#i-award"/></svg></span><b>Unabhängig</b><small>Freier Makler: immer auf deiner Seite, ohne Druck.</small></div></div>
+        <div class="gz-fam">
+          <div class="gz-fi"><svg><use href="#i-heart"/></svg></div>
+          <div><h3>Kinder sind willkommen</h3><p>Im Büro in Wabern gibt es eine Kinderecke – oder wir machen alles bequem online. Der Zeitaufwand bleibt für euch so klein wie möglich.</p></div>
+        </div>
+        <details class="gz-docs"><summary><span class="gz-pi"><svg><use href="#i-book"/></svg></span><b>Was du zum Erstgespräch mitbringen kannst</b><svg class="kv-ch"><use href="#i-chev"/></svg></summary>
+          <ul>
+            <li><b>Sachversicherungen</b>Police und aktuelle Beitragsrechnung</li>
+            <li><b>Vorsorge &amp; BU</b>Police und aktuelle Standmitteilung</li>
+            <li><b>Strom &amp; Gas</b>Letzte Jahresabrechnung</li>
+          </ul>
+          <p>Fehlt etwas? Kein Problem – notfalls fordere ich die Unterlagen beim Versicherer an. Online reichen Fotos oder Scans.</p>
+        </details>
         <div class="lbl-s">Das sagen Kunden</div>
         <div class="rv-grid"><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert … Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Es ist sehr angenehm, alle Versicherungen über einen Ansprechpartner laufen zu lassen. … schaut jedes Jahr, ob sich ein Wechsel zu einer anderen Versicherung lohnt.“</blockquote><figcaption>Vanessa R. · Google-Bewertung</figcaption></figure><figure class="rv"><div class="rv-s">★★★★★</div><blockquote>„Das Vorgehen ist sehr transparent und alle Schritte sind erläutert worden. … Tolles Team was wir ausdrücklich empfehlen können.“</blockquote><figcaption>Felix K. · Google-Bewertung</figcaption></figure></div>
         <p class="rv-note" style="text-align:left;margin-top:-6px"><a href="https://g.page/r/CeoNk5h9mBWgEBE" target="_blank" rel="noopener noreferrer">5,0 ★ aus 111 Google-Bewertungen für Trinity Finanz</a> · Auszug. · <button class="legal-link" data-open="impressum">Hinweis zu Bewertungen</button></p>
@@ -1760,6 +1818,18 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
     ids.forEach(k=>$('ix-'+k).addEventListener('input',calc)); ['ix-st','ix-afa'].forEach(k=>$(k).addEventListener('change',calc));
     return calc;
   }
+  // Ganzheitlich: Bereiche + Schritte
+  (function(){
+    const hub=document.querySelectorAll('.gz-a'); if(!hub.length) return;
+    hub.forEach(b=>b.addEventListener('click',()=>{
+      const k=b.dataset.a, was=b.classList.contains('on');
+      hub.forEach(x=>x.classList.toggle('on',!was&&x===b));
+      document.querySelectorAll('.gz-d').forEach(d=>d.hidden=was||d.dataset.a!==k);
+      document.querySelector('.gz-d0').hidden=!was;
+    }));
+    const st=[...document.querySelectorAll('.gz-st')];
+    st.forEach(li=>li.querySelector('button').addEventListener('click',()=>{st.forEach(x=>x.classList.toggle('on',x===li));}));
+  })();
   // BU-Check-up
   function buCheck(){
     const v=id=>String($(id).value||'').trim();
