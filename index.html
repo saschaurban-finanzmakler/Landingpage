@@ -707,6 +707,8 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .ix-m.gold b{color:#FFD58A}
 .ix-roi{font-size:.85rem;color:var(--ink-2);line-height:1.5;padding:12px 14px;border-radius:14px;border-left:3px solid var(--good);background:rgba(63,211,154,.07)}
 .ix-roi b{color:var(--ink)}
+.ix-rt{display:block;font-family:var(--f-display);font-size:.95rem;margin-bottom:4px;color:var(--good)!important}
+.ix-r30{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:.8rem;color:var(--ink-3)}
 @media (max-width:560px){.ix-miles{grid-template-columns:1fr}.ix-m{flex-direction:row;align-items:center}}
 /* ===== Ganzheitlich ===== */
 .gz-hub{border-radius:20px;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 30%,#163F6E 0%,#0D2B4E 50%,#0A1C31 100%);padding:18px 14px 14px;overflow:hidden}
@@ -1221,7 +1223,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
             <div class="ix-m gold"><span class="ix-age">30</span><div><small>Jahre</small><b id="ix-m30">–</b><em id="ix-m30s"></em></div></div>
           </div>
           <div class="ix-roi" id="ix-roi"></div>
-          <p class="b-note">Beispielrechnung, keine Finanzierungs-, Steuer- oder Anlageberatung. Annuitätendarlehen über Kaufpreis plus Nebenkosten abzüglich Eigenkapital, Zins nach der Zinsbindung unverändert angenommen. Gebäudeanteil 80 % für die AfA, Steuereffekt mit deinem Grenzsteuersatz, Kosten steigen mit der Miete. Mietausfall, Instandhaltungsrücklagen-Sprünge, Verkaufskosten und Steuern beim Verkauf nicht berücksichtigt. Bauzinsen lagen Anfang November 2026 bei rund 4,2 % für 10 Jahre Zinsbindung.</p>
+          <p class="b-note">Beispielrechnung, keine Finanzierungs-, Steuer- oder Anlageberatung. Annuitätendarlehen über Kaufpreis plus Nebenkosten abzüglich Eigenkapital, Zins nach der Zinsbindung unverändert angenommen. Gebäudeanteil 80 % für die AfA, Steuereffekt mit deinem Grenzsteuersatz, Kosten steigen mit der Miete. Mietausfall, Instandhaltungsrücklagen-Sprünge und Verkaufskosten nicht berücksichtigt. Steuerfreiheit nach 10 Jahren gilt für private Veräußerungsgeschäfte (§ 23 EStG) bei vermieteten Immobilien im Privatvermögen. Bauzinsen lagen Anfang November 2026 bei rund 4,2 % für 10 Jahre Zinsbindung.</p>
         </div>
         <div class="lbl-s">Dein Kurz-Check</div>
         <div class="tool">
@@ -1810,8 +1812,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       tw($('ix-eq30'),out[30].eq);
       $('ix-eq30S').textContent='Immobilienwert '+fE(out[30].val)+' − Restschuld '+fE(out[30].rest);
       [10,20,30].forEach(y=>{tw($('ix-m'+y),out[y].eq); $('ix-m'+y+'s').textContent='selbst eingezahlt: '+fE(Math.max(0,out[y].own));});
-      const o=out[30].own+v.ek, mult=o>0?out[30].eq/o:0;
-      $('ix-roi').innerHTML=o>0?'Aus <b>'+fE(o)+'</b> eigenem Geld (inkl. Eigenkapital) werden in 30 Jahren <b>'+fE(out[30].eq)+'</b> Vermögen – rund <b>'+mult.toLocaleString('de-DE',{maximumFractionDigits:1})+'-mal</b> so viel.':'In diesem Beispiel trägt sich die Immobilie komplett selbst.';
+      const mx=x=>x.toLocaleString('de-DE',{maximumFractionDigits:1});
+      const o10=Math.max(0,out[10].own)+v.ek, o30=Math.max(0,out[30].own)+v.ek, m10=o10>0?out[10].eq/o10:0, m30=o30>0?out[30].eq/o30:0;
+      $('ix-roi').innerHTML='<b class="ix-rt">Fazit nach 10 Jahren</b>'+
+        (o10>0?'Aus <b>'+fE(o10)+'</b> eigenem Geld (inkl. Eigenkapital) sind <b>'+fE(out[10].eq)+'</b> Vermögen geworden'+(m10>=1?' – rund <b>'+mx(m10)+'-mal</b> so viel.':'.'):'Die Immobilie hat sich in den ersten 10 Jahren selbst getragen und <b>'+fE(out[10].eq)+'</b> Vermögen aufgebaut.')+
+        ' Nach 10 Jahren Haltedauer wäre ein Verkauf zudem <b>steuerfrei</b> – die Spekulationsfrist ist vorbei.'+
+        '<span class="ix-r30">Wer weiter hält: nach 30 Jahren <b>'+fE(out[30].eq)+'</b>'+(o30>0&&m30>=1?' aus '+fE(o30)+' eigenem Geld (rund '+mx(m30)+'-mal so viel).':'.')+'</span>';
       waOverride='Hallo Sascha, ich habe den Immobilien-Rechner genutzt: Kaufpreis '+fE(v.kp)+', Miete '+fE(v.miete)+', Eigenkapital '+fE(v.ek)+' – Eigenanteil ca. '+fE(m(y1.cf))+' im Monat. Ich möchte mehr über Kapitalanlage-Immobilien erfahren.';
       if(cur==='immo') setCta(topics.find(x=>x.dataset.topic==='immo'));
     }
