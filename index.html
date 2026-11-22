@@ -464,6 +464,19 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .ab-join:hover{color:#fff}
 .ab-fun{display:flex;gap:12px;align-items:center;border:1px dashed var(--line-2);border-radius:16px;padding:12px 16px}
 .ab-fun span{font-size:1.6rem}.ab-fun p{font-size:.9rem;color:var(--ink-2)}
+
+.ab-h2{font-size:clamp(1.4rem,3.8vw,2rem);font-weight:800}
+.ab-map{position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:340/440;container-type:inline-size}
+.ab-me{position:absolute;left:29%;width:42%;top:44%;height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.5))}
+.ab-map::after{content:"";position:absolute;left:20%;right:20%;bottom:0;height:10%;background:radial-gradient(ellipse at 50% 100%,rgba(53,175,203,.25),transparent 70%);pointer-events:none}
+.ab-arrows{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.ab-arrows path{fill:none;stroke:#7FD3E6;stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.ab-f{position:absolute;width:37%;font-size:3.7cqw;font-weight:700;line-height:1.25;color:var(--ink);background:rgba(14,36,64,.94);border:1px solid var(--line);border-radius:12px;padding:2.2cqw 2.6cqw}
+.ab-f span{display:block;font-size:5cqw;line-height:1;margin-bottom:1cqw}
+.topic[data-topic="ueber"]:not([hidden]) .ab-arrows path{animation:abDraw .9s var(--d) cubic-bezier(.4,0,.2,1) both}
+.topic[data-topic="ueber"]:not([hidden]) .ab-f{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both}
+.ab-f.f2{animation-delay:.1s!important}.ab-f.f3{animation-delay:.2s!important}.ab-f.f4{animation-delay:.3s!important}.ab-f.f5{animation-delay:.4s!important}.ab-f.f6{animation-delay:.5s!important}
+@keyframes abDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 /* ===== Rentenlücken-Rechner ===== */
 .rl{display:flex;flex-direction:column;gap:14px}
@@ -895,8 +908,9 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       </section>
 
       <section class="topic" data-topic="ueber" hidden data-wa="Hallo Sascha, ich habe deine Seite gesehen und würde dich gern kennenlernen." data-cta="Lust, mich persönlich kennenzulernen?" data-btn="Hallo sagen per WhatsApp">
-        <div class="ab-head"><img src="img/sascha-stehend.png?v=2" alt="Sascha Urban" class="ab-pic"><div><h2>Hi, ich bin Sascha.</h2><p class="t-intro">Ich bin 35, wohne mit meiner Familie in Wabern und bin mit der tollsten Frau der Welt verheiratet. Zusammen haben wir zwei tolle Jungs, 7 und 3 Jahre alt.</p></div></div>
-        <div class="ab-chips"><span>📍 Wabern</span><span>👦👦 Papa von 2 Jungs</span><span>⭐ Teamleiter Team Urban</span><span>⚽ F-Jugend-Trainer</span><span>🏦 aus einer Bankerfamilie</span></div>
+        <h2 class="ab-h2">Hi, ich bin Sascha.</h2>
+        <p class="t-intro">Ich bin 35, wohne mit meiner Familie in Wabern und bin mit der tollsten Frau der Welt verheiratet. Zusammen haben wir zwei tolle Jungs, 7 und 3 Jahre alt.</p>
+        <div class="ab-map"><img src="img/sascha-stehend.png?v=2" alt="Sascha Urban" class="ab-me"><svg class="ab-arrows" viewBox="0 0 340 440" aria-hidden="true"><defs><marker id="abh" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#7FD3E6" stroke-width="2" stroke-linecap="round"/></marker></defs><path d="M64 74 C 66 98, 54 110, 66 120 a9 9 0 1 1 13 5 C 98 150, 126 176, 146 214" pathLength="1" style="--d:0.3s" marker-end="url(#abh)"/><path d="M276 98 C 274 112, 286 120, 274 128 a9 9 0 1 0 -13 5 C 242 150, 214 176, 194 214" pathLength="1" style="--d:0.44999999999999996s" marker-end="url(#abh)"/><path d="M64 214 C 66 234, 54 244, 66 252 a8 8 0 1 1 12 4 C 90 276, 104 288, 116 296" pathLength="1" style="--d:0.6s" marker-end="url(#abh)"/><path d="M276 214 C 274 234, 286 244, 274 252 a8 8 0 1 0 -12 4 C 250 276, 236 288, 224 296" pathLength="1" style="--d:0.75s" marker-end="url(#abh)"/><path d="M64 330 C 62 316, 76 306, 66 298 a8 8 0 1 1 -2 -12 C 80 280, 104 306, 118 328" pathLength="1" style="--d:0.8999999999999999s" marker-end="url(#abh)"/><path d="M276 330 C 278 316, 264 306, 274 298 a8 8 0 1 0 2 -12 C 260 280, 236 306, 222 328" pathLength="1" style="--d:1.05s" marker-end="url(#abh)"/></svg><div class="ab-f f1" style="left:2%;top:2%"><span>📍</span>35 Jahre,<br>aus Wabern</div><div class="ab-f f2" style="left:61%;top:2%"><span>💍</span>Verheiratet mit der tollsten Frau der Welt</div><div class="ab-f f3" style="left:0%;top:35%"><span>👦👦</span>Papa von<br>2 Jungs (7 & 3)</div><div class="ab-f f4" style="left:63%;top:35%"><span>⭐</span>Teamleiter<br>Team Urban</div><div class="ab-f f5" style="left:0%;top:76%"><span>⚽</span>Kicker &<br>F-Jugend-Trainer</div><div class="ab-f f6" style="left:63%;top:76%"><span>🏦</span>Aus einer<br>Bankerfamilie</div></div>
         <div class="lbl-s">Mein Warum</div>
         <blockquote class="ab-quote">„Ich will Momente mit meinen Kindern teilen. Ich will da sein, wenn ich gebraucht werde.“</blockquote>
         <p>Genau deshalb bin ich in die Selbstständigkeit gegangen: um mein Leben flexibler zu gestalten und meine Kinder wirklich zu erleben.</p>
