@@ -148,8 +148,8 @@ h1 em{display:block}
 /* ---------- Kreis-Anordnung ---------- */
 @property --k{syntax:'<number>';inherits:true;initial-value:1}
 @property --sw{syntax:'<angle>';inherits:false;initial-value:0deg}
-.orbit{--tw:clamp(94px,27cqw,150px);--rx:calc(50cqw - var(--tw) / 2 - 2px);--ry:225px;
-  container-type:inline-size;position:relative;align-self:center;width:min(100%,760px);height:520px;margin:clamp(6px,2vh,20px) auto 0}
+.orbit{--tw:clamp(94px,27cqw,150px);--rx:calc(50cqw - var(--tw) / 2 - 2px);--ry:255px;
+  container-type:inline-size;position:relative;align-self:center;width:min(100%,760px);height:640px;margin:clamp(6px,2vh,20px) auto 0}
 .orbit .ring{position:absolute;left:50%;top:50%;width:calc(var(--rx) * 2);height:calc(var(--ry) * 2);transform:translate(-50%,-50%);border-radius:50%;
   border:1.5px dashed rgba(127,211,230,.28);pointer-events:none}
 .orbit .ring.sweep{border:0;padding:2px;background:conic-gradient(from var(--sw),transparent 0deg 280deg,rgba(127,211,230,.9) 360deg);
@@ -174,7 +174,7 @@ h1 em{display:block}
 .orbit .pack{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s,opacity .3s}
 .orbit .node:nth-of-type(2n) .pack{animation-delay:-2.5s}
 @media(min-width:700px){
-  .orbit{--ry:300px;height:690px}
+  .orbit{--ry:340px;height:840px}
   .orbit .stage img:not(.sym){height:420px}
   .orbit .stage .sym{width:440px}
 }
@@ -441,6 +441,24 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .rv-grid{display:grid;gap:12px}
 .rv-grid .rv{width:auto}
 @media (prefers-reduced-motion:reduce){.rv-mask{overflow-x:auto}.rv-dup{display:none}}
+
+/* Über mich */
+.orbit button.namecard{font:inherit;font-size:clamp(.62rem,1.5vw,.76rem);color:var(--teal-2);cursor:pointer;transition:border-color .2s,transform .2s}
+.orbit button.namecard b{color:var(--ink)}
+.orbit button.namecard:hover{border-color:var(--teal);transform:translateX(-50%) translateY(-2px)}
+.ab-head{display:flex;gap:18px;align-items:center}
+.ab-pic{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:50% 8%;flex-shrink:0;border:2px solid rgba(53,175,203,.5);background:#0E2440}
+.ab-head h2{font-size:clamp(1.4rem,3.8vw,2rem);font-weight:800;margin-bottom:6px}
+.ab-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ab-chips span{font-size:.8rem;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(14,36,64,.5)}
+.ab-quote{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(1.15rem,3.4vw,1.5rem);line-height:1.3;color:var(--teal-2);border-left:3px solid var(--teal);padding:4px 0 4px 16px}
+.topic[data-topic="ueber"]>p{color:var(--ink-2)}
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.ab-card{background:rgba(6,18,31,.45);border:1px solid rgba(150,200,235,.1);border-radius:16px;padding:16px}
+.ab-card b{display:block;font-family:var(--f-display);margin-bottom:6px}
+.ab-card p{font-size:.88rem;color:var(--ink-2)}
+.ab-fun{display:flex;gap:12px;align-items:center;border:1px dashed var(--line-2);border-radius:16px;padding:12px 16px}
+.ab-fun span{font-size:1.6rem}.ab-fun p{font-size:.9rem;color:var(--ink-2)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 /* ===== Rentenlücken-Rechner ===== */
 .rl{display:flex;flex-direction:column;gap:14px}
@@ -785,7 +803,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10.5H9l-5 4z"/><path d="M8.5 10.5h7"/></symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9.5 21v-6h5v6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10.5H9l-5 4z"/><path d="M8.5 10.5h7"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6"/></symbol><symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9.5 21v-6h5v6"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10Z"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></symbol>
 </svg>
@@ -809,15 +827,16 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       <img class="sym" src="img/trinity-symbol.png" alt="" aria-hidden="true" width="486" height="447">
       <img src="img/sascha-stehend.png?v=2" alt="Sascha Urban" width="685" height="1000">
       <div class="podium" aria-hidden="true"></div>
-      <div class="namecard"><b>Sascha Urban</b>Trinity Finanz</div>
+      <button type="button" class="namecard" data-open="ueber" aria-label="Über mich: Sascha Urban kennenlernen"><b>Sascha Urban</b>Über mich →</button>
     </div>
 
-    <div class="node" style="--a:-35deg;--i:0"><button class="pack c1" data-open="ganz"><span class="ic"><svg><use href="#i-grid"/></svg></span><span class="w">Ganz&shy;heitliche Beratung</span><span class="lbl">So arbeite ich</span></button></div>
-    <div class="node" style="--a:35deg;--i:1"><button class="pack c4" data-open="immo"><span class="ic"><svg><use href="#i-home"/></svg></span><span class="w">Immobilie</span><span class="lbl">Als Kapitalanlage</span></button></div>
-    <div class="node" style="--a:90deg;--i:2"><button class="pack c5" data-open="kinder"><span class="ic"><svg><use href="#i-heart"/></svg></span><span class="w">Kinder&shy;vorsorge</span><span class="lbl">Für dein Kind</span></button></div>
-    <div class="node" style="--a:145deg;--i:3"><button class="pack c6" data-open="avd"><span class="tag">Neu 2027</span><span class="ic"><svg><use href="#i-way"/></svg></span><span class="w">AVD-Förder&shy;rechner</span><span class="lbl">Was zahlt der Staat?</span></button></div>
-    <div class="node" style="--a:-145deg;--i:4"><button class="pack c3" data-open="rente"><span class="ic"><svg><use href="#i-trend"/></svg></span><span class="w">Wie hoch ist meine Renten&shy;lücke?</span><span class="lbl">Jetzt berechnen</span></button></div>
-    <div class="node" style="--a:-90deg;--i:5"><button class="pack c2" data-open="bu"><span class="ic"><svg><use href="#i-shield"/></svg></span><span class="w">BU</span><span class="lbl">Berufs&shy;unfähigkeit</span></button></div>
+    <div class="node" style="--a:0deg;--i:0"><button class="pack c1" data-open="ueber"><span class="ic"><svg><use href="#i-user"/></svg></span><span class="w">Über mich</span><span class="lbl">Wer ich bin</span></button></div>
+    <div class="node" style="--a:-51.43deg;--i:6"><button class="pack c1" data-open="ganz"><span class="ic"><svg><use href="#i-grid"/></svg></span><span class="w">Ganz&shy;heitliche Beratung</span><span class="lbl">So arbeite ich</span></button></div>
+    <div class="node" style="--a:51.43deg;--i:1"><button class="pack c4" data-open="immo"><span class="ic"><svg><use href="#i-home"/></svg></span><span class="w">Immobilie</span><span class="lbl">Als Kapitalanlage</span></button></div>
+    <div class="node" style="--a:102.86deg;--i:2"><button class="pack c5" data-open="kinder"><span class="ic"><svg><use href="#i-heart"/></svg></span><span class="w">Kinder&shy;vorsorge</span><span class="lbl">Für dein Kind</span></button></div>
+    <div class="node" style="--a:154.29deg;--i:3"><button class="pack c6" data-open="avd"><span class="tag">Neu 2027</span><span class="ic"><svg><use href="#i-way"/></svg></span><span class="w">AVD-Förder&shy;rechner</span><span class="lbl">Was zahlt der Staat?</span></button></div>
+    <div class="node" style="--a:-154.29deg;--i:4"><button class="pack c3" data-open="rente"><span class="ic"><svg><use href="#i-trend"/></svg></span><span class="w">Wie hoch ist meine Renten&shy;lücke?</span><span class="lbl">Jetzt berechnen</span></button></div>
+    <div class="node" style="--a:-102.86deg;--i:5"><button class="pack c2" data-open="bu"><span class="ic"><svg><use href="#i-shield"/></svg></span><span class="w">BU</span><span class="lbl">Berufs&shy;unfähigkeit</span></button></div>
   </div>
 
   <section class="reviews" aria-label="Kundenbewertungen">
@@ -845,7 +864,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   <div class="sheet-in">
     <div class="sheet-bar">
       <div class="tabs" id="tabs" role="tablist">
-        <button data-go="termin">Termin</button><button data-go="ganz">Überblick</button><button data-go="bu">BU</button><button data-go="rente">Rente</button><button data-go="avd">AVD</button><button data-go="immo">Immobilie</button><button data-go="kinder">Kinder</button><button data-go="plan">Zukunftsplan</button>
+        <button data-go="termin">Termin</button><button data-go="ueber">Über mich</button><button data-go="ganz">Überblick</button><button data-go="bu">BU</button><button data-go="rente">Rente</button><button data-go="avd">AVD</button><button data-go="immo">Immobilie</button><button data-go="kinder">Kinder</button><button data-go="plan">Zukunftsplan</button>
       </div>
       <button class="close" id="close" aria-label="Schließen" autofocus><svg class="i"><use href="#i-x"/></svg></button>
     </div>
@@ -868,6 +887,25 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           </a>
         </div>
         <p class="b-note">Die Buchung öffnet sich auf der Seite meines Terminplaners Zeeg (Zeeg GmbH, Berlin). Du bekommst danach eine Bestätigung per E-Mail.</p>
+      </section>
+
+      <section class="topic" data-topic="ueber" hidden data-wa="Hallo Sascha, ich habe deine Seite gesehen und würde dich gern kennenlernen." data-cta="Lust, mich persönlich kennenzulernen?" data-btn="Hallo sagen per WhatsApp">
+        <div class="ab-head"><img src="img/sascha-stehend.png?v=2" alt="Sascha Urban" class="ab-pic"><div><h2>Hi, ich bin Sascha.</h2><p class="t-intro">Ich bin 35, wohne mit meiner Familie in Wabern und bin mit der tollsten Frau der Welt verheiratet. Zusammen haben wir zwei tolle Jungs, 7 und 3 Jahre alt.</p></div></div>
+        <div class="ab-chips"><span>📍 Wabern</span><span>👦👦 Papa von 2 Jungs</span><span>⚽ F-Jugend-Trainer</span><span>🏦 aus einer Bankerfamilie</span></div>
+        <div class="lbl-s">Mein Warum</div>
+        <blockquote class="ab-quote">„Ich will Momente mit meinen Kindern teilen. Ich will da sein, wenn ich gebraucht werde.“</blockquote>
+        <p>Genau deshalb bin ich in die Selbstständigkeit gegangen: um mein Leben flexibler zu gestalten und meine Kinder wirklich zu erleben.</p>
+        <p>Finanzmakler zu sein ist für mich eine Erfüllung. Ich kann Menschen helfen, finanzielle Aufklärung leisten und dabei kreativ sein, zum Beispiel beim Aufbau meiner eigenen Marke. Vor allem aber begleite ich meine Mandanten dabei, ihre Ziele, Wünsche und Träume zu erreichen und Risiken klein zu halten. Dafür stehe ich jeden Tag auf und gebe in jedem einzelnen Konzept 110 %.</p>
+        <div class="lbl-s">So ticke ich</div>
+        <p>Ich bin ein absolut positiver Mensch und ehrgeizig in allem, was ich tue: im Beruf, im Sport und privat. Fußball ist ein großer Teil meines Lebens. Ich spiele selbst aktiv und trainiere die F-Jugend meines Sohnes. Mich ehrenamtlich im Heimatverein zu engagieren, ist mir wichtig.</p>
+        <div class="lbl-s">Meine Idee von Finanzberatung</div>
+        <div class="ab-grid">
+          <div class="ab-card"><b>Frei und selbstbestimmt</b><p>Ich komme aus einer Bankerfamilie, Finanzen waren früh mein Thema. Als Makler arbeite ich heute frei, ohne Druck oder Vorgaben von einem Chef. Diese Freiheit gebe ich 1:1 an dich weiter.</p></div>
+          <div class="ab-card"><b>Ein Anzug, der passt</b><p>Durch den Vergleich am Markt gehe ich individuell auf dich und deine Familie ein und baue einen maßgeschneiderten Anzug, der zu eurem Leben passt. Oft spart ihr dabei sogar spürbar Geld.</p></div>
+          <div class="ab-card"><b>Nähe statt Abschluss</b><p>Betreuung und Nähe sind für mich das Allerwichtigste. Ich möchte Beziehungen fürs Leben aufbauen. Darum suche ich von Anfang an die Lösung, die auch in vielen Jahren noch passt.</p></div>
+          <div class="ab-card"><b>Ein ganzes Team im Rücken</b><p>Ich arbeite nicht allein: Bei der Trinity Finanz GmbH arbeiten wir im Verbund von Finanzexperten. Mit eigenen Fachabteilungen für Anlage, Finanzierung und Gewerbe finden wir rund ums Geld die passende Lösung.</p></div>
+        </div>
+        <div class="ab-fun"><span>🌭</span><p><b>Funfact:</b> Ich hasse Wurstzipfel. Die müssen bei mir immer weg.</p></div>
       </section>
 
       <section class="topic" data-topic="ganz" hidden data-wa="Hallo Sascha, ich möchte ein kostenloses Erstgespräch vereinbaren." data-cta="Dein erstes Gespräch kostet nichts. Warten kostet alles." data-btn="Erstgespräch anfragen">
@@ -1564,7 +1602,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   });
   avKids(); avd();
 
-  const map={termin:'termin',termine:'termin',buchen:'termin',avd:'avd',altersvorsorgedepot:'avd',ganzheitlich:'ganz',ganz:'ganz',bu:'bu',rente:'rente',immo:'immo',kinder:'kinder',plan:'plan',zukunftsplan:'plan',impressum:'impressum',datenschutz:'datenschutz'};
+  const map={ueber:'ueber','ueber-mich':'ueber',about:'ueber',termin:'termin',termine:'termin',buchen:'termin',avd:'avd',altersvorsorgedepot:'avd',ganzheitlich:'ganz',ganz:'ganz',bu:'bu',rente:'rente',immo:'immo',kinder:'kinder',plan:'plan',zukunftsplan:'plan',impressum:'impressum',datenschutz:'datenschutz'};
   const h=location.hash.slice(1).toLowerCase(); if(map[h]) show(map[h]);
 
   // Rentenlücken-Rechner
