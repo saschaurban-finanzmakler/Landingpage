@@ -804,6 +804,40 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .gz-docs li{font-size:.82rem;color:var(--ink-2);padding:10px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
 .gz-docs li b{display:block;color:var(--ink);font-size:.84rem}
 .gz-docs p{font-size:.78rem;color:var(--ink-3);padding:10px 14px 14px;line-height:1.5}
+
+.qz{position:relative;padding:18px;border-radius:20px;background:linear-gradient(160deg,rgba(53,175,203,.14),rgba(58,134,214,.06) 60%),var(--bg-2);border:1px solid rgba(53,175,203,.35);overflow:hidden}
+.qz-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.qz-top h3{font-family:var(--f-display);font-size:1.05rem;margin:0 0 2px}
+.qz-top p{margin:0;color:var(--ink-2);font-size:.88rem;line-height:1.4}
+.qz-badge{flex-shrink:0;font-family:var(--f-display);font-weight:800;font-size:.72rem;color:#04121E;background:var(--teal);border-radius:10px;padding:8px 9px;box-shadow:0 0 22px -6px var(--teal);animation:qzPulse 2.4s ease-in-out infinite}
+@keyframes qzPulse{50%{box-shadow:0 0 30px -2px var(--teal)}}
+.qz-bar{height:4px;border-radius:4px;background:rgba(150,200,235,.12);margin-bottom:14px;overflow:hidden}
+.qz-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--blue));border-radius:4px;transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.qz-step{animation:qzIn .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes qzIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.qz-n{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.qz-q{font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.35;margin-bottom:14px}
+.qz-a{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qz-a button,.qz-acts button{font:inherit;font-weight:700;padding:13px 10px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer;transition:transform .15s,border-color .2s,background .2s}
+.qz-a button:active,.qz-acts button:active{transform:scale(.97)}
+.qz-a button[data-k="1"]:hover,.qz-a button[data-g="1"]:hover{border-color:var(--good)}
+.qz-a button[data-k="0"]:hover,.qz-a button[data-g="0"]:hover{border-color:var(--bad)}
+.qz-a button.on1{background:rgba(63,211,154,.16);border-color:var(--good)}
+.qz-a button.on0{background:rgba(255,122,107,.14);border-color:var(--bad)}
+.qz-a button:disabled{cursor:default}
+.qz-why{margin-top:12px;padding:11px 13px;border-radius:12px;background:rgba(53,175,203,.1);border-left:3px solid var(--teal);color:var(--ink-2);font-size:.88rem;line-height:1.45;animation:qzIn .35s ease}
+.qz-res{animation:qzIn .45s cubic-bezier(.2,.8,.2,1)}
+.qz-score{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.qz-score b{font-family:var(--f-display);font-size:2.4rem;line-height:1;color:var(--bad)}
+.qz-score.ok b{color:var(--good)}
+.qz-score span{font-weight:700;color:var(--ink-2)}
+.qz-txt{margin:0 0 10px;line-height:1.45}
+.qz-open{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:6px}
+.qz-open li{font-size:.86rem;color:var(--ink-2);padding-left:22px;position:relative;line-height:1.4}
+.qz-open li::before{content:"?";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:rgba(255,122,107,.18);color:var(--bad);font-size:.7rem;font-weight:800;display:grid;place-items:center}
+.qz-acts{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.qz-go{background:linear-gradient(135deg,var(--teal),var(--blue))!important;color:#04121E!important;border:0!important}
+@media (prefers-reduced-motion:reduce){.qz-step,.qz-why,.qz-res,.qz-badge{animation:none}.qz-bar i{transition:none}}
 </style>
 </head>
 <body>
@@ -969,7 +1003,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 
       <section class="topic" data-topic="bu" hidden data-wa="Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen." data-cta="Stimmt bei dir alles? Wir prüfen jeden Baustein." data-btn="BU prüfen lassen">
         <div class="t-head"><span class="chip" style="--c:#35AFCB">Absichern</span><h2>Bist du richtig abgesichert?</h2></div>
-        <p class="t-intro">Deine Arbeitskraft ist dein größtes Vermögen. Rechne aus, was auf dem Spiel steht und was der Staat wirklich zahlt.</p>
+        <p class="t-intro">Deine Arbeitskraft ist dein größtes Vermögen. Rechne aus, was auf dem Spiel steht und was der Staat wirklich zahlt.</p><div class="qz" data-qz="bu" data-wa-note="Ich habe den 10-Sekunden-Test gemacht." data-no-h="Dann ist das die wichtigste Frage von allen." data-no-p="Ohne BU hängt dein Einkommen allein an deiner Gesundheit. Rechne unten aus, was auf dem Spiel steht."><div class="qz-top"><span class="qz-badge">10 Sek.</span><div><h3>Der 10-Sekunden-Test</h3><p>Kannst du diese Fragen zu deiner BU sofort beantworten? Sei ehrlich zu dir.</p></div></div><div class="qz-bar"><i></i></div><div class="qz-step qz-gate" data-gate><div class="qz-q">Hast du eine Berufsunfähigkeitsversicherung?</div><div class="qz-a"><button type="button" data-g="1">Ja</button><button type="button" data-g="0">Nein / weiß nicht</button></div></div><div class="qz-step" data-i="0" data-l="Höhe meiner BU-Rente" hidden><div class="qz-n">Frage 1 von 5</div><div class="qz-q">Wie viel Geld bekommst du jeden Monat, wenn du ab morgen nicht mehr arbeiten kannst?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Die BU-Rente muss deine laufenden Kosten tragen. Empfohlen sind etwa 70–80 % deines Nettos.</div></div><div class="qz-step" data-i="1" data-l="Endalter" hidden><div class="qz-n">Frage 2 von 5</div><div class="qz-q">Bis zu welchem Alter zahlt dein Vertrag?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Endet die BU mit 60 oder 63, musst du die Jahre bis zur Rente selbst überbrücken.</div></div><div class="qz-step" data-i="2" data-l="AU-Klausel" hidden><div class="qz-n">Frage 3 von 5</div><div class="qz-q">Zahlt dein Vertrag schon, wenn du länger krankgeschrieben bist?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Eine AU-Klausel kann früher leisten, noch bevor eine Berufsunfähigkeit festgestellt ist.</div></div><div class="qz-step" data-i="3" data-l="Verweisung" hidden><div class="qz-n">Frage 4 von 5</div><div class="qz-q">Darf dich der Versicherer auf einen anderen Job verweisen?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Mit abstrakter Verweisung kann er sagen: „Du kannst ja noch etwas anderes arbeiten.“</div></div><div class="qz-step" data-i="4" data-l="Nachversicherung" hidden><div class="qz-n">Frage 5 von 5</div><div class="qz-q">Kannst du die BU-Rente erhöhen, ohne neue Gesundheitsfragen, zum Beispiel wenn ein Kind kommt?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Das regelt die Nachversicherungsgarantie. Ohne sie wird jede Erhöhung neu geprüft.</div></div><div class="qz-res" hidden><div class="qz-score"><b></b><span></span></div><p class="qz-txt"></p><ul class="qz-open"></ul><div class="qz-acts"><button type="button" class="qz-go">Jetzt nachrechnen ↓</button><button type="button" class="qz-re">Nochmal</button></div></div></div>
         <div class="bx" aria-live="polite">
           <div class="bx-hero">
             <div class="bx-k">Deine Arbeitskraft bis 67</div>
@@ -1035,7 +1069,7 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
       </section>
 
       <section class="topic" data-topic="rente" hidden data-wa="Hallo Sascha, ich würde gerne meine Rentenlücke besprechen." data-cta="Das klingt nach viel? Mit der richtigen Strategie ist es machbarer, als du denkst." data-btn="Ergebnis besprechen">
-        <div class="t-head"><span class="chip" style="--c:#3A86D6">Rente</span><h2>Wie groß ist deine Rentenlücke?</h2></div>
+        <div class="t-head"><span class="chip" style="--c:#3A86D6">Rente</span><h2>Wie groß ist deine Rentenlücke?</h2></div><div class="qz" data-qz="rente" data-wa-note="Ich habe den 10-Sekunden-Test zur Rente gemacht."><div class="qz-top"><span class="qz-badge">10 Sek.</span><div><h3>Der 10-Sekunden-Test</h3><p>Kannst du diese Fragen zu deiner Rente sofort beantworten? Sei ehrlich zu dir.</p></div></div><div class="qz-bar"><i></i></div><div class="qz-step" data-i="0" data-l="Höhe meiner gesetzlichen Rente" hidden><div class="qz-n">Frage 1 von 5</div><div class="qz-q">Wie hoch ist deine gesetzliche Rente laut deiner letzten Renteninformation?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Die Renteninformation kommt jedes Jahr per Post. Sie ist der Startpunkt jeder Rechnung.</div></div><div class="qz-step" data-i="1" data-l="Netto-Rente nach Abzügen" hidden><div class="qz-n">Frage 2 von 5</div><div class="qz-q">Wie viel davon bleibt nach Steuern und Krankenversicherung übrig?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Die Zahl in der Renteninformation ist brutto. Ausgezahlt wird spürbar weniger.</div></div><div class="qz-step" data-i="2" data-l="Bedarf im Alter" hidden><div class="qz-n">Frage 3 von 5</div><div class="qz-q">Wie viel Geld brauchst du im Ruhestand jeden Monat zum Leben?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Miete, Essen, Auto, Urlaub: Ohne Zielbetrag weißt du nicht, wofür du sparst.</div></div><div class="qz-step" data-i="3" data-l="Inflation" hidden><div class="qz-n">Frage 4 von 5</div><div class="qz-q">Was sind 2.000 € in 30 Jahren noch wert?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Inflation frisst Kaufkraft. Was heute reicht, reicht später oft nicht mehr.</div></div><div class="qz-step" data-i="4" data-l="nötige Sparrate" hidden><div class="qz-n">Frage 5 von 5</div><div class="qz-q">Wie viel müsstest du heute monatlich zurücklegen, um deine Lücke zu schließen?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Je früher du startest, desto kleiner wird die Sparrate.</div></div><div class="qz-res" hidden><div class="qz-score"><b></b><span></span></div><p class="qz-txt"></p><ul class="qz-open"></ul><div class="qz-acts"><button type="button" class="qz-go">Jetzt nachrechnen ↓</button><button type="button" class="qz-re">Nochmal</button></div></div></div>
         <div class="rl" aria-live="polite">
           <div class="rl-hero">
             <div class="rl-cats"><button type="button" class="rl-cat" data-c="e_wohnen"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></span><span class="rl-cn">Wohnen</span><b id="rl-cv-e_wohnen"></b></button><button type="button" class="rl-cat" data-c="e_essen"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span><span class="rl-cn">Lebensmittel</span><b id="rl-cv-e_essen"></b></button><button type="button" class="rl-cat" data-c="e_frei"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></span><span class="rl-cn">Freizeit</span><b id="rl-cv-e_frei"></b></button><button type="button" class="rl-cat" data-c="e_ges"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span><span class="rl-cn">Gesundheit</span><b id="rl-cv-e_ges"></b></button><button type="button" class="rl-cat" data-c="e_mob"><span class="rl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span><span class="rl-cn">Mobilität</span><b id="rl-cv-e_mob"></b></button></div>
@@ -1469,11 +1503,64 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
   const $=id=>document.getElementById(id);
   const sheet=$('sheet'), topics=[...document.querySelectorAll('.topic')];
   let waOverride=null, cur=null;
+  // 10-Sekunden-Test (BU & Rente)
+  const QZ={};
+  document.querySelectorAll('.qz').forEach(box=>{
+    const key=box.dataset.qz, steps=[...box.querySelectorAll('.qz-step[data-i]')], gate=box.querySelector('[data-gate]');
+    const bar=box.querySelector('.qz-bar i'), res=box.querySelector('.qz-res'), N=steps.length;
+    let ans=[];
+    const prog=k=>bar.style.width=(k/N*100)+'%';
+    function go(i){ steps.forEach((s,j)=>s.hidden=j!==i); }
+    function reset(){
+      ans=[]; QZ[key]=''; res.hidden=true; prog(0);
+      box.querySelectorAll('.qz-a button').forEach(b=>{b.disabled=false;b.classList.remove('on0','on1');});
+      box.querySelectorAll('.qz-why').forEach(w=>w.hidden=true);
+      if(gate){gate.hidden=false;steps.forEach(s=>s.hidden=true);} else go(0);
+      if(cur===key) setCta(topics.find(x=>x.dataset.topic===key));
+    }
+    function finish(noContract){
+      steps.forEach(s=>s.hidden=true); if(gate) gate.hidden=true; prog(N); res.hidden=false;
+      const sc=res.querySelector('.qz-score'), ul=res.querySelector('.qz-open'), txt=res.querySelector('.qz-txt');
+      ul.innerHTML='';
+      if(noContract){
+        sc.classList.remove('ok'); sc.querySelector('b').textContent='!'; sc.querySelector('span').textContent=box.dataset.noH;
+        txt.textContent=box.dataset.noP;
+        QZ[key]=' Ich habe noch keine BU (oder weiß es nicht genau).';
+      } else {
+        const os=steps.filter((s,j)=>ans[j]===0), open=os.map(s=>s.querySelector('.qz-q').textContent), lab=os.map(s=>s.dataset.l);
+        sc.classList.toggle('ok',open.length===0);
+        sc.querySelector('b').textContent=open.length+' / '+N;
+        sc.querySelector('span').textContent=open.length===1?'Frage offen':'Fragen offen';
+        txt.textContent=open.length===0?'Stark, du kennst deine Zahlen. Rechne trotzdem nach, ob sie zu deinem Leben heute passen.'
+          :open.length<=2?'Fast. Genau diese offenen Punkte entscheiden im Ernstfall, ob du gut dastehst:'
+          :'Ehrlich gesagt: Hier steckt viel Unsicherheit. Das klären wir in einem kurzen Gespräch, ganz ohne Fachchinesisch:';
+        open.forEach(q=>{const li=document.createElement('li');li.textContent=q;ul.appendChild(li);});
+        QZ[key]=' '+box.dataset.waNote+' Offen sind bei mir '+open.length+' von '+N+' Fragen'+(open.length?' ('+lab.join(', ')+')':'')+'.';
+      }
+      if(cur===key) setCta(topics.find(x=>x.dataset.topic===key));
+    }
+    if(gate) gate.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+      if(b.dataset.g==='1'){gate.hidden=true;go(0);} else finish(true);
+    }));
+    steps.forEach((s,i)=>s.querySelectorAll('.qz-a button').forEach(b=>b.addEventListener('click',()=>{
+      if(ans[i]!==undefined) return;
+      ans[i]=+b.dataset.k; b.classList.add('on'+b.dataset.k);
+      s.querySelectorAll('.qz-a button').forEach(x=>x.disabled=true);
+      s.querySelector('.qz-why').hidden=false; prog(i+1);
+      setTimeout(()=>{ if(i+1<N) go(i+1); else finish(false); }, ans[i]===0?1900:1100);
+    })));
+    box.querySelector('.qz-re').addEventListener('click',reset);
+    box.querySelector('.qz-go').addEventListener('click',()=>{
+      const t=box.nextElementSibling; if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    reset();
+  });
+
 
   function setCta(t){
     $('cta-text').textContent=t.dataset.cta;
     $('cta-label').textContent=t.dataset.btn;
-    $('cta-btn').href=WA+encodeURIComponent((waOverride||t.dataset.wa)+von);
+    $('cta-btn').href=WA+encodeURIComponent((waOverride||t.dataset.wa)+(QZ[t.dataset.topic]||'')+von);
   }
   function show(id){
     const t=topics.find(x=>x.dataset.topic===id); if(!t) return;
