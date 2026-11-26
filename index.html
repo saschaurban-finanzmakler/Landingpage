@@ -858,6 +858,12 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
 .tr-badges svg{width:15px;height:15px;color:var(--good);flex-shrink:0;stroke:currentColor;fill:none}
 .tr-q{margin:0;font-weight:700;line-height:1.45;padding:12px 14px;border-radius:12px;background:rgba(53,175,203,.1);border-left:3px solid var(--teal)}
 @media (prefers-reduced-motion:reduce){.tr-steps li{animation:none}}
+.igd{display:flex;gap:16px;align-items:center;padding:16px;border-radius:18px;background:var(--bg-2);border:1px solid var(--line)}
+.igd img{width:80px;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25);flex-shrink:0}
+.igd-t{flex:1;min-width:0}
+.igd-t strong{display:block;font-size:1rem}
+.igd-t p{margin:6px 0 12px;font-size:.85rem;color:var(--ink-2);line-height:1.5}
+.igd .btn{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -1374,6 +1380,13 @@ details.sub[open] p{animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
           <div id="immo-nein" hidden>
             <div class="verdict no"><div class="ico"><svg class="i"><use href="#i-way"/></svg></div><div><h3>Noch nicht ganz. Aber das ändern wir.</h3><p>Im Gespräch entwickeln wir einen Plan, der dich Schritt für Schritt dorthin bringt.</p></div></div>
             <p class="prio-out" id="immo-prio-nein" hidden></p>
+          </div>
+        </div>
+        <div class="igd">
+          <img src="img/immo/guide-cover.webp" alt="Titelseite des Immobilien-Leitfadens" width="240" height="339" loading="lazy">
+          <div class="igd-t"><strong>Gratis: Immobilien-Leitfaden</strong>
+            <p>Wie das Domicil-Konzept funktioniert, wer was übernimmt und ein echtes Rechenbeispiel. 5 Seiten.</p>
+            <a class="btn" href="immobilien-guide.pdf" download="Immobilien-Leitfaden_Team-Urban.pdf"><svg class="i"><use href="#i-book"/></svg>PDF herunterladen</a>
           </div>
         </div>
         <a class="reel" href="https://www.instagram.com/reel/DY4EhogIAd0/?igsh=MWh2dmVpbXRiYzRuag==" target="_blank" rel="noopener noreferrer"><i><svg><use href="#i-play"/></svg></i>Video zur Kapitalanlage-Immobilie <small>Instagram</small></a>
