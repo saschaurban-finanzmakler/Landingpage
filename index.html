@@ -1129,6 +1129,17 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 #lagen .ap-group .ap-ic,#lagen .ap-ct-ic,#lagen .ap-asset-ic{background:#f5f5f7}
 #lagen .ap-ct-all{background:linear-gradient(135deg,rgba(0,113,227,.1),rgba(94,92,230,.1))}
 .ap-punch{font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,5.2vw,2.3rem);line-height:1.15;letter-spacing:-.025em;margin:18px 0 0;max-width:720px;background:linear-gradient(90deg,#e5484d,#ff9f0a);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.ap-marq{margin:22px -20px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ap-marq-t{display:flex;gap:14px;width:max-content;animation:apMarq 38s linear infinite}
+.ap-marq:hover .ap-marq-t,.ap-marq:active .ap-marq-t{animation-play-state:paused}
+.ap-marq-dup{display:flex;gap:14px}
+.ap-q{flex:0 0 280px;margin:0;text-align:left;background:#f5f5f7;border-radius:20px;padding:16px 18px}
+.ap-q span{color:#f5a623;letter-spacing:1px;font-size:.85rem}
+.ap-q blockquote{margin:6px 0 8px;font-size:.95rem;line-height:1.45;color:#1d1d1f;font-weight:500}
+.ap-q figcaption{font-size:.78rem;color:#86868b}
+@keyframes apMarq{to{transform:translateX(calc(-50% - 7px))}}
+@media (prefers-reduced-motion:reduce){.ap-marq-t{animation:none}.ap-marq{overflow-x:auto}}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1169,6 +1180,9 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     <div class="ap-heroimg" id="ap-heroimg">
       <div class="ap-glow"></div>
       <img src="img/sascha-hero.webp" alt="Sascha Urban, Versicherungsmakler in Wabern" width="1000" height="1500">
+    </div>
+    <div class="ap-marq" aria-label="Stimmen aus Google-Bewertungen">
+      <div class="ap-marq-t"><figure class="ap-q"><span>★★★★★</span><blockquote>„… Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Dank Maik Walter und Sascha Urban konnte ich durch neue Versicherungen Geld sparen. Beide stehen mir jederzeit zu 100 % zur Seite.“</blockquote><figcaption>Gigi · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Wir sind sehr zufrieden mit der ausführlichen Beratung, und froh immer Sascha Urban als Ansprechpartner zu haben.“</blockquote><figcaption>B. S. · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><div class="ap-marq-dup" aria-hidden="true"><figure class="ap-q"><span>★★★★★</span><blockquote>„… Sascha Urban ist jederzeit erreichbar, erklärt sachlich, verständlich und geduldig.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Dank Maik Walter und Sascha Urban konnte ich durch neue Versicherungen Geld sparen. Beide stehen mir jederzeit zu 100 % zur Seite.“</blockquote><figcaption>Gigi · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Wir sind sehr zufrieden mit der ausführlichen Beratung, und froh immer Sascha Urban als Ansprechpartner zu haben.“</blockquote><figcaption>B. S. · Google-Bewertung</figcaption></figure><figure class="ap-q"><span>★★★★★</span><blockquote>„Er hat sich mit außergewöhnlicher Kompetenz und Herzlichkeit um unsere Versicherungen sowie unsere Altersvorsorge gekümmert.“</blockquote><figcaption>Tim · Google-Bewertung</figcaption></figure></div></div>
     </div>
   </section>
 
