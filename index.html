@@ -1131,15 +1131,16 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-punch{font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,5.2vw,2.3rem);line-height:1.15;letter-spacing:-.025em;margin:18px 0 0;max-width:720px;background:linear-gradient(90deg,#e5484d,#ff9f0a);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 .ap-marq{margin:22px -20px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.ap-marq-t{display:flex;gap:14px;width:max-content;animation:apMarq 38s linear infinite}
-.ap-marq:hover .ap-marq-t,.ap-marq:active .ap-marq-t{animation-play-state:paused}
+.ap-marq-t{display:flex;gap:14px;width:max-content;padding:0 20px}
+.ap-marq{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+.ap-marq::-webkit-scrollbar{display:none}
 .ap-marq-dup{display:flex;gap:14px}
 .ap-q{flex:0 0 280px;margin:0;text-align:left;background:#f5f5f7;border-radius:20px;padding:16px 18px}
 .ap-q span{color:#f5a623;letter-spacing:1px;font-size:.85rem}
 .ap-q blockquote{margin:6px 0 8px;font-size:.95rem;line-height:1.45;color:#1d1d1f;font-weight:500}
 .ap-q figcaption{font-size:.78rem;color:#86868b}
 @keyframes apMarq{to{transform:translateX(calc(-50% - 7px))}}
-@media (prefers-reduced-motion:reduce){.ap-marq-t{animation:none}.ap-marq{overflow-x:auto}}
+
 
 .ap-app{margin-top:34px;max-width:640px;background:#fff;border-radius:24px;padding:22px;display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,.04)}
 @media(max-width:420px){.ap-app{grid-template-columns:120px 1fr;gap:16px;padding:18px}}
@@ -2705,6 +2706,33 @@ els.forEach(e=>e.textContent='0');
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,to=+el.dataset.to,t0=performance.now();
 (function f(t){const k=Math.min(1,(t-t0)/1100),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(f);})(t0);}),{threshold:.6});
 els.forEach(e=>io.observe(e));})();
+</script>
+<script>
+/* Kundenstimmen unter dem Foto: laufen automatisch, per Wischen/Ziehen verschiebbar */
+(function(){
+  const el=document.querySelector('.ap-marq'); if(!el) return;
+  const dup=el.querySelector('.ap-marq-dup'), first=el.querySelector('.ap-q'); if(!dup||!first) return;
+  const auto=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let loopW=0,pos=0,paused=false,touching=false,timer=null,last=0,drag=null;
+  const measure=()=>{loopW=dup.getBoundingClientRect().left-first.getBoundingClientRect().left;};
+  const hold=()=>{paused=true;clearTimeout(timer);};
+  const later=ms=>{clearTimeout(timer);timer=setTimeout(()=>{paused=false;pos=el.scrollLeft;},ms);};
+  el.addEventListener('touchstart',()=>{touching=true;hold();},{passive:true});
+  el.addEventListener('touchend',()=>{touching=false;later(4000);},{passive:true});
+  el.addEventListener('touchcancel',()=>{touching=false;later(4000);},{passive:true});
+  el.addEventListener('wheel',()=>{hold();later(3000);},{passive:true});
+  el.addEventListener('mousedown',e=>{drag={x:e.clientX,s:el.scrollLeft};hold();el.style.cursor='grabbing';e.preventDefault();});
+  addEventListener('mousemove',e=>{if(drag) el.scrollLeft=drag.s-(e.clientX-drag.x);});
+  addEventListener('mouseup',()=>{if(drag){drag=null;el.style.cursor='';later(3000);}});
+  el.addEventListener('scroll',()=>{ if(!loopW||touching) return;
+    if(el.scrollLeft>=loopW){el.scrollLeft-=loopW;pos=el.scrollLeft;if(drag)drag.s-=loopW;}
+    else if(el.scrollLeft<=0){el.scrollLeft+=loopW;pos=el.scrollLeft;if(drag)drag.s+=loopW;} },{passive:true});
+  addEventListener('resize',measure);
+  function tick(t){ const dt=last?Math.min((t-last)/1000,.1):0; last=t; if(!loopW) measure();
+    if(auto&&!paused&&loopW){ if(Math.abs(el.scrollLeft-pos)>2) pos=el.scrollLeft; pos+=28*dt; if(pos>=loopW) pos-=loopW; el.scrollLeft=pos; }
+    requestAnimationFrame(tick); }
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
