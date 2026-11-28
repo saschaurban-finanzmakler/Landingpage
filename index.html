@@ -1050,6 +1050,21 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-local b{display:block;font-family:var(--f-display);font-size:1.08rem;letter-spacing:-.015em;margin-bottom:3px}
 .ap-local span{color:#6e6e73;line-height:1.45}
 .ap-howto{margin:30px 0 -14px;font-family:var(--f-display);font-weight:700;font-size:1.25rem;letter-spacing:-.015em;color:#1d1d1f}
+.ap-free{margin-top:34px;background:#fff;border-radius:24px;padding:24px 22px;max-width:640px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.ap-free-top{display:flex;align-items:center;gap:18px}
+.ap-free-v{font-family:var(--f-display);font-size:clamp(3rem,12vw,4rem);font-weight:700;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,#0071e3,#30B0C7);-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0}
+.ap-free-top b:not(.ap-free-v){display:block;font-family:var(--f-display);font-size:1.15rem;letter-spacing:-.015em;line-height:1.25;margin-bottom:3px}
+.ap-free-top span{color:#6e6e73;line-height:1.4}
+.ap-free-list{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:8px}
+.ap-free-list li{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:#f5f5f7;font-weight:600}
+.ap-free-list i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#1fa463;color:#fff;font-size:.72rem}
+.ap-free-list em{font-style:normal;margin-left:auto;color:#1fa463;font-weight:700}
+.ap-free.in .ap-free-list li{animation:apPop .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.25s + var(--i)*.15s)}
+@keyframes apPop{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+.ap-free-how{margin:18px 0 0;color:#424245;line-height:1.55;font-size:.97rem}
+.ap-free-how b{color:#1d1d1f}
+.ap-free+.ap-save{margin-top:14px}
+@media (prefers-reduced-motion:reduce){.ap-free.in .ap-free-list li{animation:none}}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1110,6 +1125,15 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <li class="rv-up"><span class="ap-n">4</span><div><b>Du bekommst ein klares Ergebnis</b><p>Ohne Fachchinesisch. Du entscheidest, nichts passiert ohne dein Okay.</p></div></li>
         <li class="rv-up"><span class="ap-n">5</span><div><b>Ich bleibe an deiner Seite</b><p>Ich betreue deine Verträge auch danach und begleite dich, wenn es ernst wird.</p></div></li>
       </ol>
+      <div class="ap-free rv-up">
+        <div class="ap-free-top"><b class="ap-free-v">0&nbsp;€</b><div><b>Was kostet dich meine Beratung?</b><span>Nichts. Kein Honorar, keine versteckten Gebühren.</span></div></div>
+        <ul class="ap-free-list">
+          <li style="--i:0"><i>✓</i>Erstgespräch<em>0&nbsp;€</em></li>
+          <li style="--i:1"><i>✓</i>Konzeptgespräch<em>0&nbsp;€</em></li>
+          <li style="--i:2"><i>✓</i>Laufende Betreuung<em>0&nbsp;€</em></li>
+        </ul>
+        <p class="ap-free-how"><b>Wie verdiene ich dann mein Geld?</b> Ich werde nicht von dir bezahlt, sondern vom Versicherer per Provision. Und auch das erst, wenn du dich für die Lösung entscheidest, die ich für dich gefunden habe. Die Provision ist bereits im Beitrag enthalten, du zahlst also nichts extra.</p>
+      </div>
       <div class="ap-save rv-up">
         <div class="ap-save-v"><b><span class="ap-cnt" data-to="500">500</span>–<span class="ap-cnt" data-to="800">800</span>&nbsp;€</b><small>pro Jahr</small></div>
         <div class="ap-save-t"><b>sparen junge Familien bei uns im Durchschnitt an Beiträgen.*</b><span>Weil ich den ganzen Markt vergleiche statt nur einen Anbieter.</span></div>
