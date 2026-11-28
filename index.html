@@ -1117,6 +1117,17 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-ct-all span{font-family:var(--f-display);font-weight:700;font-size:1.1rem;letter-spacing:-.015em}
 .ap-inl{color:var(--ap-blue);font-weight:600;text-decoration:none;white-space:nowrap}
 @media (prefers-reduced-motion:reduce){.ap-cg.in .ap-ct{animation:none}}
+
+.ap-groups{grid-template-columns:1fr!important;max-width:760px}
+.ap-link2{text-align:center;padding:26px 8px 30px}
+.ap-link2 .ap-gears{height:96px;margin-bottom:10px}
+.ap-link2 .ap-gears .g1{width:66px;height:66px;left:calc(50% - 58px);top:4px}
+.ap-link2 .ap-gears .g2{width:66px;height:66px;left:calc(50% - 6px);top:26px}
+.ap-link2 b{display:block;font-family:var(--f-display);font-size:1.3rem;letter-spacing:-.02em;margin-bottom:8px}
+.ap-link2 p{margin:0 auto;color:#424245;line-height:1.55;max-width:560px}
+#lagen .ap-group,#lagen .ap-ct,#lagen .ap-asset{background:#fff}
+#lagen .ap-group .ap-ic,#lagen .ap-ct-ic,#lagen .ap-asset-ic{background:#f5f5f7}
+#lagen .ap-ct-all{background:linear-gradient(135deg,rgba(0,113,227,.1),rgba(94,92,230,.1))}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1191,14 +1202,25 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <div class="ap-save-t"><b>sparen junge Familien bei uns im Durchschnitt an Beiträgen.*</b><span>Weil ich den ganzen Markt vergleiche statt nur einen Anbieter.</span></div>
         <p class="ap-save-n">* Durchschnittswert aus unseren Beratungen. Deine persönliche Ersparnis kann höher oder niedriger ausfallen und ist nicht garantiert.</p>
       </div>
-      <a class="ap-next rv-up" href="#lagen">Und wobei kann ich dir helfen? <span>↓</span></a>
       <div class="ap-badges rv-up"><span>Kostenlos</span><span>Unverbindlich</span><span>Ohne Druck</span><span>Persönlich</span></div>
     </div>
   </section>
 
-  <section class="ap-sec" id="lagen">
+  <section class="ap-sec" id="ueber-mich">
+    <div class="ap-wrap ap-me">
+      <div class="ap-me-img rv-up"><img src="img/sascha-portrait.webp" alt="Sascha Urban" loading="lazy" width="1000" height="1500"></div>
+      <div class="ap-me-txt">
+        <p class="ap-kick rv-up">Wer dich berät</p>
+        <h2 class="rv-up">Hi, ich bin Sascha.</h2>
+        <p class="rv-up">Ich bin selbst Papa von zwei Jungs. Darum ist meine Beratung auf junge Familien ausgerichtet: zeitsparend, flexibel und ohne Stress. Ich verkaufe kein Produkt, sondern verstehe eure ganze Situation.</p>
+        <p class="rv-up">Als Makler bin ich an keinen Versicherer gebunden. Hinter mir steht das Team der Trinity Finanz GmbH. So bist du immer gut betreut, auch wenn ich mal ausfalle.</p>
+        <button class="ap-link rv-up" data-open="ueber">Mehr über mich <span>›</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ap-sec ap-gray" id="lagen">
     <div class="ap-wrap">
-      <p class="ap-kick rv-up">Was dich interessiert</p>
       <h2 class="rv-up">Wobei kann ich dir helfen?</h2>
       <p class="ap-lead rv-up">Zwei Bereiche, ein Ziel: dass deine Familie sicher ist und dein Geld für dich arbeitet.</p>
       <div class="ap-groups">
@@ -1213,7 +1235,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
             <button data-open="termin">Absicherung besprechen <span>›</span></button>
           </div>
         </article>
-        <div class="ap-gears rv-up" aria-hidden="true"><i class="g1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i><i class="g2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i></div>
+        <div class="ap-link2 rv-up"><div class="ap-gears" aria-hidden="true"><i class="g1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i><i class="g2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i></div><b>Warum beides zusammengehört</b><p>Vermögensaufbau funktioniert nur mit der richtigen Absicherung. Fällt dein Einkommen weg und du bist nicht abgesichert, zahlst du die laufenden Rechnungen aus deinem Ersparten, und dein Vermögen ist weg, bevor es wachsen konnte. Wie Zahnräder: Erst wenn beide ineinandergreifen, läuft es.</p></div>
         <article class="ap-group rv-up">
           <span class="ap-ic" style="--c:#30B0C7"><svg><use href="#i-trend"/></svg></span>
           <p class="ap-gk">Bereich 2</p>
@@ -1235,10 +1257,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <div class="ap-ct-all rv-up"><span>… und alles andere rund um Versicherung und Finanzen.</span><a class="ap-btn" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20m%C3%B6chte%20meine%20Vertr%C3%A4ge%20einmal%20komplett%20pr%C3%BCfen%20lassen." target="_blank" rel="noopener noreferrer">Alle Verträge prüfen lassen</a></div>
       </div>
       <a class="ap-next rv-up" href="#rechner" style="margin-top:22px">Lieber erst selbst nachrechnen? Zu den Rechnern <span>↓</span></a>
-      <div class="ap-why rv-up">
-        <b>Warum beides zusammengehört</b>
-        <p>Vermögensaufbau funktioniert nur mit der richtigen Absicherung. Fällt dein Einkommen weg und du bist nicht abgesichert, zahlst du die laufenden Rechnungen aus deinem Ersparten, und dein Vermögen ist weg, bevor es wachsen konnte. Wie Zahnräder: Erst wenn beide ineinandergreifen, läuft es.</p>
-      </div>
+
       <div class="ap-verm" id="vermoegen">
         <p class="ap-kick rv-up">Vermögensaufbau</p>
         <h2 class="rv-up">Wie gestalten wir deinen Vermögensaufbau?</h2>
@@ -1259,18 +1278,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     </div>
   </section>
 
-  <section class="ap-sec ap-gray">
-    <div class="ap-wrap ap-me">
-      <div class="ap-me-img rv-up"><img src="img/sascha-portrait.webp" alt="Sascha Urban" loading="lazy" width="1000" height="1500"></div>
-      <div class="ap-me-txt">
-        <p class="ap-kick rv-up">Wer dich berät</p>
-        <h2 class="rv-up">Hi, ich bin Sascha.</h2>
-        <p class="rv-up">Ich bin selbst Papa von zwei Jungs. Darum ist meine Beratung auf junge Familien ausgerichtet: zeitsparend, flexibel und ohne Stress. Ich verkaufe kein Produkt, sondern verstehe eure ganze Situation.</p>
-        <p class="rv-up">Als Makler bin ich an keinen Versicherer gebunden. Hinter mir steht das Team der Trinity Finanz GmbH. So bist du immer gut betreut, auch wenn ich mal ausfalle.</p>
-        <button class="ap-link rv-up" data-open="ueber">Mehr über mich <span>›</span></button>
-      </div>
-    </div>
-  </section>
+
 
   <section class="ap-sec ap-rv">
     <div class="ap-wrap"><p class="ap-kick rv-up">Was Kunden sagen</p><h2 class="rv-up">Echte Stimmen. Echte Familien.</h2></div>
