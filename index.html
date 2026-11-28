@@ -984,6 +984,44 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .rl-kpi.hl,.rl-kpi.hl .k,.rl-kpi.hl .s,.rl-kpi.hl .v{color:#fff!important;-webkit-text-fill-color:#fff!important}
 .rl-kpi.hl{background:linear-gradient(135deg,#0071e3,#30B0C7)!important}
 .rl-hero{background:radial-gradient(120% 90% at 50% 0%,#dcebfb 0%,#eef4fb 55%,#f5f5f7 100%)!important}
+
+.ap-next{display:inline-block;margin-top:34px;font-weight:600;color:var(--ap-blue);text-decoration:none;font-size:1.05rem}
+.ap-next span{display:inline-block;animation:apBob 1.8s ease-in-out infinite}
+@keyframes apBob{50%{transform:translateY(4px)}}
+.ap-groups{display:grid;gap:0;margin-top:36px;align-items:stretch}
+@media(min-width:820px){.ap-groups{grid-template-columns:1fr 90px 1fr}}
+.ap-group{background:#f5f5f7;border-radius:28px;padding:28px 24px 20px;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.ap-group:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.2)}
+.ap-group .ap-ic{background:#fff}
+.ap-gk{font-size:.8rem;font-weight:600;color:#86868b;margin:0 0 4px}
+.ap-group h3{font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.ap-group>p:not(.ap-gk){color:#6e6e73;margin:0 0 18px;line-height:1.5;flex:1}
+.ap-gears{position:relative;height:84px;display:flex;justify-content:center;align-items:center}
+.ap-gears i{position:absolute;display:block}
+.ap-gears svg{width:100%;height:100%;fill:none;stroke-width:5;stroke-linejoin:round}
+.ap-gears .g1{width:58px;height:58px;left:calc(50% - 50px);color:#0A84FF;stroke:#0A84FF;animation:apSpin 9s linear infinite}
+.ap-gears .g2{width:58px;height:58px;left:calc(50% - 6px);top:18px;stroke:#30B0C7;animation:apSpin 9s linear infinite reverse}
+.ap-gears svg path,.ap-gears svg circle{stroke:inherit}
+@keyframes apSpin{to{transform:rotate(360deg)}}
+@media(min-width:820px){.ap-gears{height:auto}.ap-gears .g1{left:6px;top:calc(50% - 46px)}.ap-gears .g2{left:26px;top:calc(50% - 6px)}}
+.ap-why{margin-top:22px;padding:22px 24px;border-radius:24px;background:linear-gradient(135deg,rgba(0,113,227,.08),rgba(48,176,199,.08));border:1px solid rgba(0,113,227,.12)}
+.ap-why b{display:block;font-family:var(--f-display);font-size:1.15rem;margin-bottom:6px;letter-spacing:-.015em}
+.ap-why p{margin:0;color:#424245;line-height:1.55}
+
+.ap-car{background:#1d1d1f;color:#f5f5f7;border-radius:32px;padding:40px 26px;position:relative;overflow:hidden}
+.ap-car::before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(0,113,227,.45),transparent 65%);animation:apBreath 7s ease-in-out infinite}
+.ap-car>*{position:relative}
+.ap-car .ap-kick{color:#2997ff}
+.ap-car h2{color:#f5f5f7!important}
+.ap-car-lead{font-size:clamp(1.05rem,2.6vw,1.25rem);color:#a1a1a6;line-height:1.5;margin:14px 0 0;max-width:620px}
+.ap-car-grid{display:grid;gap:12px;margin:28px 0 0}
+@media(min-width:820px){.ap-car-grid{grid-template-columns:repeat(3,1fr)}}
+.ap-car-grid div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px}
+.ap-car-grid b{display:block;font-family:var(--f-display);font-size:1.08rem;margin-bottom:6px;color:#f5f5f7}
+.ap-car-grid span{color:#a1a1a6;font-size:.95rem;line-height:1.45}
+.ap-car-note{color:#a1a1a6;margin:22px 0 22px;font-size:.95rem}
+.ap-btn-w{background:#fff!important;color:#1d1d1f!important;box-shadow:none!important}
+@media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
 <body>
@@ -1016,7 +1054,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     <h1 class="rv-up" style="--d:.08s">Heute startet<br>deine Zukunft.</h1>
     <p class="ap-grad rv-up" style="--d:.16s">Wir bringen Ordnung in deine Finanzen.</p>
     <div class="ap-ctas rv-up" style="--d:.24s">
-      <a class="ap-btn" href="#lagen">Kostenlosen Check starten</a>
+      <a class="ap-btn" href="#ablauf">Kostenlosen Check starten</a>
       <button class="ap-link" data-open="termin">Termin buchen <span>›</span></button>
     </div>
     <a class="ap-stars rv-up" style="--d:.32s" href="https://g.page/r/CeoNk5h9mBWgEBE" target="_blank" rel="noopener noreferrer"><b>5,0</b><i>★★★★★</i><span>111 Google-Bewertungen</span></a>
@@ -1026,38 +1064,9 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     </div>
   </section>
 
-  <section class="ap-sec ap-gray" id="lagen">
+  <section class="ap-sec ap-gray" id="ablauf">
     <div class="ap-wrap">
-      <p class="ap-kick rv-up">Schritt 1</p>
-      <h2 class="rv-up">Wo stehst du gerade?</h2>
-      <p class="ap-lead rv-up">Wähl, was dich gerade beschäftigt. Du bekommst einen kurzen Check und siehst sofort, wo du stehst.</p>
-      <div class="ap-tiles">
-        <article class="ap-tile rv-up" style="--d:.0s">
-          <span class="ap-ic" style="--c:#0A84FF"><svg><use href="#i-shield"/></svg></span>
-          <h3>Familie absichern</h3>
-          <p>Was passiert, wenn du nicht mehr arbeiten kannst? Und wie startet dein Kind finanziell ins Leben?</p>
-          <div class="ap-go"><button data-open="bu">BU-Check <span>›</span></button><button data-open="kinder">Kindervorsorge <span>›</span></button></div>
-        </article>
-        <article class="ap-tile rv-up" style="--d:.08s">
-          <span class="ap-ic" style="--c:#30B0C7"><svg><use href="#i-trend"/></svg></span>
-          <h3>Fürs Alter vorsorgen</h3>
-          <p>Wie viel Rente bleibt dir wirklich? Und was legt der Staat ab 2027 obendrauf?</p>
-          <div class="ap-go"><button data-open="rente">Rentenlücke berechnen <span>›</span></button><button data-open="avd">AVD-Förderrechner <em>Neu</em> <span>›</span></button></div>
-        </article>
-        <article class="ap-tile rv-up" style="--d:.16s">
-          <span class="ap-ic" style="--c:#5E5CE6"><svg><use href="#i-home"/></svg></span>
-          <h3>Vermögen aufbauen</h3>
-          <p>Mit einer Kapitalanlage-Immobilie Vermögen aufbauen, mit überschaubarem Eigenanteil.</p>
-          <div class="ap-go"><button data-open="immo">Immobilien-Check <span>›</span></button></div>
-        </article>
-      </div>
-      <button class="ap-more rv-up" data-open="ganz">Oder alles auf einmal: die ganzheitliche Beratung <span>›</span></button>
-    </div>
-  </section>
-
-  <section class="ap-sec" id="ablauf">
-    <div class="ap-wrap">
-      <p class="ap-kick rv-up">Schritt 2</p>
+      <p class="ap-kick rv-up">Die wichtigste Frage zuerst</p>
       <h2 class="rv-up">So läuft's ab.</h2>
       <p class="ap-lead rv-up">Ich nehme dich an die Hand. Du weißt bei jedem Schritt, was passiert.</p>
       <ol class="ap-steps" id="ap-steps">
@@ -1067,7 +1076,45 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <li class="rv-up"><span class="ap-n">4</span><div><b>Du bekommst ein klares Ergebnis</b><p>Ohne Fachchinesisch. Du entscheidest, nichts passiert ohne dein Okay.</p></div></li>
         <li class="rv-up"><span class="ap-n">5</span><div><b>Ich bleibe an deiner Seite</b><p>Ich betreue deine Verträge auch danach und begleite dich, wenn es ernst wird.</p></div></li>
       </ol>
+      <a class="ap-next rv-up" href="#lagen">Und wobei kann ich dir helfen? <span>↓</span></a>
       <div class="ap-badges rv-up"><span>Kostenlos</span><span>Unverbindlich</span><span>Ohne Druck</span><span>Persönlich</span></div>
+    </div>
+  </section>
+
+  <section class="ap-sec" id="lagen">
+    <div class="ap-wrap">
+      <p class="ap-kick rv-up">Was dich interessiert</p>
+      <h2 class="rv-up">Wobei kann ich dir helfen?</h2>
+      <p class="ap-lead rv-up">Zwei Bereiche, ein Ziel: dass deine Familie sicher ist und dein Geld für dich arbeitet.</p>
+      <div class="ap-groups">
+        <article class="ap-group rv-up">
+          <span class="ap-ic" style="--c:#0A84FF"><svg><use href="#i-shield"/></svg></span>
+          <p class="ap-gk">Bereich 1</p>
+          <h3>Absicherung der Familie</h3>
+          <p>Das Fundament: Was passiert, wenn du nicht mehr arbeiten kannst oder deiner Familie etwas zustößt? Ich schaue mir eure ganze Situation an und sorge dafür, dass jeder richtig abgesichert ist.</p>
+          <div class="ap-go">
+            <button data-open="ganz">Das Gesamtkonzept für deine Familie <span>›</span></button>
+            <button data-open="bu">Berufsunfähigkeit: der BU-Check <span>›</span></button>
+          </div>
+        </article>
+        <div class="ap-gears rv-up" aria-hidden="true"><i class="g1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i><i class="g2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i></div>
+        <article class="ap-group rv-up">
+          <span class="ap-ic" style="--c:#30B0C7"><svg><use href="#i-trend"/></svg></span>
+          <p class="ap-gk">Bereich 2</p>
+          <h3>Vermögensaufbau</h3>
+          <p>Rentenlücke schließen, für die Kinder vorsorgen, Vermögen aufbauen: mit ETF-Policen, staatlicher Förderung oder einer Kapitalanlage-Immobilie.</p>
+          <div class="ap-go">
+            <button data-open="rente">Rentenlücke berechnen <span>›</span></button>
+            <button data-open="avd">AVD-Förderrechner <em>Neu</em> <span>›</span></button>
+            <button data-open="kinder">Kindervorsorge <span>›</span></button>
+            <button data-open="immo">Kapitalanlage-Immobilie <span>›</span></button>
+          </div>
+        </article>
+      </div>
+      <div class="ap-why rv-up">
+        <b>Warum beides zusammengehört</b>
+        <p>Vermögensaufbau funktioniert nur mit der richtigen Absicherung. Fällt dein Einkommen weg und du bist nicht abgesichert, zahlst du die laufenden Rechnungen aus deinem Ersparten, und dein Vermögen ist weg, bevor es wachsen konnte. Wie Zahnräder: Erst wenn beide ineinandergreifen, läuft es.</p>
+      </div>
     </div>
   </section>
 
@@ -1104,7 +1151,24 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     </div>
   </section>
 
-  <section class="ap-sec ap-final">
+  <section class="ap-sec" id="karriere">
+    <div class="ap-wrap">
+      <div class="ap-car rv-up">
+        <p class="ap-kick">Karriere bei Team Urban</p>
+        <h2>Lust, mit uns<br>durchzustarten?</h2>
+        <p class="ap-car-lead">Als Teamleiter bilde ich neue Vertriebspartner aus und binde sie an. Wenn du dich mit unserem Weg identifizieren kannst, starten wir gemeinsam.</p>
+        <div class="ap-car-grid">
+          <div><b>Vertriebliche Ausbildung</b><span>Du lernst Schritt für Schritt, wie gute Beratung und erfolgreicher Vertrieb funktionieren.</span></div>
+          <div><b>Individuelle Förderung</b><span>Kein Schema F: Wir fördern dich genau da, wo du gerade stehst und was du brauchst.</span></div>
+          <div><b>Ein starkes Team im Rücken</b><span>Mit der Trinity Finanz GmbH und ihren Fachabteilungen bist du nie allein.</span></div>
+        </div>
+        <p class="ap-car-note">Wir wachsen mit Bedacht. Wenn es auf beiden Seiten zu 100&nbsp;% passt, geht's los.</p>
+        <a class="ap-btn ap-btn-w" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20im%20Team%20Urban." target="_blank" rel="noopener noreferrer">Interesse? Schreib mir</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ap-sec ap-gray ap-final">
     <div class="ap-wrap">
       <h2 class="rv-up">Dein erstes Gespräch<br>kostet nichts.</h2>
       <p class="ap-lead rv-up">Warten kostet oft mehr. Lass uns kurz sprechen.</p>
@@ -1119,7 +1183,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 <footer class="ap-foot">
   <div class="ap-wrap">
     <p>Sascha Urban · Versicherungsmakler mit Erlaubnis nach § 34d Abs. 1 GewO (IHK) · Trinity Finanz GmbH · Wabern</p>
-    <p><a href="https://www.instagram.com/saschaurban.finanzmakler/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://g.page/r/CeoNk5h9mBWgEBE/review" target="_blank" rel="noopener noreferrer">Google-Bewertung schreiben</a> · <button data-open="impressum">Impressum</button> · <button data-open="datenschutz">Datenschutz</button></p>
+    <p><a href="#karriere">Karriere</a> · <a href="https://www.instagram.com/saschaurban.finanzmakler/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://g.page/r/CeoNk5h9mBWgEBE/review" target="_blank" rel="noopener noreferrer">Google-Bewertung schreiben</a> · <button data-open="impressum">Impressum</button> · <button data-open="datenschutz">Datenschutz</button></p>
   </div>
 </footer>
 <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
