@@ -1097,6 +1097,26 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-opt-arrow i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#5fe0a0);animation:apFlow 1.6s ease-in-out infinite}
 @keyframes apFlow{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
 @media (prefers-reduced-motion:reduce){.ap-opt-arrow i{animation:none}.ap-asset::after{transition:none}}
+
+.ap-contracts{margin-top:90px;scroll-margin-top:70px}
+.ap-cg{margin-top:30px}
+.ap-cg-t{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c);margin:0 0 12px}
+.ap-cg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ap-ct b{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere}
+@media(max-width:959px){.ap-ct:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:14px}}
+@media(min-width:960px){.ap-cg-grid{grid-template-columns:1fr 1fr 1fr}}
+.ap-ct{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:#f5f5f7;border-radius:18px;padding:16px;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s}
+.ap-ct:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--c) 7%,#f5f5f7)}
+.ap-ct-ic{width:42px;height:42px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;background:#fff;color:var(--c)}
+.ap-ct-ic svg{width:22px;height:22px}
+.ap-ct b{display:block;font-family:var(--f-display);font-size:1.02rem;letter-spacing:-.01em;margin:1px 0 2px}
+.ap-ct span{color:#6e6e73;font-size:.85rem;line-height:1.38}
+@media(min-width:960px){.ap-ct{flex-direction:row;gap:14px}.ap-ct span{font-size:.9rem}}
+.ap-cg.in .ap-ct{animation:apPop .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc((var(--i) % 6) * .06s)}
+.ap-ct-all{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;border-radius:22px;background:linear-gradient(135deg,rgba(0,113,227,.08),rgba(94,92,230,.08))}
+.ap-ct-all span{font-family:var(--f-display);font-weight:700;font-size:1.1rem;letter-spacing:-.015em}
+.ap-inl{color:var(--ap-blue);font-weight:600;text-decoration:none;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.ap-cg.in .ap-ct{animation:none}}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1153,7 +1173,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
       <ol class="ap-steps" id="ap-steps">
         <li class="rv-up"><span class="ap-n">1</span><div><b>Du meldest dich bei mir</b><p>Per WhatsApp oder über einen Termin, den du dir selbst aussuchst.</p></div></li>
         <li class="rv-up"><span class="ap-n">2</span><div><b>Ich rufe dich an</b><p>In einem kurzen Telefonat schauen wir, ob die Chemie zwischen uns passt. Erst wenn du ein gutes Gefühl hast, gehen wir einen Schritt weiter.</p></div></li>
-        <li class="rv-up"><span class="ap-n">3</span><div><b>Ich prüfe deine Situation</b><p>Bestehende Verträge, Lücken, Preise, verglichen mit dem, was der Markt heute bietet.</p></div></li>
+        <li class="rv-up"><span class="ap-n">3</span><div><b>Ich prüfe deine Situation</b><p>Bestehende Verträge, Lücken, Preise, verglichen mit dem, was der Markt heute bietet. <a class="ap-inl" href="#vertraege">Welche Verträge?</a></p></div></li>
         <li class="rv-up"><span class="ap-n">4</span><div><b>Du bekommst ein klares Ergebnis</b><p>Ohne Fachchinesisch. Du entscheidest, nichts passiert ohne dein Okay.</p></div></li>
         <li class="rv-up"><span class="ap-n">5</span><div><b>Ich bleibe an deiner Seite</b><p>Ich betreue deine Verträge auch danach und begleite dich, wenn es ernst wird.</p></div></li>
       </ol>
@@ -1205,6 +1225,14 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
             <button data-open="termin">Vermögensaufbau besprechen <span>›</span></button>
           </div>
         </article>
+      </div>
+
+      <div class="ap-contracts" id="vertraege">
+        <p class="ap-kick rv-up">Wir checken deine Verträge</p>
+        <h2 class="rv-up">Welche Verträge? Alle.</h2>
+        <p class="ap-lead rv-up">Als Trinity Finanz betreuen wir alles, was das Thema Versicherung und Finanzen hergibt. Damit du weißt, worum es geht, hier ein Überblick:</p>
+        <div class="ap-cg rv-up"><p class="ap-cg-t" style="--c:#0A84FF">Haus, Auto & Alltag</p><div class="ap-cg-grid"><div class="ap-ct" style="--c:#0A84FF;--i:0"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Privathaftpflicht</b><span>Wenn du anderen aus Versehen einen Schaden zufügst</span></div></div><div class="ap-ct" style="--c:#0A84FF;--i:1"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v5"/><path d="M2 14h20v4H2z"/><path d="M5 18v2M19 18v2"/></svg></span><div><b>Hausrat</b><span>Dein Hab und Gut in den eigenen vier Wänden</span></div></div><div class="ap-ct" style="--c:#0A84FF;--i:2"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><div><b>Wohngebäude</b><span>Dein Haus bei Feuer, Sturm und Leitungswasser</span></div></div><div class="ap-ct" style="--c:#0A84FF;--i:3"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4l-2-5H7l-2 5z"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg></span><div><b>Kfz</b><span>Haftpflicht, Teil- und Vollkasko</span></div></div><div class="ap-ct" style="--c:#0A84FF;--i:4"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></svg></span><div><b>Rechtsschutz</b><span>Damit du dein Recht bekommst, ohne Angst vor Kosten</span></div></div><div class="ap-ct" style="--c:#0A84FF;--i:5"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-45 12 12)"/><path d="M11 11h.01M13 13h.01M11 13h.01M13 11h.01"/></svg></span><div><b>Unfall</b><span>Finanzielle Hilfe, wenn nach einem Unfall etwas bleibt</span></div></div></div></div><div class="ap-cg rv-up"><p class="ap-cg-t" style="--c:#30B0C7">Gesundheit & Arbeitskraft</p><div class="ap-cg-grid"><div class="ap-ct" style="--c:#30B0C7;--i:6"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><div><b>Berufsunfähigkeit</b><span>Dein Einkommen, wenn du nicht mehr arbeiten kannst</span></div></div><div class="ap-ct" style="--c:#30B0C7;--i:7"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 12 5 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/><path d="M3.5 12h5l1.5-3 2 6 1.5-3h5"/></svg></span><div><b>Krankenzusatz</b><span>Zähne, Brille, Klinik: mehr als die Kasse zahlt</span></div></div><div class="ap-ct" style="--c:#30B0C7;--i:8"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span><div><b>Krankenversicherung & PKV</b><span>Gesetzlich oder privat: Was passt zu dir?</span></div></div></div></div><div class="ap-cg rv-up"><p class="ap-cg-t" style="--c:#5E5CE6">Vorsorge & Vermögen</p><div class="ap-cg-grid"><div class="ap-ct" style="--c:#5E5CE6;--i:9"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-8"/><path d="M15 6h4v4"/></svg></span><div><b>Altersvorsorge</b><span>Rente, ETF-Police und das neue Altersvorsorgedepot</span></div></div><div class="ap-ct" style="--c:#5E5CE6;--i:10"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg></span><div><b>Kindervorsorge</b><span>Der finanzielle Grundstein für dein Kind</span></div></div><div class="ap-ct" style="--c:#5E5CE6;--i:11"><span class="ap-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21L8 9l4-6 4 6z"/></svg></span><div><b>Vermögensaufbau</b><span>Kapitalanlage-Immobilie und Edelmetalle</span></div></div></div></div>
+        <div class="ap-ct-all rv-up"><span>… und alles andere rund um Versicherung und Finanzen.</span><a class="ap-btn" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20m%C3%B6chte%20meine%20Vertr%C3%A4ge%20einmal%20komplett%20pr%C3%BCfen%20lassen." target="_blank" rel="noopener noreferrer">Alle Verträge prüfen lassen</a></div>
       </div>
       <a class="ap-next rv-up" href="#rechner" style="margin-top:22px">Lieber erst selbst nachrechnen? Zu den Rechnern <span>↓</span></a>
       <div class="ap-why rv-up">
