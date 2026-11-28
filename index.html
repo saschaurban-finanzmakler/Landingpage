@@ -881,7 +881,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-pill{font:inherit;font-size:.82rem;font-weight:600;color:#fff;background:var(--ap-blue);border:0;border-radius:980px;padding:7px 14px;cursor:pointer}
 .ap{display:block}
 .ap h1,.ap h2,.ap h3{font-family:var(--f-display);color:#1d1d1f;letter-spacing:-.025em;margin:0}
-.ap-hero{text-align:center;padding:56px 20px 0;overflow:hidden}
+.ap-hero{text-align:center;padding:56px 20px 64px;overflow:hidden}
 .ap-eye{font-size:.88rem;font-weight:600;color:#86868b;margin:0 0 12px}
 .ap-hero h1{font-size:clamp(2.6rem,9vw,4.8rem);line-height:1.04;font-weight:700}
 .ap-grad{font-family:var(--f-display);font-size:clamp(1.5rem,5vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:10px 0 0;background:linear-gradient(90deg,#0071e3,#30B0C7 50%,#5E5CE6);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:apShine 8s ease-in-out infinite}
@@ -894,8 +894,8 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-link:hover{text-decoration:underline}
 .ap-stars{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.88rem;color:#6e6e73;text-decoration:none}
 .ap-stars b{color:#1d1d1f}.ap-stars i{font-style:normal;color:#f5a623;letter-spacing:1px}
-.ap-heroimg{position:relative;max-width:440px;margin:28px auto 0;transform:translateY(calc(var(--sy,0) * -.12px)) scale(calc(1 + var(--sy,0) * .00012))}
-.ap-heroimg img{position:relative;display:block;width:78%;height:auto;margin:0 auto;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.ap-heroimg{position:relative;max-width:420px;margin:32px auto 0;transform:translateY(calc(var(--sy,0) * -.12px)) scale(calc(1 + var(--sy,0) * .00012))}
+.ap-heroimg img{position:relative;display:block;width:86%;height:auto;margin:0 auto 8px;border-radius:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
 .ap-glow{position:absolute;left:8%;right:8%;top:14%;bottom:10%;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(0,113,227,.22),rgba(48,176,199,.14) 45%,transparent 70%);filter:blur(10px);animation:apBreath 6s ease-in-out infinite}
 @keyframes apBreath{50%{transform:scale(1.08);opacity:.8}}
 .ap-sec{padding:84px 20px}
@@ -933,8 +933,8 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-badges span::before{content:"✓ ";color:var(--good)}
 .ap-me{display:grid;gap:30px;align-items:center}
 @media(min-width:820px){.ap-me{grid-template-columns:1fr 1.2fr}}
-.ap-me-img{background:linear-gradient(160deg,#e8f1fb,#fff);border-radius:28px;overflow:hidden;aspect-ratio:4/4.4;display:flex;align-items:flex-end;justify-content:center}
-.ap-me-img img{width:68%;height:auto;display:block}
+.ap-me-img{border-radius:28px;overflow:hidden;aspect-ratio:4/4.6;background:#d9cbbf}
+.ap-me-img img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .ap-me-txt p{color:#424245;line-height:1.55;font-size:1.05rem;margin:16px 0 0}
 .ap-me-txt .ap-link{margin-top:18px}
 .ap-rv .ap-wrap{margin-bottom:28px}
@@ -1005,7 +1005,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 </svg>
 <header class="ap-nav" id="ap-nav">
   <div class="ap-nav-in">
-    <span class="ap-logo"><img src="img/trinity-symbol.png" alt="Trinity Finanz" width="486" height="447"><span>Sascha Urban</span></span>
+    <span class="ap-logo"><img src="img/trinity-symbol-blau.png" alt="Trinity Finanz" width="200" height="184"><span>Sascha Urban</span></span>
     <button class="ap-pill" data-open="termin">Termin buchen</button>
   </div>
 </header>
@@ -1022,7 +1022,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     <a class="ap-stars rv-up" style="--d:.32s" href="https://g.page/r/CeoNk5h9mBWgEBE" target="_blank" rel="noopener noreferrer"><b>5,0</b><i>★★★★★</i><span>111 Google-Bewertungen</span></a>
     <div class="ap-heroimg" id="ap-heroimg">
       <div class="ap-glow"></div>
-      <img src="img/sascha-stehend.png?v=3" alt="Sascha Urban" width="685" height="1000">
+      <img src="img/sascha-hero.webp" alt="Sascha Urban, Versicherungsmakler in Wabern" width="1000" height="1500">
     </div>
   </section>
 
@@ -1073,7 +1073,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 
   <section class="ap-sec ap-gray">
     <div class="ap-wrap ap-me">
-      <div class="ap-me-img rv-up"><img src="img/sascha-stehend.png?v=3" alt="Sascha Urban" loading="lazy"></div>
+      <div class="ap-me-img rv-up"><img src="img/sascha-portrait.webp" alt="Sascha Urban" loading="lazy" width="1000" height="1500"></div>
       <div class="ap-me-txt">
         <p class="ap-kick rv-up">Wer dich berät</p>
         <h2 class="rv-up">Hi, ich bin Sascha.</h2>
