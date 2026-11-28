@@ -1021,6 +1021,19 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-car-grid span{color:#a1a1a6;font-size:.95rem;line-height:1.45}
 .ap-car-note{color:#a1a1a6;margin:22px 0 22px;font-size:.95rem}
 .ap-btn-w{background:#fff!important;color:#1d1d1f!important;box-shadow:none!important}
+
+.ap-navr{display:flex;align-items:center;gap:16px}
+.ap-navl{font-size:.85rem;color:#1d1d1f;text-decoration:none;opacity:.8}
+.ap-navl:hover{opacity:1}
+.ap-calcs{display:grid;gap:14px;margin-top:34px}
+@media(min-width:820px){.ap-calcs{grid-template-columns:repeat(3,1fr)}}
+.ap-calc{font:inherit;text-align:left;cursor:pointer;border:0;background:#f5f5f7;border-radius:24px;padding:24px 22px;display:flex;flex-direction:column;gap:8px;color:#1d1d1f;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.ap-calc:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.2)}
+.ap-calc .ap-ic{background:#fff;margin-bottom:6px}
+.ap-calc b{font-family:var(--f-display);font-size:1.22rem;letter-spacing:-.015em;line-height:1.25}
+.ap-calc>span:not(.ap-ic){color:#6e6e73;line-height:1.45;flex:1}
+.ap-calc i{font-style:normal;font-weight:600;color:var(--ap-blue);margin-top:6px}
+.ap-calc em{font-style:normal;font-size:.68rem;font-weight:700;color:#fff;background:#ff9f0a;border-radius:6px;padding:2px 6px}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1044,7 +1057,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 <header class="ap-nav" id="ap-nav">
   <div class="ap-nav-in">
     <span class="ap-logo"><img src="img/trinity-symbol-blau.png" alt="Trinity Finanz" width="200" height="184"><span>Sascha Urban</span></span>
-    <button class="ap-pill" data-open="termin">Termin buchen</button>
+    <span class="ap-navr"><a class="ap-navl" href="#rechner">Rechner</a><button class="ap-pill" data-open="termin">Termin buchen</button></span>
   </div>
 </header>
 
@@ -1095,6 +1108,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
           <div class="ap-go">
             <button data-open="ganz">Das Gesamtkonzept für deine Familie <span>›</span></button>
             <button data-open="bu">Berufsunfähigkeit: der BU-Check <span>›</span></button>
+            <button data-open="termin">Absicherung besprechen <span>›</span></button>
           </div>
         </article>
         <div class="ap-gears rv-up" aria-hidden="true"><i class="g1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i><i class="g2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8l6 1 2 10a32 32 0 0 1 8 3l8-6 5 4 4 5-6 8a32 32 0 0 1 3 8l10 2 1 6-1 6-10 2a32 32 0 0 1-3 8l6 8-4 5-5 4-8-6a32 32 0 0 1-8 3l-2 10-6 1-6-1-2-10a32 32 0 0 1-8-3l-8 6-5-4-4-5 6-8a32 32 0 0 1-3-8l-10-2-1-6 1-6 10-2a32 32 0 0 1 3-8l-6-8 4-5 5-4 8 6a32 32 0 0 1 8-3l2-10z"/><circle cx="50" cy="50" r="14"/></svg></i></div>
@@ -1104,13 +1118,13 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
           <h3>Vermögensaufbau</h3>
           <p>Rentenlücke schließen, für die Kinder vorsorgen, Vermögen aufbauen: mit ETF-Policen, staatlicher Förderung oder einer Kapitalanlage-Immobilie.</p>
           <div class="ap-go">
-            <button data-open="rente">Rentenlücke berechnen <span>›</span></button>
-            <button data-open="avd">AVD-Förderrechner <em>Neu</em> <span>›</span></button>
             <button data-open="kinder">Kindervorsorge <span>›</span></button>
-            <button data-open="immo">Kapitalanlage-Immobilie <span>›</span></button>
+            <button data-open="plan">Gratis: Zukunftsplan fürs Kind <span>›</span></button>
+            <button data-open="termin">Vermögensaufbau besprechen <span>›</span></button>
           </div>
         </article>
       </div>
+      <a class="ap-next rv-up" href="#rechner" style="margin-top:22px">Lieber erst selbst nachrechnen? Zu den Rechnern <span>↓</span></a>
       <div class="ap-why rv-up">
         <b>Warum beides zusammengehört</b>
         <p>Vermögensaufbau funktioniert nur mit der richtigen Absicherung. Fällt dein Einkommen weg und du bist nicht abgesichert, zahlst du die laufenden Rechnungen aus deinem Ersparten, und dein Vermögen ist weg, bevor es wachsen konnte. Wie Zahnräder: Erst wenn beide ineinandergreifen, läuft es.</p>
@@ -1151,7 +1165,20 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     </div>
   </section>
 
-  <section class="ap-sec" id="karriere">
+  <section class="ap-sec" id="rechner">
+    <div class="ap-wrap">
+      <p class="ap-kick rv-up">Rechner</p>
+      <h2 class="rv-up">Selbst nachrechnen.</h2>
+      <p class="ap-lead rv-up">Für alle, die es genau wissen wollen: Rechne in Ruhe durch, wo du stehst. Dein Ergebnis kannst du mir danach mit einem Tipp schicken.</p>
+      <div class="ap-calcs">
+        <button class="ap-calc rv-up" data-open="rente"><span class="ap-ic" style="--c:#0A84FF"><svg><use href="#i-trend"/></svg></span><b>Wie groß ist meine Rentenlücke?</b><span>Was dir im Alter fehlt und wie viel du dafür heute zurücklegen müsstest.</span><i>Rentenrechner ›</i></button>
+        <button class="ap-calc rv-up" style="--d:.08s" data-open="immo"><span class="ap-ic" style="--c:#5E5CE6"><svg><use href="#i-home"/></svg></span><b>Wie rechnet sich eine Immobilie für mich?</b><span>Wer deine Wohnung bezahlt und was du am Ende selbst beisteuerst.</span><i>Immobilienrechner ›</i></button>
+        <button class="ap-calc rv-up" style="--d:.16s" data-open="avd"><span class="ap-ic" style="--c:#30B0C7"><svg><use href="#i-way"/></svg></span><b>Was zahlt mir der Staat ins AVD?</b><span>Zulagen fürs neue Altersvorsorgedepot ab 2027, inklusive Riester-Vergleich.</span><i>AVD-Rechner <em>Neu</em> ›</i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ap-sec ap-gray" id="karriere">
     <div class="ap-wrap">
       <div class="ap-car rv-up">
         <p class="ap-kick">Karriere bei Team Urban</p>
@@ -1168,7 +1195,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     </div>
   </section>
 
-  <section class="ap-sec ap-gray ap-final">
+  <section class="ap-sec ap-final">
     <div class="ap-wrap">
       <h2 class="rv-up">Dein erstes Gespräch<br>kostet nichts.</h2>
       <p class="ap-lead rv-up">Warten kostet oft mehr. Lass uns kurz sprechen.</p>
@@ -1276,8 +1303,8 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 
       <section class="topic" data-topic="bu" hidden data-wa="Hallo Sascha, ich möchte meine BU-Absicherung prüfen lassen." data-cta="Stimmt bei dir alles? Wir prüfen jeden Baustein." data-btn="BU prüfen lassen">
         <div class="t-head"><span class="chip" style="--c:#35AFCB">Absichern</span><h2>Bist du richtig abgesichert?</h2></div>
-        <p class="t-intro">Deine Arbeitskraft ist dein größtes Vermögen. Rechne aus, was auf dem Spiel steht und was der Staat wirklich zahlt.</p><div class="qz" data-qz="bu" data-wa-note="Ich habe den 10-Sekunden-Test gemacht." data-no-h="Dann ist das die wichtigste Frage von allen." data-no-p="Ohne BU hängt dein Einkommen allein an deiner Gesundheit. Rechne unten aus, was auf dem Spiel steht."><div class="qz-top"><span class="qz-badge">10 Sek.</span><div><h3>Der 10-Sekunden-Test</h3><p>Kannst du diese Fragen zu deiner BU sofort beantworten? Sei ehrlich zu dir.</p></div></div><div class="qz-bar"><i></i></div><div class="qz-step qz-gate" data-gate><div class="qz-q">Hast du eine Berufsunfähigkeitsversicherung?</div><div class="qz-a"><button type="button" data-g="1">Ja</button><button type="button" data-g="0">Nein / weiß nicht</button></div></div><div class="qz-step" data-i="0" data-l="Höhe meiner BU-Rente" hidden><div class="qz-n">Frage 1 von 5</div><div class="qz-q">Wie viel Geld bekommst du jeden Monat, wenn du ab morgen nicht mehr arbeiten kannst?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Die BU-Rente muss deine laufenden Kosten tragen. Empfohlen sind etwa 70–80 % deines Nettos.</div></div><div class="qz-step" data-i="1" data-l="Endalter" hidden><div class="qz-n">Frage 2 von 5</div><div class="qz-q">Bis zu welchem Alter zahlt dein Vertrag?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Endet die BU mit 60 oder 63, musst du die Jahre bis zur Rente selbst überbrücken.</div></div><div class="qz-step" data-i="2" data-l="AU-Klausel" hidden><div class="qz-n">Frage 3 von 5</div><div class="qz-q">Zahlt dein Vertrag schon, wenn du länger krankgeschrieben bist?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Eine AU-Klausel kann früher leisten, noch bevor eine Berufsunfähigkeit festgestellt ist.</div></div><div class="qz-step" data-i="3" data-l="Verweisung" hidden><div class="qz-n">Frage 4 von 5</div><div class="qz-q">Darf dich der Versicherer auf einen anderen Job verweisen?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Mit abstrakter Verweisung kann er sagen: „Du kannst ja noch etwas anderes arbeiten.“</div></div><div class="qz-step" data-i="4" data-l="Nachversicherung" hidden><div class="qz-n">Frage 5 von 5</div><div class="qz-q">Kannst du die BU-Rente erhöhen, ohne neue Gesundheitsfragen, zum Beispiel wenn ein Kind kommt?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Das regelt die Nachversicherungsgarantie. Ohne sie wird jede Erhöhung neu geprüft.</div></div><div class="qz-res" hidden><div class="qz-score"><b></b><span></span></div><p class="qz-txt"></p><ul class="qz-open"></ul><div class="qz-acts"><button type="button" class="qz-go">Jetzt nachrechnen ↓</button><button type="button" class="qz-re">Nochmal</button></div></div></div><div class="tr" data-tr="bu"><div class="tr-top"><img src="img/sascha-stehend.png?v=3" alt="Sascha Urban" class="tr-me" loading="lazy"><div><div class="tr-k">Deine kostenlose Zweitmeinung</div><h3>Ich nehme dich an die Hand.</h3></div></div><p class="tr-p">Du musst dich nicht durch Kleingedrucktes kämpfen. Ich schaue mir deine BU in Ruhe an und sage dir ehrlich, wo du stehst. Danach weißt du: Passt alles, oder solltest du etwas tun?</p><ol class="tr-steps"><li style="--d:0"><span class="tr-n">1</span><div><b>Du meldest dich bei mir</b><small>Per WhatsApp oder über einen Termin, den du dir selbst aussuchst.</small></div></li><li style="--d:1"><span class="tr-n">2</span><div><b>Ich rufe dich an</b><small>Wir klären kurz die Eckdaten zu dir und deinem Vertrag. Ganz entspannt, ohne Vorbereitung.</small></div></li><li style="--d:2"><span class="tr-n">3</span><div><b>Ich prüfe Punkt für Punkt</b><small>Leistung, Bedingungen und Preis, verglichen mit dem, was der Markt heute bietet.</small></div></li><li style="--d:3"><span class="tr-n">4</span><div><b>Du bekommst ein klares Ergebnis und entscheidest</b><small>Alles im grünen Bereich oder hier solltest du handeln. Nichts wird gekündigt oder abgeschlossen ohne dein Okay. Ein bestehender Vertrag bleibt, bis ein neuer Schutz sicher steht.</small></div></li><li style="--d:4"><span class="tr-n">5</span><div><b>Ich bleibe an deiner Seite</b><small>Ich betreue deinen Vertrag auch danach. Und wenn der Ernstfall eintritt, begleite ich dich durch den Leistungsantrag, damit du nicht allein mit dem Versicherer dastehst.</small></div></li></ol><div class="tr-badges"><span><svg><use href="#i-check"/></svg>Kostenlos</span><span><svg><use href="#i-check"/></svg>Unverbindlich</span><span><svg><use href="#i-check"/></svg>Ohne Druck</span><span><svg><use href="#i-check"/></svg>Persönlich</span></div><p class="tr-q">Im schlimmsten Fall erfährst du, dass alles passt. Dann hast du Gewissheit.</p></div>
-        <div class="bx" aria-live="polite">
+        <p class="t-intro">Deine Arbeitskraft ist dein größtes Vermögen. Finde in 10 Sekunden heraus, wie gut du sie abgesichert hast.</p><div class="qz" data-qz="bu" data-wa-note="Ich habe den 10-Sekunden-Test gemacht." data-no-h="Dann ist das die wichtigste Frage von allen." data-no-p="Ohne BU hängt dein Einkommen allein an deiner Gesundheit. Rechne unten aus, was auf dem Spiel steht."><div class="qz-top"><span class="qz-badge">10 Sek.</span><div><h3>Der 10-Sekunden-Test</h3><p>Kannst du diese Fragen zu deiner BU sofort beantworten? Sei ehrlich zu dir.</p></div></div><div class="qz-bar"><i></i></div><div class="qz-step qz-gate" data-gate><div class="qz-q">Hast du eine Berufsunfähigkeitsversicherung?</div><div class="qz-a"><button type="button" data-g="1">Ja</button><button type="button" data-g="0">Nein / weiß nicht</button></div></div><div class="qz-step" data-i="0" data-l="Höhe meiner BU-Rente" hidden><div class="qz-n">Frage 1 von 5</div><div class="qz-q">Wie viel Geld bekommst du jeden Monat, wenn du ab morgen nicht mehr arbeiten kannst?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Die BU-Rente muss deine laufenden Kosten tragen. Empfohlen sind etwa 70–80 % deines Nettos.</div></div><div class="qz-step" data-i="1" data-l="Endalter" hidden><div class="qz-n">Frage 2 von 5</div><div class="qz-q">Bis zu welchem Alter zahlt dein Vertrag?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Endet die BU mit 60 oder 63, musst du die Jahre bis zur Rente selbst überbrücken.</div></div><div class="qz-step" data-i="2" data-l="AU-Klausel" hidden><div class="qz-n">Frage 3 von 5</div><div class="qz-q">Zahlt dein Vertrag schon, wenn du länger krankgeschrieben bist?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Eine AU-Klausel kann früher leisten, noch bevor eine Berufsunfähigkeit festgestellt ist.</div></div><div class="qz-step" data-i="3" data-l="Verweisung" hidden><div class="qz-n">Frage 4 von 5</div><div class="qz-q">Darf dich der Versicherer auf einen anderen Job verweisen?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Mit abstrakter Verweisung kann er sagen: „Du kannst ja noch etwas anderes arbeiten.“</div></div><div class="qz-step" data-i="4" data-l="Nachversicherung" hidden><div class="qz-n">Frage 5 von 5</div><div class="qz-q">Kannst du die BU-Rente erhöhen, ohne neue Gesundheitsfragen, zum Beispiel wenn ein Kind kommt?</div><div class="qz-a"><button type="button" data-k="1">Weiß ich</button><button type="button" data-k="0">Keine Ahnung</button></div><div class="qz-why" hidden>Das regelt die Nachversicherungsgarantie. Ohne sie wird jede Erhöhung neu geprüft.</div></div><div class="qz-res" hidden><div class="qz-score"><b></b><span></span></div><p class="qz-txt"></p><ul class="qz-open"></ul><div class="qz-acts"><button type="button" class="qz-go">Jetzt nachrechnen ↓</button><button type="button" class="qz-re">Nochmal</button></div></div></div><div class="tr" data-tr="bu"><div class="tr-top"><img src="img/sascha-stehend.png?v=3" alt="Sascha Urban" class="tr-me" loading="lazy"><div><div class="tr-k">Deine kostenlose Zweitmeinung</div><h3>Ich nehme dich an die Hand.</h3></div></div><p class="tr-p">Du musst dich nicht durch Kleingedrucktes kämpfen. Ich schaue mir deine BU in Ruhe an und sage dir ehrlich, wo du stehst. Danach weißt du: Passt alles, oder solltest du etwas tun?</p><ol class="tr-steps"><li style="--d:0"><span class="tr-n">1</span><div><b>Du meldest dich bei mir</b><small>Per WhatsApp oder über einen Termin, den du dir selbst aussuchst.</small></div></li><li style="--d:1"><span class="tr-n">2</span><div><b>Ich rufe dich an</b><small>Wir klären kurz die Eckdaten zu dir und deinem Vertrag. Ganz entspannt, ohne Vorbereitung.</small></div></li><li style="--d:2"><span class="tr-n">3</span><div><b>Ich prüfe Punkt für Punkt</b><small>Leistung, Bedingungen und Preis, verglichen mit dem, was der Markt heute bietet.</small></div></li><li style="--d:3"><span class="tr-n">4</span><div><b>Du bekommst ein klares Ergebnis und entscheidest</b><small>Alles im grünen Bereich oder hier solltest du handeln. Nichts wird gekündigt oder abgeschlossen ohne dein Okay. Ein bestehender Vertrag bleibt, bis ein neuer Schutz sicher steht.</small></div></li><li style="--d:4"><span class="tr-n">5</span><div><b>Ich bleibe an deiner Seite</b><small>Ich betreue deinen Vertrag auch danach. Und wenn der Ernstfall eintritt, begleite ich dich durch den Leistungsantrag, damit du nicht allein mit dem Versicherer dastehst.</small></div></li></ol><div class="tr-badges"><span><svg><use href="#i-check"/></svg>Kostenlos</span><span><svg><use href="#i-check"/></svg>Unverbindlich</span><span><svg><use href="#i-check"/></svg>Ohne Druck</span><span><svg><use href="#i-check"/></svg>Persönlich</span></div><p class="tr-q">Im schlimmsten Fall erfährst du, dass alles passt. Dann hast du Gewissheit.</p></div>
+        <div class="bx" aria-live="polite" hidden style="display:none">
           <div class="bx-hero">
             <div class="bx-k">Deine Arbeitskraft bis 67</div>
             <div class="bx-v" id="bx-life">–</div>
@@ -1326,7 +1353,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
           <div><b id="bx-scoreT">0 von 6</b><span id="bx-scoreS">Tippe an, was dein Vertrag schon hat.</span></div>
         </div>
         <div class="bx-bs" id="bx-bs"><button type="button" class="bx-b" data-b="end" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-cal"/></svg></span><span class="bx-bt"><b>Endalter bis 67</b><small>Viele günstige Tarife enden mit 60 oder 63. Deine BU muss bis 67 laufen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="sum" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-grid"/></svg></span><span class="bx-bt"><b>Richtige Versicherungssumme</b><small>Mindestens 70–80 % deines Nettoeinkommens, orientiert an Beruf und Lebensstil.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="au" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-heart"/></svg></span><span class="bx-bt"><b>AU-Klausel</b><small>Leistung schon bei längerer Krankschreibung, ohne dass zuerst BU festgestellt werden muss.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="dyn" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-trend"/></svg></span><span class="bx-bt"><b>Dynamik</b><small>Deine BU-Rente wächst mit der Inflation mit, statt Jahr für Jahr an Wert zu verlieren.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="verw" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-shield"/></svg></span><span class="bx-bt"><b>Keine abstrakte Verweisung</b><small>Du bist in deinem zuletzt ausgeübten Beruf geschützt und wirst nicht auf andere Jobs verwiesen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button><button type="button" class="bx-b" data-b="nach" aria-pressed="false"><span class="bx-bi"><svg><use href="#i-way"/></svg></span><span class="bx-bt"><b>Nachversicherungsgarantie</b><small>Heirat, Kinder, Gehaltssprung: Schutz ohne erneute Gesundheitsprüfung anpassen.</small></span><span class="bx-tick"><svg><use href="#i-check"/></svg></span></button></div>
-        <p class="b-note">Netto/Brutto grob geschätzt nach Steuerklasse (Tarif 2026, ohne Kirchensteuer und Freibeträge). Erwerbsminderungsrente grob geschätzt (Entgeltpunkte bis 67 ab Berufsstart mit 20, 10,8 % Abschlag, Abzug Kranken-/Pflegeversicherung), keine Steuern berücksichtigt – deine Renteninformation ist genauer. Deine Angaben werden nicht gespeichert. Sie landen erst bei mir, wenn du unten auf „BU prüfen lassen“ tippst und die WhatsApp-Nachricht abschickst.</p>
+        <p class="b-note">Deine Angaben werden nicht gespeichert. Sie landen erst bei mir, wenn du unten auf „BU prüfen lassen“ tippst und die WhatsApp-Nachricht abschickst.</p>
       </section>
 
       <section class="topic" data-topic="rente" hidden data-wa="Hallo Sascha, ich würde gerne meine Rentenlücke besprechen." data-cta="Das klingt nach viel? Mit der richtigen Strategie ist es machbarer, als du denkst." data-btn="Ergebnis besprechen">
@@ -1894,6 +1921,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     if(E<360) tips.push('Bis 30 € im Monat legt der Staat auf jeden Euro 50 Cent drauf. Das ist die stärkste Förderstufe.');
     if(E<1800) tips.push('Die volle Grundzulage von 540 € erreichst du mit 150 € im Monat.');
     if(E>1800) tips.push('Gefördert werden höchstens 1.800 € im Jahr. Darüber gibt es keine Zulage mehr.');
+    if([...$('avd-kids').querySelectorAll('input')].some(i=>+i.value>=2020)) tips.push('Zusätzlich für Kinder ab Jahrgang 2020: Mit der Frühstart-Rente zahlt der Staat vom 6. bis zum 18. Geburtstag 10 € im Monat in ein eigenes Vorsorgedepot fürs Kind (vom Bundestag am 16.10.2026 beschlossen).');
     if($('avd-status').value==='self') tips.push('Neu ab 2027: Auch Selbstständige mit Gewerbe- oder freiberuflichen Einkünften sind förderberechtigt, wenn sie eine Steuererklärung abgeben.');
     $('avd-tips').innerHTML=tips.map(t=>'<li>'+t+'</li>').join('');
 
