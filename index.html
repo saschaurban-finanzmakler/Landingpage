@@ -1034,6 +1034,15 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-calc>span:not(.ap-ic){color:#6e6e73;line-height:1.45;flex:1}
 .ap-calc i{font-style:normal;font-weight:600;color:var(--ap-blue);margin-top:6px}
 .ap-calc em{font-style:normal;font-size:.68rem;font-weight:700;color:#fff;background:#ff9f0a;border-radius:6px;padding:2px 6px}
+
+.ap-gray .ap-badges span{background:#fff}
+.ap-save{margin-top:34px;background:#fff;border-radius:24px;padding:24px 22px;display:grid;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,.04);max-width:640px}
+@media(min-width:620px){.ap-save{grid-template-columns:auto 1fr;align-items:center;gap:8px 24px}.ap-save-n{grid-column:1/-1}}
+.ap-save-v b{display:block;font-family:var(--f-display);font-size:clamp(2.4rem,9vw,3.2rem);font-weight:700;letter-spacing:-.03em;line-height:1;background:linear-gradient(90deg,#1fa463,#30B0C7);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.ap-save-v small{display:block;color:#6e6e73;font-weight:600;margin-top:4px}
+.ap-save-t b{display:block;font-family:var(--f-display);font-size:1.12rem;letter-spacing:-.015em;line-height:1.3;margin-bottom:4px}
+.ap-save-t span{color:#6e6e73;line-height:1.45}
+.ap-save-n{margin:0;font-size:.75rem;color:#86868b;line-height:1.45}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1081,7 +1090,7 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     <div class="ap-wrap">
       <p class="ap-kick rv-up">Die wichtigste Frage zuerst</p>
       <h2 class="rv-up">So läuft's ab.</h2>
-      <p class="ap-lead rv-up">Ich nehme dich an die Hand. Du weißt bei jedem Schritt, was passiert.</p>
+      <p class="ap-lead rv-up">Ich helfe dir, deine finanziellen Ziele zu erreichen und deine Absicherung so aufzusetzen, dass sie zu 100&nbsp;% zu deiner Situation passt. Dabei nehme ich dich an die Hand: Du weißt bei jedem Schritt, was passiert.</p>
       <ol class="ap-steps" id="ap-steps">
         <li class="rv-up"><span class="ap-n">1</span><div><b>Du meldest dich bei mir</b><p>Per WhatsApp oder über einen Termin, den du dir selbst aussuchst.</p></div></li>
         <li class="rv-up"><span class="ap-n">2</span><div><b>Ich rufe dich an</b><p>Wir klären kurz die Eckdaten. Ganz entspannt, ohne Vorbereitung.</p></div></li>
@@ -1089,6 +1098,11 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <li class="rv-up"><span class="ap-n">4</span><div><b>Du bekommst ein klares Ergebnis</b><p>Ohne Fachchinesisch. Du entscheidest, nichts passiert ohne dein Okay.</p></div></li>
         <li class="rv-up"><span class="ap-n">5</span><div><b>Ich bleibe an deiner Seite</b><p>Ich betreue deine Verträge auch danach und begleite dich, wenn es ernst wird.</p></div></li>
       </ol>
+      <div class="ap-save rv-up">
+        <div class="ap-save-v"><b><span class="ap-cnt" data-to="500">500</span>–<span class="ap-cnt" data-to="800">800</span>&nbsp;€</b><small>pro Jahr</small></div>
+        <div class="ap-save-t"><b>sparen junge Familien bei uns im Durchschnitt an Beiträgen.*</b><span>Weil ich den ganzen Markt vergleiche statt nur einen Anbieter.</span></div>
+        <p class="ap-save-n">* Durchschnittswert aus unseren Beratungen. Deine persönliche Ersparnis kann höher oder niedriger ausfallen und ist nicht garantiert.</p>
+      </div>
       <a class="ap-next rv-up" href="#lagen">Und wobei kann ich dir helfen? <span>↓</span></a>
       <div class="ap-badges rv-up"><span>Kostenlos</span><span>Unverbindlich</span><span>Ohne Druck</span><span>Persönlich</span></div>
     </div>
@@ -2497,6 +2511,13 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
   }
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
 })();
+</script>
+<script>
+(function(){const els=document.querySelectorAll('.ap-cnt');if(!els.length||matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+els.forEach(e=>e.textContent='0');
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,to=+el.dataset.to,t0=performance.now();
+(function f(t){const k=Math.min(1,(t-t0)/1100),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(f);})(t0);}),{threshold:.6});
+els.forEach(e=>io.observe(e));})();
 </script>
 </body>
 </html>
