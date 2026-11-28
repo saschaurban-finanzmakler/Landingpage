@@ -1156,6 +1156,18 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-app-txt span{color:#6e6e73;line-height:1.45;font-size:.95rem}
 .ap-app+.ap-free{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.ap-app.in .ap-app-row{animation:none}}
+
+.ap-app-hd{background:#fff;border-radius:9px;padding:6px 7px 5px}
+.ap-app-hd b{display:block;font-size:.66rem}
+.ap-app-hd small{display:flex;gap:4px;margin-top:3px}
+.ap-app-hd em{font-style:normal;font-size:.5rem;font-weight:700;color:#1fa463;background:rgba(31,164,99,.12);border-radius:4px;padding:1px 4px;white-space:nowrap}
+.ap-app-nav{display:flex;justify-content:space-around;background:#fff;border-radius:9px;padding:6px}
+.ap-app-nav span{width:12px;height:12px;border-radius:4px;background:#e5e5ea}
+.ap-app-nav span.on{background:#0071e3}
+.ap-app-feat{grid-column:1/-1;list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px}
+@media(min-width:620px){.ap-app-feat{grid-template-columns:1fr 1fr}}
+.ap-app-feat li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;line-height:1.35;font-weight:500;background:#f5f5f7;border-radius:12px;padding:10px 12px}
+.ap-app-feat i{font-style:normal;color:#0071e3;font-weight:700}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1222,16 +1234,24 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
       <div class="ap-app rv-up">
         <div class="ap-app-ph" aria-hidden="true">
           <div class="ap-app-bar"></div>
+          <div class="ap-app-hd"><b>Verträge</b><small><em>4 aktiv</em><em>108 €/Mon.</em></small></div>
           <div class="ap-app-row" style="--d:0s"><i style="--c:#0A84FF"></i><span><b>Haftpflicht</b><small>neues Dokument</small></span></div>
-          <div class="ap-app-row" style="--d:.15s"><i style="--c:#30B0C7"></i><span><b>BU</b><small>aktiv</small></span></div>
-          <div class="ap-app-row" style="--d:.3s"><i style="--c:#5E5CE6"></i><span><b>ETF-Police</b><small>Stand heute</small></span></div>
+          <div class="ap-app-row" style="--d:.15s"><i style="--c:#30B0C7"></i><span><b>Zahnzusatz</b><small>20 €/Mon.</small></span></div>
+          <div class="ap-app-row" style="--d:.3s"><i style="--c:#5E5CE6"></i><span><b>Unfall</b><small>aktiv</small></span></div>
           <div class="ap-app-row" style="--d:.45s"><i style="--c:#1fa463"></i><span><b>Kfz</b><small>aktiv</small></span></div>
+          <div class="ap-app-nav"><span class="on"></span><span></span><span></span><span></span></div>
         </div>
         <div class="ap-app-txt">
-          <p class="ap-kick">Finanzmanager-App</p>
+          <p class="ap-kick">FINANZmanager-App</p>
           <b>Alle Verträge. Eine App.</b>
-          <span>Du siehst jederzeit übersichtlich alle deine Verträge mit dem aktuellen Stand. Auch alle Dokumente vom Versicherer findest du dort. Kein Papierchaos mehr.</span>
+          <span>Deine digitalen Finanzen an einem Ort: alle Verträge mit aktuellem Stand und Kosten im Überblick, dazu alle Dokumente vom Versicherer.</span>
         </div>
+        <ul class="ap-app-feat">
+          <li><i>✓</i>Verträge &amp; Gesamtkosten auf einen Blick</li>
+          <li><i>✓</i>Policen und Dokumente immer dabei</li>
+          <li><i>✓</i>Dokumente &amp; Schadenfotos per Handy hochladen</li>
+          <li><i>✓</i>Check-up: Welche Absicherung brauchst du wirklich?</li>
+        </ul>
       </div>
       <div class="ap-free rv-up">
         <div class="ap-free-top"><b class="ap-free-v">0&nbsp;€</b><div><b>Was kostet dich meine Beratung?</b><span>Nichts. Kein Honorar, keine versteckten Gebühren.</span></div></div>
