@@ -1044,6 +1044,12 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-save-t span{color:#6e6e73;line-height:1.45}
 .ap-save-n{margin:0;font-size:.75rem;color:#86868b;line-height:1.45}
 .ap-q2{display:block;color:#1d1d1f;font-weight:600;margin-bottom:8px}
+.ap-local{display:flex;gap:14px;align-items:flex-start;margin-top:22px;background:#fff;border-radius:20px;padding:18px 20px;max-width:640px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.ap-pin{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;background:rgba(0,113,227,.1);color:var(--ap-blue)}
+.ap-pin svg{width:22px;height:22px}
+.ap-local b{display:block;font-family:var(--f-display);font-size:1.08rem;letter-spacing:-.015em;margin-bottom:3px}
+.ap-local span{color:#6e6e73;line-height:1.45}
+.ap-howto{margin:30px 0 -14px;font-family:var(--f-display);font-weight:700;font-size:1.25rem;letter-spacing:-.015em;color:#1d1d1f}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1091,7 +1097,12 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
     <div class="ap-wrap">
       <p class="ap-kick rv-up">Die wichtigste Frage zuerst</p>
       <h2 class="rv-up">Wie spare ich Geld bei meiner Absicherung und baue gleichzeitig Vermögen auf?</h2>
-      <p class="ap-lead rv-up"><b class="ap-q2">Mit einem Finanzkonzept, das zu 100&nbsp;% zu deiner Situation passt.</b> So läuft's ab:</p>
+      <p class="ap-lead rv-up"><b class="ap-q2">Mit einem Finanzkonzept, das zu 100&nbsp;% zu deiner Situation passt.</b></p>
+      <div class="ap-local rv-up">
+        <span class="ap-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+        <div><b>Dein Ansprechpartner vor Ort in Wabern</b><span>Ein Ansprechpartner für alle Fragen rund um deine Finanzen. Statt von Bank zu Versicherung zu Berater zu laufen, hast du nur noch mich.</span></div>
+      </div>
+      <p class="ap-howto rv-up">So läuft's ab:</p>
       <ol class="ap-steps" id="ap-steps">
         <li class="rv-up"><span class="ap-n">1</span><div><b>Du meldest dich bei mir</b><p>Per WhatsApp oder über einen Termin, den du dir selbst aussuchst.</p></div></li>
         <li class="rv-up"><span class="ap-n">2</span><div><b>Ich rufe dich an</b><p>In einem kurzen Telefonat schauen wir, ob die Chemie zwischen uns passt. Erst wenn du ein gutes Gefühl hast, gehen wir einen Schritt weiter.</p></div></li>
