@@ -1065,6 +1065,38 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
 .ap-free-how b{color:#1d1d1f}
 .ap-free+.ap-save{margin-top:14px}
 @media (prefers-reduced-motion:reduce){.ap-free.in .ap-free-list li{animation:none}}
+
+.ap-golink{font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:13px 2px;border-bottom:1px solid rgba(0,0,0,.08);color:var(--ap-blue);text-decoration:none}
+.ap-golink span{font-size:1.2rem;color:#c7c7cc}
+.ap-verm{margin-top:90px;scroll-margin-top:70px}
+.ap-assets{display:grid;gap:14px;margin-top:34px}
+@media(min-width:700px){.ap-assets{grid-template-columns:1fr 1fr}}
+.ap-asset{position:relative;background:#f5f5f7;border-radius:26px;padding:24px 22px 20px;display:flex;flex-direction:column;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.ap-asset::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1) .2s}
+.ap-asset.in::after{transform:scaleX(1)}
+.ap-asset:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.2)}
+.ap-asset-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.ap-asset-ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#fff;color:var(--c)}
+.ap-asset-ic svg{width:25px;height:25px}
+.ap-asset-n{font-family:var(--f-display);font-weight:700;font-size:1.6rem;color:color-mix(in srgb,var(--c) 35%,#d2d2d7)}
+.ap-asset h3{font-size:1.4rem;font-weight:700;margin-bottom:6px}
+.ap-asset>p{color:#6e6e73;line-height:1.45;margin:0 0 12px}
+.ap-asset ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:7px;flex:1}
+.ap-asset li{position:relative;padding-left:24px;line-height:1.4;font-size:.95rem;color:#1d1d1f}
+.ap-asset li::before{content:"✓";position:absolute;left:0;top:0;font-weight:700;color:var(--c)}
+.ap-asset-go{font:inherit;align-self:flex-start;font-weight:600;color:var(--ap-blue);background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
+.ap-asset-go:hover{text-decoration:underline}
+.ap-opt{margin-top:18px;border-radius:28px;padding:28px 24px;background:linear-gradient(135deg,#0b1f3a,#1d1d1f);color:#f5f5f7}
+.ap-opt h3{color:#f5f5f7!important;font-size:1.5rem;font-weight:700;margin:22px 0 8px}
+.ap-opt p{color:#a1a1a6;line-height:1.55;margin:0 0 22px;max-width:620px}
+.ap-opt-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ap-opt-old,.ap-opt-new{font-size:.85rem;font-weight:700;padding:9px 14px;border-radius:999px}
+.ap-opt-old{background:rgba(229,72,77,.16);color:#ff8a8d;text-decoration:line-through;text-decoration-thickness:2px}
+.ap-opt-new{background:rgba(31,164,99,.18);color:#5fe0a0}
+.ap-opt-arrow{position:relative;width:46px;height:2px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden}
+.ap-opt-arrow i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#5fe0a0);animation:apFlow 1.6s ease-in-out infinite}
+@keyframes apFlow{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.ap-opt-arrow i{animation:none}.ap-asset::after{transition:none}}
 @media (prefers-reduced-motion:reduce){.ap-gears i,.ap-next span{animation:none}}
 </style>
 </head>
@@ -1166,10 +1198,10 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
           <span class="ap-ic" style="--c:#30B0C7"><svg><use href="#i-trend"/></svg></span>
           <p class="ap-gk">Bereich 2</p>
           <h3>Vermögensaufbau</h3>
-          <p>Rentenlücke schließen, für die Kinder vorsorgen, Vermögen aufbauen: mit ETF-Policen, staatlicher Förderung oder einer Kapitalanlage-Immobilie.</p>
+          <p>Rentenlücke schließen, für die Kinder vorsorgen, Vermögen aufbauen: kostengünstig, verständlich und auf dich zugeschnitten. Mit ETF-Police, Kapitalanlage-Immobilie, Edelmetallen und Kindervorsorge.</p>
           <div class="ap-go">
+            <a class="ap-golink" href="#vermoegen">Unsere Bausteine im Überblick <span>›</span></a>
             <button data-open="kinder">Kindervorsorge <span>›</span></button>
-            <button data-open="plan">Gratis: Zukunftsplan fürs Kind <span>›</span></button>
             <button data-open="termin">Vermögensaufbau besprechen <span>›</span></button>
           </div>
         </article>
@@ -1179,6 +1211,23 @@ body{display:block!important;font-family:var(--f-body);-webkit-font-smoothing:an
         <b>Warum beides zusammengehört</b>
         <p>Vermögensaufbau funktioniert nur mit der richtigen Absicherung. Fällt dein Einkommen weg und du bist nicht abgesichert, zahlst du die laufenden Rechnungen aus deinem Ersparten, und dein Vermögen ist weg, bevor es wachsen konnte. Wie Zahnräder: Erst wenn beide ineinandergreifen, läuft es.</p>
       </div>
+      <div class="ap-verm" id="vermoegen">
+        <p class="ap-kick rv-up">Vermögensaufbau</p>
+        <h2 class="rv-up">Wie gestalten wir deinen Vermögensaufbau?</h2>
+        <p class="ap-lead rv-up">Weg von teuren Fondspolicen und überteuerten Verträgen. Wir setzen auf wenige, klare Bausteine, die zu dir passen.</p>
+        <div class="ap-assets"><article class="ap-asset rv-up" style="--c:#0A84FF;--d:0.00s"><div class="ap-asset-top"><span class="ap-asset-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-8"/><path d="M15 6h4v4"/></svg></span><span class="ap-asset-n">01</span></div><h3>Kostengünstige ETF-Police</h3><p>Der unkomplizierteste Weg, deinen langfristigen Vermögensaufbau zu starten.</p><ul><li>Proaktiv verwaltet über unsere eigene Börsenabteilung</li><li>Kostenstruktur so niedrig wie möglich</li><li>Alle steuerlichen Hebel genutzt</li></ul><a class="ap-asset-go" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20kosteng%C3%BCnstige%20ETF-Police." target="_blank" rel="noopener noreferrer">ETF-Police besprechen ›</a></article><article class="ap-asset rv-up" style="--c:#5E5CE6;--d:0.06s"><div class="ap-asset-top"><span class="ap-asset-ic"><svg><use href="#i-home"/></svg></span><span class="ap-asset-n">02</span></div><h3>Kapitalanlage-Immobilie</h3><p>Du kaufst eine vermietete Wohnung und lässt sie zum Großteil von Mieter und Finanzamt abbezahlen.</p><ul><li>Alle steuerlichen Vorteile als Kapitalanleger</li><li>Verwaltung durch Profis: unseren Partner Domicil Real Estate Group</li><li>Kein Stress mit Mietern und Nebenkosten</li></ul><button class="ap-asset-go" data-open="immo">Immobilie durchrechnen ›</button></article><article class="ap-asset rv-up" style="--c:#C99A2E;--d:0.12s"><div class="ap-asset-top"><span class="ap-asset-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 18h8l-1.5-5h-5zM13 18h8l-1.5-5h-5zM8 11h8l-1.5-5h-5z"/></svg></span><span class="ap-asset-n">03</span></div><h3>Edelmetalle</h3><p>Gold, Silber, Platin und weitere Edelmetalle als Sachwert-Baustein in deinem Vermögen.</p><ul><li>Sachwerte als Ergänzung zu ETF und Immobilie</li><li>Wie viel und welches Metall: Das klären wir individuell</li></ul><a class="ap-asset-go" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Edelmetalle%20als%20Baustein%20f%C3%BCr%20meinen%20Verm%C3%B6gensaufbau." target="_blank" rel="noopener noreferrer">Edelmetalle besprechen ›</a></article><article class="ap-asset rv-up" style="--c:#30B0C7;--d:0.18s"><div class="ap-asset-top"><span class="ap-asset-ic"><svg><use href="#i-heart"/></svg></span><span class="ap-asset-n">04</span></div><h3>Kindervorsorge</h3><p>Leg heute den Grundstein für dein Kind: Führerschein, Ausbildung, erste Wohnung.</p><ul><li>Proaktiv verwaltet, niedrige Kosten, steuerliche Hebel</li><li>Gesundheitszustand deines Kindes wird eingefroren</li><li>BU-Option kostenfrei mit verankert</li></ul><button class="ap-asset-go" data-open="kinder">Kindervorsorge ansehen ›</button></article></div>
+        <div class="ap-opt rv-up">
+          <div class="ap-opt-flow" aria-hidden="true">
+            <span class="ap-opt-old">Teurer Altvertrag</span>
+            <span class="ap-opt-arrow"><i></i></span>
+            <span class="ap-opt-new">Kostengünstiges ETF-Konzept</span>
+          </div>
+          <h3>Du hast schon Verträge? Wir optimieren sie.</h3>
+          <p>Wir prüfen deine bestehenden Verträge auf Kosten und Lücken und machen daraus eine kostengünstige, ETF-basierte Anlage, proaktiv verwaltet von unserer eigenen Börsenabteilung.</p>
+          <a class="ap-btn" href="https://wa.me/491729913891?text=Hallo%20Sascha%2C%20ich%20m%C3%B6chte%20meine%20bestehenden%20Vertr%C3%A4ge%20pr%C3%BCfen%20lassen." target="_blank" rel="noopener noreferrer">Bestehende Verträge prüfen lassen</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
